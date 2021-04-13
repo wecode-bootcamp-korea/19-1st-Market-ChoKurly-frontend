@@ -1,0 +1,35 @@
+@import '../../Styles/common.scss';
+
+.footer-wrapper {
+  width: 1050px;
+  padding-bottom: 60px;
+  margin: 0 auto;
+
+  .inner-footer {
+    width: 1050px;
+    display: flex;
+    justify-content: space-between;
+
+    .customer-center {
+      width: 534px;
+
+      h2 {
+        font-size: 20px;
+        color: $dark-gray;
+      }
+
+      .by-phone {
+        width: 534px;
+        display: flex;
+        justify-content: flex-start;
+
+        .phone-number {
+          width: 140px;
+          height: 40px;
+          font-size: 28px;
+          font-weight: 800;
+        }
+      }
+    }
+  }
+}
