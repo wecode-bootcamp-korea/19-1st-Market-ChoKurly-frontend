@@ -18,8 +18,8 @@ const footerInfoData = [
   },
   {
     id: 3,
-    index_name: '입점문의: 채준영',
-    link: '제휴문의: 안정현',
+    index_name: '입점문의: 채준형 | 제휴문의: ',
+    link: 'safetyHyun@choco.com',
   },
   {
     id: 4,
