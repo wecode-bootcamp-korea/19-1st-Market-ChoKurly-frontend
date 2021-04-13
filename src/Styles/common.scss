@@ -1,24 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&display=swap');
 
-
-*{
-    box-sizing: border-box;
-    font-family: 'Noto Sans KR', 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', sans-serif;
+#root {
+  box-sizing: border-box;
+  font-family: 'Noto Sans KR', 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana',
+    sans-serif;
 }
 
 %flexCenter {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-$main-purple:#5F0080;
-$main-gray: #4C4C4C;
+$main-purple: #5f0080;
+$main-gray: #4c4c4c;
 $dark-gray: #333333;
-$midium-gray: #666666;
+$medium-gray: #666666;
 $light-gray: #999999;
-$point-orange: #FA622F;
-$gray-background: #F7F7F7;
-
-
-
+$point-orange: #fa622f;
+$gray-background: #f7f7f7;
