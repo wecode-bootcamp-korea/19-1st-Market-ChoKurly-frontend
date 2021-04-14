@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import footerIconData from './FooterData';
+import footerIconData from './FooterIconData';
+import footerInfoData from './FooterInfoData';
+import { Link } from 'react-router-dom';
 import 'Components/Footer/Footer.scss';
 
 class Footer extends Component {
@@ -21,9 +23,9 @@ class Footer extends Component {
               </div>
               <div className="contact-by">
                 <div className="contact-left">
-                  <a className="contact-link" href="/">
+                  <Link className="contact-link" to="/">
                     카카오톡 문의
-                  </a>
+                  </Link>
                 </div>
                 <dl className="center-time">
                   <dt>365고객센터</dt>
@@ -32,9 +34,9 @@ class Footer extends Component {
               </div>
               <div className="contact-by">
                 <div className="contact-left">
-                  <a className="contact-link" href="/">
+                  <Link className="contact-link" to="/">
                     1:1 문의
-                  </a>
+                  </Link>
                 </div>
                 <dl className="center-time">
                   <dt>24시간 접수 가능</dt>
@@ -46,23 +48,21 @@ class Footer extends Component {
             </div>
             <div className="info-center">
               <ul className="market-info">
+                <li className="info-list"></li>
                 <li className="info-list">
-                  <a href="/">컬리소개</a>
+                  <Link to="/">컬리소개영상</Link>
                 </li>
                 <li className="info-list">
-                  <a href="/">컬리소개영상</a>
+                  <Link to="/">인재채용</Link>
                 </li>
                 <li className="info-list">
-                  <a href="/">인재채용</a>
+                  <Link to="/">이용약관</Link>
                 </li>
                 <li className="info-list">
-                  <a href="/">이용약관</a>
+                  <Link to="/">개인정보처리방침</Link>
                 </li>
                 <li className="info-list">
-                  <a href="/">개인정보처리방침</a>
-                </li>
-                <li className="info-list">
-                  <a href="/">이용안내</a>
+                  <Link to="/">이용안내</Link>
                 </li>
               </ul>
               <div className="info-wrapper">
@@ -71,7 +71,7 @@ class Footer extends Component {
                     <div className="name-list">
                       <span className="info-names">{ele.index_name}</span>
                       <span className="info-datas">
-                        <a href="/">{ele.link}</a>
+                        <Link to="/">{ele.link}</Link>
                       </span>
                     </div>
                   );
@@ -85,9 +85,9 @@ class Footer extends Component {
                 {footerIconData.map(ele => {
                   return (
                     <li key={ele.id} className="social-icon">
-                      <a href="/">
+                      <Link to="/">
                         <img src={ele.icon} alt={ele.alt} />
-                      </a>
+                      </Link>
                     </li>
                   );
                 })}

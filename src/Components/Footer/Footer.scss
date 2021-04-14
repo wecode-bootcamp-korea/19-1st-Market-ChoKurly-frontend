@@ -88,7 +88,6 @@
         .market-info {
           width: 100%;
           display: flex;
-          flex-direction: row;
           justify-content: space-between;
           padding: 29px 0 2px 0;
 
@@ -129,17 +128,14 @@
           width: 190px;
           padding: 18px 0 2px 0;
           display: flex;
-          flex-direction: row;
           justify-content: space-between;
 
           .social-icon {
             width: 30px;
             height: 30px;
-            a {
-              img {
-                width: 30px;
-                height: 30px;
-              }
+            img {
+              width: 30px;
+              height: 30px;
             }
           }
         }
@@ -182,7 +178,6 @@
       .payments {
         width: 428px;
         display: flex;
-        flex-direction: row;
         align-items: center;
 
         .logo {
