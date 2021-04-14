@@ -1,0 +1,285 @@
+@import '../../Styles/common.scss';
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+.Signup-Main {
+  background-color: #fff;
+  width: 100%;
+  height: 1316px;
+  padding-bottom: 120px;
+}
+.Signup-Container {
+  width: 1050px;
+  height: 1316px;
+  background-color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 155px;
+  margin-bottom: 419px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h3 {
+    @extend %flexCenter;
+    height: 40px;
+    width: 640px;
+    padding-top: 64px;
+    font-size: 30px;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    letter-spacing: -0.5px;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    position: relative;
+    top: -25px;
+  }
+  .Signup-Sub {
+    width: 640px;
+    height: 33px;
+    border-bottom: 2px solid black;
+    text-align: right;
+    color: #666;
+    font-size: 12px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-bottom: 15px;
+    position: relative;
+    top: -40px;
+  }
+}
+.ico {
+  color: #ee6a7b;
+}
+.Signup-Form {
+  font-size: 14px;
+  width: 640px;
+  height: 1194px;
+  background-color: #fff;
+  .SignupWrap {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 64px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    position: relative;
+    top: -0px;
+    left: -11px;
+  }
+}
+.SignupLeft {
+  font-size: 14px;
+  color: #333333;
+  width: 139px;
+  font-weight: 500;
+}
+.SignupId {
+  height: 45px;
+  padding-top: 29px;
+  padding-left: 20px;
+}
+.SignupPw,
+.SignupPwCheck,
+.SignupName,
+.SignupEmail,
+.SignupMobile,
+.SignupGender,
+.SignupBirth {
+  height: 44px;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+.SignupAddress {
+  height: 82px;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+.Signup-Input {
+  width: 302px;
+  height: 42px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  color: #333;
+  outline: none;
+  background: #fff;
+  line-height: 20px;
+  border-radius: 3px;
+  padding: 0 14px 0 14px;
+  &:focus {
+    border: 1px solid #333;
+  }
+  &::placeholder {
+    color: #ccc;
+  }
+}
+.Signup-checkBtn {
+  border: 1px solid $main-purple;
+  border-radius: 3px;
+  background-color: #fff;
+  color: $main-purple;
+  width: 118px;
+  height: 42px;
+  margin-left: 7px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 40px;
+}
+.btn.default.disabled {
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  background-color: #fff;
+  color: #ddd;
+  width: 118px;
+  height: 42px;
+  margin-left: 7px;
+}
+.SignupAddressField {
+  width: 481px;
+  height: 72px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  .Signup-Search {
+    width: 330px;
+    height: 42px;
+    display: block;
+    overflow: hidden;
+    border: 1px solid $main-purple;
+    border-radius: 3px;
+    text-align: center;
+    text-decoration: none;
+    color: $main-purple;
+    line-height: 40px;
+    font-weight: 500;
+    .fas.fa-search {
+      margin-right: 5px;
+    }
+  }
+  .zip.guide.case1 {
+    width: 332px;
+    height: 18px;
+    display: block;
+    font-size: 12px;
+    color: #666666;
+    margin-top: 10px;
+  }
+}
+.SignupGenderWrap {
+  width: 481px;
+  height: 44px;
+  padding: 10px 0px;
+  font-size: 14px;
+  text-align: left;
+  vertical-align: top;
+  color: #4c4c4c;
+  label {
+    width: 88px;
+    height: 24px;
+    padding: 10px 52px 10px 0;
+    vertical-align: top;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    line-height: 1;
+    color: #4c4c4c;
+    font-size: 12px;
+    max-width: 100%;
+  }
+  input:checked + .ico {
+    border: 1px solid $main-purple;
+    background-color: $main-purple;
+  }
+  input:checked + .ico:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    margin: -5px 0 0 -5px;
+    border-radius: 100%;
+    background-color: #fff;
+  }
+  .ico {
+    display: inline-block;
+    position: relative;
+    width: 22px;
+    height: 22px;
+    margin-right: 12px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    margin-right: 12px;
+    border-radius: 100%;
+    vertical-align: -7px;
+    line-height: 22px;
+    color: #4c4c4c;
+  }
+}
+.birth_day_wrap {
+  width: 481px;
+  height: 44px;
+  padding: 10px 0;
+  font-size: 14px;
+  vertical-align: top;
+  text-align: left;
+  .birth_day {
+    overflow: hidden;
+    padding-left: 18px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 312px;
+    height: 42px;
+    @extend %flexCenter;
+    &:focus {
+      outline: 1px solid #333;
+    }
+  }
+  .bar {
+    color: #ccc;
+  }
+}
+input {
+  width: 56px;
+  height: 40px;
+  padding: 0 14px;
+  border: 0;
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+  line-height: 20px;
+  border-radius: 3px;
+  background: #fff;
+  outline: none;
+  &::placeholder {
+    color: #ccc;
+  }
+  .address_no {
+    float: left;
+  }
+}
+.form_footer {
+  width: 640px;
+  height: 56px;
+  padding-top: 40px;
+  text-align: center;
+  border-top: 1px solid #ccc;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  button {
+    border: 1px solid $main-purple;
+    border-radius: 3px;
+    background-color: $main-purple;
+    color: #fff;
+    margin-left: 5px;
+    width: 238px;
+    height: 54px;
+    font-size: 16px;
+  }
+}
