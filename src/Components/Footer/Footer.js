@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import footerIconData from './FooterData';
-import footerInfoData from './FooterInfoData';
 import 'Components/Footer/Footer.scss';
 
 class Footer extends Component {
