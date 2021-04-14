@@ -1,200 +1,204 @@
 @import '../../Styles/common.scss';
 
 .footer-wrapper {
-  width: 1050px;
+  width: 100%;
   padding-bottom: 60px;
-  margin: 20px auto;
   border-top: 1px solid #eee;
-  font-size: 12px;
 
-  a {
-    text-decoration: none;
-    color: $dark-gray;
-  }
-
-  .inner-footer {
+  .out-footer {
     width: 1050px;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 0 20px 0;
+    margin: 0 auto;
+    font-size: 12px;
 
-    .customer-center {
-      width: 534px;
+    a {
+      text-decoration: none;
       color: $dark-gray;
+    }
 
-      h2 {
-        padding: 29px 0 2px 0;
-        font-size: 20px;
-        font-weight: 500;
-      }
+    .inner-footer {
+      width: 1050px;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 0 20px 0;
 
-      .contact-by {
+      .customer-center {
         width: 534px;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        padding-top: 20px;
+        color: $dark-gray;
 
-        .contact-left {
-          width: 140px;
-          height: 40px;
+        h2 {
+          padding: 29px 0 2px 0;
+          font-size: 20px;
+          font-weight: 500;
+        }
+
+        .contact-by {
+          width: 534px;
           display: flex;
+          justify-content: flex-start;
           align-items: center;
-          padding: 0;
-          font-weight: 700;
+          padding-top: 20px;
 
-          .contact-number {
-            width: 140px;
-            padding: 0;
-            font-size: 27px;
-            font-weight: 700;
-          }
-
-          .contact-link {
+          .contact-left {
             width: 140px;
             height: 40px;
             display: flex;
-            justify-content: center;
             align-items: center;
-            border: 1px solid #eee;
-            border-radius: 3px;
+            padding: 0;
+            font-weight: 700;
+
+            .contact-number {
+              width: 140px;
+              padding: 0;
+              font-size: 27px;
+              font-weight: 700;
+            }
+
+            .contact-link {
+              width: 140px;
+              height: 40px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              border: 1px solid #eee;
+              border-radius: 3px;
+              font-size: 14px;
+            }
+          }
+
+          .center-time {
+            height: 43.2px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding-left: 10px;
+            font-size: 14px;
+
+            .open-time {
+              color: $light-gray;
+            }
+          }
+        }
+      }
+
+      .info-center {
+        width: 476px;
+        padding: 0;
+        margin-right: 100px;
+
+        .market-info {
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          padding: 29px 0 2px 0;
+
+          .info-list {
+            width: auto;
+            margin-right: 10px;
             font-size: 14px;
           }
         }
 
-        .center-time {
-          height: 43.2px;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-around;
-          padding-left: 10px;
-          font-size: 14px;
+        .info-wrapper {
+          width: 476px;
+          padding: 29px 0 2px 0;
 
-          .open-time {
+          .name-list {
+            height: 22px;
             color: $light-gray;
+
+            .info-datas {
+              width: 100%;
+              padding: 0 2px;
+
+              a {
+                color: $main-purple;
+              }
+            }
           }
         }
-      }
-    }
 
-    .info-center {
-      width: 476px;
-      padding: 0;
-      margin-right: 100px;
-
-      .market-info {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 29px 0 2px 0;
-
-        .info-list {
-          width: auto;
-          margin-right: 10px;
-          font-size: 14px;
-        }
-      }
-
-      .info-wrapper {
-        width: 476px;
-        padding: 29px 0 2px 0;
-
-        .name-list {
-          height: 22px;
+        .copyright {
+          width: 100%;
+          padding: 18px 0 2px 0;
+          font-size: 10px;
           color: $light-gray;
+        }
 
-          .info-datas {
-            width: 100%;
-            padding: 0 2px;
+        .social {
+          width: 190px;
+          padding: 18px 0 2px 0;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
 
+          .social-icon {
+            width: 30px;
+            height: 30px;
             a {
-              color: $main-purple;
+              img {
+                width: 30px;
+                height: 30px;
+              }
             }
           }
         }
       }
+    }
 
-      .copyright {
-        width: 100%;
-        padding: 18px 0 2px 0;
-        font-size: 10px;
-        color: $light-gray;
+    .verify-wrapper {
+      width: 1050px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding-top: 19px;
+      border-top: 1px solid #eee;
+      font-size: 10px;
+      color: $light-gray;
+
+      .verify {
+        width: 267px;
+        display: flex;
+        align-items: center;
+
+        .logo {
+          width: 34px;
+          height: 34px;
+          margin-right: 10px;
+        }
+
+        ul {
+          width: auto;
+          height: 32px;
+
+          li {
+            width: auto;
+            height: 10px;
+            margin: 5px 0;
+          }
+        }
       }
 
-      .social {
-        width: 190px;
-        padding: 18px 0 2px 0;
+      .payments {
+        width: 428px;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        align-items: center;
 
-        .social-icon {
-          width: 30px;
-          height: 30px;
-          a {
-            img {
-              width: 30px;
-              height: 30px;
-            }
+        .logo {
+          width: 102px;
+          height: 34px;
+          margin-right: 10px;
+        }
+        ul {
+          width: auto;
+          height: 32px;
+
+          li {
+            width: auto;
+            height: 10px;
+            margin: 5px 0;
           }
-        }
-      }
-    }
-  }
-
-  .verify-wrapper {
-    width: 1050px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding-top: 19px;
-    border-top: 1px solid #eee;
-    font-size: 10px;
-    color: $light-gray;
-
-    .verify {
-      width: 267px;
-      display: flex;
-      align-items: center;
-
-      .logo {
-        width: 34px;
-        height: 34px;
-        margin-right: 10px;
-      }
-
-      ul {
-        width: auto;
-        height: 32px;
-
-        li {
-          width: auto;
-          height: 10px;
-          margin: 5px 0;
-        }
-      }
-    }
-
-    .payments {
-      width: 428px;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-
-      .logo {
-        width: 102px;
-        height: 34px;
-        margin-right: 10px;
-      }
-      ul {
-        width: auto;
-        height: 32px;
-
-        li {
-          width: auto;
-          height: 10px;
-          margin: 5px 0;
         }
       }
     }

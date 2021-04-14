@@ -1,0 +1,39 @@
+.goods-description-wrapper {
+  width: 1010px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(243, 243, 148);
+
+  .tab-groups {
+    width: 100px;
+    height: 47px;
+  }
+  .goods-description {
+    max-width: 100%;
+    margin: 0 0 50px 0;
+    padding: 60px 0 0 0;
+
+    .goods-intro {
+      width: 100%;
+
+      .goods-img {
+        width: auto;
+
+        img {
+          width: 1010px;
+          height: 671px;
+        }
+      }
+
+      .goods-intro-info {
+        height: 313px;
+      }
+    }
+    .goods-point {
+      height: 289px;
+    }
+    .goods-pick {
+      height: 1000px;
+    }
+  }
+}
