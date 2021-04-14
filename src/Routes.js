@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import Main from '';
-import Signup from '';
-import Login from '';
-import ProductList from '';
-import ProductDetails from '';
-import Cart from '';
+import Main from './Pages/Main/Main';
+import Signup from './Pages/Signup/Signup';
+import Login from './Pages/Login/Login';
+import ProductList from './Pages/ProductList/ProductList';
+import ProductDetails from './Pages/ProductDetails/ProductDetails';
+import Cart from './Pages/Cart/Cart';
 
 class Routes extends Component {
   render() {

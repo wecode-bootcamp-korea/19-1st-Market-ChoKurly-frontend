@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ProductDetailData from './ProductDetailData';
+import { productDetailsData } from '../ProductDetailsData';
 
 class Thumbnail extends Component {
   render() {
@@ -29,15 +29,31 @@ class Thumbnail extends Component {
             <div className="dl-list">
               {thumbnailData.map(ele => {
                 return (
-                  <dl className="goods-units">
-                    <dt className="info">{ele.info}</dt>
+                  <dl key={ele.id} className="goods-units">
+                    <dt className="info">{ele.chartName}</dt>
+                    <dd className="num-data">{ele.num}</dd>
+                    <dd className="unit">{ele.unit}</dd>
                     <dd className="data">{ele.data}</dd>
-                    <dt className="info_sub">{ele.info_sub}</dt>
-                    <dd className="data_sub">{ele.data_sub}</dd>
+                    <dd className="subdata">{ele.subdata}</dd>
                   </dl>
                 );
               })}
+              <dl className="goods-units">
+                <dt>상품선택</dt>
+                <div className="selector">
+                  <select name="goods-list">
+                    <option value="상품선택"></option>
+                    <option value="nuts-mix">
+                      [리터 스포트]미니미 넛츠믹스 15p
+                    </option>
+                    <option value="berry-mix">
+                      [리터 스포트]미니미 베리믹스 15p
+                    </option>
+                  </select>
+                </div>
+              </dl>
             </div>
+            <div className="buy-for-it"></div>
           </div>
         </div>
         <div></div>
