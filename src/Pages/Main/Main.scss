@@ -1,0 +1,18 @@
+@import '../../Styles/common.scss';
+.suggestion,
+.sales {
+  margin-top: 60px;
+}
+
+.sales {
+  background-color: $gray-background;
+}
+
+.main-title {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 20px 0;
+  font-size: 30px;
+  font-weight: 500;
+  color: $main-gray;
+}

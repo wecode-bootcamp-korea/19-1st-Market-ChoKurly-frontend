@@ -1,0 +1,32 @@
+@import '../../../Styles/common.scss';
+.product-slide-container {
+  position: relative;
+
+  .product-slide {
+    display: flex;
+    justify-content: center;
+  }
+
+  .go-left,
+  .go-right {
+    position: absolute;
+    top: 40%;
+    background-color: white;
+    opacity: 1;
+    border: 1px solid $gray-background;
+    border-radius: 50%;
+    img {
+      width: 20px;
+      height: 20px;
+      padding: 10px;
+    }
+  }
+
+  .go-left {
+    left: 170px;
+  }
+
+  .go-right {
+    right: 170px;
+  }
+}
