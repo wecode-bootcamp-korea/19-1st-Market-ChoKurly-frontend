@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Thumbnail from './Components/Thumbnail';
+import Thumbnail from './Components/Thumbnail/Thumbnail';
 import './ProductDetails.scss';
 
-class Top extends Component {
+class ProductDetails extends Component {
   render() {
     return (
       <main className="product-details-main">

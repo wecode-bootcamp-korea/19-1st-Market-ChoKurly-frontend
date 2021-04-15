@@ -1,0 +1,144 @@
+@import '../../../../Styles/common.scss';
+
+.top-view {
+  width: 1050px;
+  height: 984px;
+  display: flex;
+  margin: 20px auto;
+
+  .thumbnail-wrapper {
+    width: 1050px;
+    height: 552px;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    color: $dark-gray;
+    font-size: 14px;
+
+    img {
+      width: 430px;
+      height: 552px;
+    }
+
+    .thumbnail-info {
+      width: 560px;
+
+      .goods-name {
+        width: 560px;
+        padding: 10px 0 29px 0;
+        dt {
+          width: 560px;
+          height: 34px;
+          padding: 0 60px 0 0;
+          color: $dark-gray;
+          font-size: 24px;
+          font-weight: 500;
+        }
+
+        dd {
+          width: 560px;
+          height: 24px;
+          padding: 4px 60px 0 0;
+          color: $light-gray;
+          font-size: 14px;
+        }
+      }
+
+      .goods-price-wrapper {
+        width: 560px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        border-bottom: 1px solid #eee;
+
+        .price {
+          font-size: 28px;
+        }
+        .unit {
+          font-size: 18px;
+        }
+        .goods-discount {
+          width: 540px;
+          padding: 11px 0 0 0;
+          display: flex;
+          align-items: center;
+          font-weight: 500;
+          margin: 0 0 19px 0;
+
+          .discount-percent {
+            width: 56px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 6px 0 0;
+            border: 1px solid #949296;
+            border-radius: 10px;
+
+            span {
+              font-size: 12px;
+              color: #949296;
+            }
+          }
+        }
+      }
+
+      .goods-dl {
+        width: 560px;
+        display: flex;
+        flex-direction: column;
+
+        dl {
+          width: 560px;
+          padding: 18px 0;
+          display: flex;
+          align-items: center;
+          border-bottom: 1px solid #eee;
+
+          dt {
+            width: 150px;
+            color: $midium-gray;
+          }
+
+          dd {
+            width: 410px;
+            padding: 6px 0 0 0;
+          }
+
+          dd.subdata {
+            height: auto;
+            padding: 6px 0 0 0;
+            font-size: 12px;
+            color: $midium-gray;
+          }
+        }
+      }
+
+      .goods-select-wrapper {
+        width: 560px;
+        padding: 18px 0;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #eee;
+
+        label {
+          width: 150px;
+          color: $midium-gray;
+        }
+        .goods-select {
+          width: 410px;
+          padding: 6px 0 0 0;
+          display: flex;
+          flex-direction: column;
+
+          select {
+            width: 410px;
+            height: 40px;
+            font-size: 12px;
+            color: $dark-gray;
+          }
+        }
+      }
+    }
+  }
+}

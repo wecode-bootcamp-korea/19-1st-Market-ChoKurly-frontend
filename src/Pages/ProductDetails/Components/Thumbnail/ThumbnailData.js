@@ -1,19 +1,21 @@
-export const productDetailsData = [
+export const thumbnailData = [
   {
-    id: 0,
+    id: 1,
     chartName: '판매단위',
-    num: 1,
-    unit: '봉',
+    data: '1봉',
+    subdata: '',
   },
   {
     id: 2,
     chartName: '중량/용량',
     data: '옵션별 상이',
+    subdata: '',
   },
   {
     id: 3,
     chartName: '배송구분',
     data: '햇볕배송/택배배송',
+    subdata: '',
   },
   {
     id: 4,
@@ -32,5 +34,6 @@ export const productDetailsData = [
     설에서 제조하고 있습니다.
     
     2)베리믹스: 우유,대두 함유/ 이 제품은 땅콩,`,
+    subdata: '',
   },
 ];

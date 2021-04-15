@@ -1,0 +1,61 @@
+.goods-details {
+  .goods-description-wrapper {
+    width: 1010px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(243, 243, 148);
+
+    .tab-groups {
+      width: 100px;
+      height: 47px;
+    }
+    .goods-description {
+      max-width: 100%;
+      margin: 0 0 50px 0;
+      padding: 60px 0 0 0;
+
+      .goods-intro {
+        width: 100%;
+
+        .goods-img {
+          width: auto;
+
+          img {
+            width: 1010px;
+            height: 671px;
+          }
+        }
+
+        .goods-intro-info {
+          height: 313px;
+        }
+      }
+      .goods-point {
+        height: 289px;
+      }
+      .goods-pick {
+        height: 1000px;
+      }
+    }
+  }
+
+  .product-img {
+    height: 1000px;
+    margin: 0;
+    background-color: rgb(202, 240, 147);
+  }
+
+  .more-info-wrapper {
+    width: 100%;
+    margin: 0;
+    background-color: rgb(245, 142, 24);
+    .extra-info {
+      height: 424px;
+      margin: 0;
+    }
+    .why-chokurly {
+      height: 850px;
+      padding: 44px 0 88px 0;
+    }
+  }
+}
