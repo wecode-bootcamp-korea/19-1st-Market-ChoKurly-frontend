@@ -1,5 +1,77 @@
-.related-product-wrapper {
+@import '../../../../Styles/common.scss';
+.related-products-wrapper {
   width: 1010px;
   height: 368px;
-  background-color: powderblue;
+  margin: 0 auto;
+
+  .nothing {
+    width: 20px;
+    height: 5px;
+    background: #000000;
+  }
+
+  p {
+    width: auto;
+    font-size: 13px;
+    font-weight: 500;
+    color: $main-gray;
+  }
+
+  .images-slice {
+    width: 1010px;
+    height: 320px;
+    display: flex;
+    margin: 30px 0 0 0;
+
+    button {
+      width: 30px;
+      height: 100;
+      background: none;
+      border: none;
+      outline: none;
+      position: relative;
+
+      i {
+        font-size: 14px;
+        position: absolute;
+        top: 50px;
+      }
+    }
+    .related-items-wrapper {
+      width: 940px;
+      overflow: hidden;
+      ul {
+        width: auto;
+        display: flex;
+
+        .related-items-list {
+          width: 178px;
+          margin: 0 5px;
+          border: 1px solid #ddd;
+
+          img {
+            width: 178px;
+            height: 229px;
+          }
+
+          .item-name {
+            width: 158px;
+            height: 35px;
+            margin: 10px 0 0 5px;
+            font-size: 14px;
+            color: $main-gray;
+            font-weight: 700;
+          }
+
+          .item-price {
+            width: 158px;
+            height: 35px;
+            margin: 0 0 0 5px;
+            font-size: 14px;
+            color: $main-gray;
+          }
+        }
+      }
+    }
+  }
 }
