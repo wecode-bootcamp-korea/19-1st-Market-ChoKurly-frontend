@@ -1,0 +1,31 @@
+@import '../../../Styles/common.scss';
+@import '../../../Styles/reset.scss';
+
+.category-list,
+.subcategory-list {
+  position: absolute;
+  width: 190px;
+  z-index: 2000;
+  border: 1px solid #ddd;
+  background-color: white;
+
+  a {
+    text-decoration: none;
+    color: $main-gray;
+  }
+
+  li {
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+}
+
+.category-list {
+  left: 170px;
+}
+.subcategory-list {
+  position: absolute;
+  left: 340px;
+  height: 500px;
+}

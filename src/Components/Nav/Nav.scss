@@ -1,21 +1,18 @@
 @import '../../Styles/common.scss';
-@import '../../Styles/reset.scss';
 
 .common-nav {
-  // font-family: 'Noto Sans KR', 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana',
-  //   sans-serif;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  margin: 10px auto;
-  width: 1050px;
+  width: 100%;
+  background-color: white;
+  padding-bottom: 10px;
 
   .user-menu {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 1050px;
+    margin: 10px auto;
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 500;
 
     .shipping-container {
       display: flex;
@@ -28,7 +25,7 @@
         border: 1px solid $light-gray;
         border-radius: 10px;
         font-size: 12px;
-        font-weight: bold;
+        font-weight: 600;
         background-color: white;
         color: $main-gray;
         width: 165px;
@@ -93,92 +90,102 @@
   }
   .logo {
     @extend %flexCenter;
+    width: 1050px;
+    margin: 10px auto;
     img {
-      width: 100px;
+      width: 150px;
       height: 80px;
     }
   }
 
-  .header-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 20px auto 0px auto;
+  #header-container-fixed {
+    @extend %flexCenter;
+    position: fixed;
+    top: 0px;
     width: 100%;
+    z-index: 1000;
+    background-color: white;
+    box-shadow: 0px 0.5px 10px $light-gray;
+  }
 
-    .menu {
+  .header-container {
+    @extend %flexCenter;
+    width: 100%;
+    padding: 10px 0;
+
+    .fixed-header {
       display: flex;
-      justify-content: center;
-      align-items: center;
       position: relative;
+      align-items: center;
+      justify-content: center;
+      width: 1050px;
+      background-color: white;
 
-      li {
-        margin-right: 70px;
+      .menu {
+        @extend %flexCenter;
 
-        a {
-          text-decoration: none;
-          color: $main-gray;
-          font-weight: bolder;
+        li {
+          margin-right: 70px;
+
+          a {
+            text-decoration: none;
+            color: $main-gray;
+            font-weight: 500;
+          }
+          img {
+            width: 15px;
+            height: 20px;
+            margin-right: 100px;
+            position: absolute;
+            left: 0;
+          }
+          .menu-all-category {
+            margin-left: 20px;
+          }
         }
-        img {
-          width: 15px;
-          height: 20px;
-          margin-right: 100px;
-          position: absolute;
-          left: 0;
-        }
-        #menu-all-category {
-          margin-left: 20px;
+      }
 
-          &:hover {
-            .sub-menu-list {
-              display: block;
+      .aside-menu {
+        display: flex;
+        justify-content: center;
+        justify-content: space-between;
+        width: 380px;
+        .search {
+          position: relative;
+
+          .search-form input {
+            width: 242px;
+            padding: 10px;
+            border-style: none;
+            border-radius: 20px;
+            background-color: $gray-background;
+            color: $main-gray;
+            font-size: 12px;
+
+            &:focus {
+              color: black;
+            }
+          }
+          .search-button {
+            position: absolute;
+            top: 8px;
+            right: 15px;
+            width: 20px;
+            height: 20px;
+            border-style: none;
+            background-color: transparent;
+            cursor: pointer;
+
+            .search-icon {
+              width: 15px;
+              height: 15px;
             }
           }
         }
-      }
-    }
-
-    .aside-menu {
-      display: flex;
-      justify-content: center;
-      justify-content: space-between;
-      width: 380px;
-      .search {
-        position: relative;
-
-        .search-form input {
-          width: 242px;
-          padding: 10px;
-          border-style: none;
-          border-radius: 20px;
-          background-color: $gray-background;
-          color: $main-gray;
-          font-size: 12px;
-
-          &:focus {
-            color: black;
-          }
+        .menu-icons {
+          width: 30px;
+          height: 30px;
         }
-        .search-button {
-          position: absolute;
-          top: 8px;
-          right: 15px;
-          width: 20px;
-          height: 20px;
-          border-style: none;
-          background-color: transparent;
-          cursor: pointer;
-
-          .search-icon {
-            width: 15px;
-            height: 15px;
-          }
-        }
-      }
-      .menu-icons {
-        width: 30px;
-        height: 30px;
       }
     }
   }
