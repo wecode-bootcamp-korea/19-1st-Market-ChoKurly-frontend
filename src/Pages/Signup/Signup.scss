@@ -1,179 +1,197 @@
 @import '../../Styles/common.scss';
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+
 .Signup-Main {
+  @extend %flexCenter;
+  flex-direction: column;
   background-color: #fff;
-  width: 100%;
-  height: 1316px;
-  padding-bottom: 120px;
+
+  .Signup-Header {
+    width: 100%;
+    height: 210px;
+    background-color: beige;
+  }
+
+  .Signup-Footer {
+    width: 100%;
+    height: 523px;
+    background-color: beige;
+  }
 }
+
 .Signup-Container {
-  width: 1050px;
-  height: 1316px;
-  background-color: #fff;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 155px;
-  margin-bottom: 419px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #fff;
+
   h3 {
     @extend %flexCenter;
+    display: block;
+    position: relative;
     height: 40px;
     width: 640px;
     padding-top: 64px;
-    font-size: 30px;
-    font-weight: 700;
-    color: #333;
-    text-align: center;
-    letter-spacing: -0.5px;
-    display: block;
     margin-block-start: 1em;
     margin-block-end: 1em;
-    position: relative;
     top: -25px;
+    color: #333;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: -0.5px;
   }
+
   .Signup-Sub {
-    width: 640px;
-    height: 33px;
-    border-bottom: 2px solid black;
-    text-align: right;
-    color: #666;
-    font-size: 12px;
     display: flex;
+    position: relative;
     justify-content: flex-end;
     align-items: flex-end;
-    padding-bottom: 15px;
-    position: relative;
     top: -40px;
+    width: 640px;
+    height: 33px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid black;
+    color: #666;
+    text-align: right;
+    font-size: 12px;
+  }
+
+  .ico {
+    color: #ee6a7b;
   }
 }
-.ico {
-  color: #ee6a7b;
-}
+
 .Signup-Form {
-  font-size: 14px;
   width: 640px;
   height: 1194px;
   background-color: #fff;
+  font-size: 14px;
+
   .SignupWrap {
     display: flex;
+    position: relative;
     align-items: center;
     width: 100%;
     height: 64px;
     padding-bottom: 10px;
     padding-top: 10px;
-    position: relative;
     top: -0px;
     left: -11px;
+
+    .SignupContent {
+      padding-left: 20px;
+      width: 139px;
+      color: #333333;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .SignupId {
+      height: 45px;
+      padding-top: 29px;
+    }
+
+    .SignupList {
+      height: 44px;
+      padding-top: 20px;
+    }
+
+    .SignupAddress {
+      height: 82px;
+      padding-top: 20px;
+    }
+
+    .Signup-Input {
+      width: 302px;
+      height: 42px;
+      padding: 0 14px 0 14px;
+      line-height: 20px;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+      outline: none;
+      color: #333;
+      background: #fff;
+      font-size: 14px;
+
+      &:focus {
+        border: 1px solid #333;
+      }
+
+      &::placeholder {
+        color: #ccc;
+      }
+    }
+
+    .Signup-checkBtn {
+      width: 118px;
+      height: 42px;
+      margin-left: 7px;
+      line-height: 40px;
+      border: 1px solid $main-purple;
+      border-radius: 3px;
+      background-color: #fff;
+      color: $main-purple;
+      text-align: center;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .SignupCert.disabled {
+      width: 118px;
+      height: 42px;
+      margin-left: 7px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      background-color: #fff;
+      color: #ddd;
+    }
   }
 }
-.SignupLeft {
-  font-size: 14px;
-  color: #333333;
-  width: 139px;
-  font-weight: 500;
-}
-.SignupId {
-  height: 45px;
-  padding-top: 29px;
-  padding-left: 20px;
-}
-.SignupPw,
-.SignupPwCheck,
-.SignupName,
-.SignupEmail,
-.SignupMobile,
-.SignupGender,
-.SignupBirth {
-  height: 44px;
-  padding-top: 20px;
-  padding-left: 20px;
-}
-.SignupAddress {
-  height: 82px;
-  padding-top: 20px;
-  padding-left: 20px;
-}
-.Signup-Input {
-  width: 302px;
-  height: 42px;
-  border: 1px solid #ccc;
-  font-size: 14px;
-  color: #333;
-  outline: none;
-  background: #fff;
-  line-height: 20px;
-  border-radius: 3px;
-  padding: 0 14px 0 14px;
-  &:focus {
-    border: 1px solid #333;
-  }
-  &::placeholder {
-    color: #ccc;
-  }
-}
-.Signup-checkBtn {
-  border: 1px solid $main-purple;
-  border-radius: 3px;
-  background-color: #fff;
-  color: $main-purple;
-  width: 118px;
-  height: 42px;
-  margin-left: 7px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 40px;
-}
-.btn.default.disabled {
-  border: 1px solid #ddd;
-  border-radius: 3px;
-  background-color: #fff;
-  color: #ddd;
-  width: 118px;
-  height: 42px;
-  margin-left: 7px;
-}
+
 .SignupAddressField {
   width: 481px;
   height: 72px;
-  padding-top: 10px;
-  padding-bottom: 20px;
+  padding: 10px 0 20px 0;
+
   .Signup-Search {
+    display: block;
     width: 330px;
     height: 42px;
-    display: block;
-    overflow: hidden;
+    line-height: 40px;
     border: 1px solid $main-purple;
     border-radius: 3px;
+    color: $main-purple;
     text-align: center;
     text-decoration: none;
-    color: $main-purple;
-    line-height: 40px;
     font-weight: 500;
+    overflow: hidden;
+
     .fas.fa-search {
       margin-right: 5px;
     }
   }
+
   .zip.guide.case1 {
+    display: block;
     width: 332px;
     height: 18px;
-    display: block;
-    font-size: 12px;
-    color: #666666;
     margin-top: 10px;
+    color: #666666;
+    font-size: 12px;
   }
 }
+
 .SignupGenderWrap {
   width: 481px;
   height: 44px;
+  vertical-align: top;
   padding: 10px 0px;
+  color: #4c4c4c;
   font-size: 14px;
   text-align: left;
-  vertical-align: top;
-  color: #4c4c4c;
+
   label {
     width: 88px;
     height: 24px;
@@ -182,19 +200,22 @@
     font-size: 14px;
     line-height: 22px;
   }
+
   input {
     position: absolute;
-    z-index: -1;
-    opacity: 0;
+    max-width: 100%;
     line-height: 1;
     color: #4c4c4c;
     font-size: 12px;
-    max-width: 100%;
+    z-index: -1;
+    opacity: 0;
   }
+
   input:checked + .ico {
     border: 1px solid $main-purple;
     background-color: $main-purple;
   }
+
   input:checked + .ico:after {
     content: '';
     position: absolute;
@@ -207,79 +228,85 @@
     border-radius: 100%;
     background-color: #fff;
   }
+
   .ico {
     display: inline-block;
     position: relative;
     width: 22px;
     height: 22px;
     margin-right: 12px;
-    border: 1px solid #ddd;
-    background-color: #fff;
     margin-right: 12px;
     border-radius: 100%;
     vertical-align: -7px;
     line-height: 22px;
+    border: 1px solid #ddd;
+    background-color: #fff;
     color: #4c4c4c;
   }
 }
+
 .birth_day_wrap {
+  vertical-align: top;
   width: 481px;
   height: 44px;
   padding: 10px 0;
   font-size: 14px;
-  vertical-align: top;
   text-align: left;
+
   .birth_day {
-    overflow: hidden;
+    @extend %flexCenter;
+    width: 312px;
+    height: 42px;
     padding-left: 18px;
     border: 1px solid #ccc;
     border-radius: 3px;
-    width: 312px;
-    height: 42px;
-    @extend %flexCenter;
+    overflow: hidden;
+
     &:focus {
       outline: 1px solid #333;
     }
   }
-  .bar {
+
+  .SignupBar {
     color: #ccc;
   }
-}
-input {
-  width: 56px;
-  height: 40px;
-  padding: 0 14px;
-  border: 0;
-  text-align: center;
-  font-size: 14px;
-  color: #333;
-  line-height: 20px;
-  border-radius: 3px;
-  background: #fff;
-  outline: none;
-  &::placeholder {
-    color: #ccc;
+
+  input {
+    width: 56px;
+    height: 40px;
+    padding: 0 14px;
+    border: 0;
+    line-height: 20px;
+    border-radius: 3px;
+    outline: none;
+    color: #333;
+    background: #fff;
+    text-align: center;
+    font-size: 14px;
+
+    &::placeholder {
+      color: #ccc;
+    }
   }
-  .address_no {
-    float: left;
-  }
 }
+
 .form_footer {
   width: 640px;
   height: 56px;
   padding-top: 40px;
-  text-align: center;
+  padding-bottom: 20px;
   border-top: 1px solid #ccc;
   margin-top: 20px;
-  padding-bottom: 20px;
+  text-align: center;
+
   button {
     border: 1px solid $main-purple;
     border-radius: 3px;
     background-color: $main-purple;
-    color: #fff;
     margin-left: 5px;
     width: 238px;
     height: 54px;
+    color: #fff;
     font-size: 16px;
   }
 }
