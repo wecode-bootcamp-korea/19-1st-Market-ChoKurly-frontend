@@ -3,6 +3,7 @@ import Taps from '../Taps/Taps';
 import GoodsDescription from './Components/GoodsDescription/GoodsDescription';
 import MoreInformation from './Components/MoreInformation/MoreInformation';
 import ProductImg from './Components/ProductImg/ProductImg';
+import GuestReview from '../GuestReview/GuestReview';
 import './GoodsDetails.scss';
 
 class GoodsDetails extends Component {
@@ -13,6 +14,7 @@ class GoodsDetails extends Component {
         <GoodsDescription />
         <ProductImg />
         <MoreInformation />
+        <GuestReview />
       </section>
     );
   }
