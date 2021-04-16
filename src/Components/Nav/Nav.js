@@ -53,6 +53,7 @@ class Nav extends Component {
   render() {
     const { isCategoryShown, navBarFixed } = this.state;
     const { handleCategoryOn, handleCategoryOff } = this;
+    const { cartNumber } = this.props;
 
     return (
       <div className="common-nav">
@@ -89,9 +90,9 @@ class Nav extends Component {
             </li>
           </ul>
         </div>
-        <div className="logo">
+        <Link to="/main" className="logo">
           <img alt="logo" src="/images/Nav/chokurly.png" />
-        </div>
+        </Link>
         <>
           <div
             className="header-container"
@@ -159,6 +160,11 @@ class Nav extends Component {
                       src="/images/Nav/shopping-cart.png"
                     />
                   </Link>
+                  {cartNumber >= 1 && (
+                    <span className="cart-number">
+                      <span>{cartNumber}</span>
+                    </span>
+                  )}
                 </div>
               </div>
             </div>

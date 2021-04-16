@@ -8,6 +8,8 @@ class ProductList extends Component {
     super();
     this.state = {
       productList: [],
+      clickCartButton: false,
+      cartNumber: 0,
     };
   }
 
@@ -23,33 +25,71 @@ class ProductList extends Component {
       });
   }
 
+  addToCart = () => {
+    const { cartNumber } = this.state;
+    this.setState(
+      {
+        clickCartButton: true,
+        cartNumber: cartNumber + 1,
+      },
+      () => {
+        console.log(cartNumber);
+      }
+    );
+  };
+
   render() {
-    const { productList } = this.state;
+    const { productList, clickCartButton, cartNumber } = this.state;
+    const { addToCart } = this;
+
     return (
       <>
-        <Nav />
+        <Nav cartNumber={cartNumber} />
         <div className="product-list-container">
           <div className="banner">
             <img
               className="banner-img"
               src="/images/ProductList/snack.jpg"
             ></img>
-            {/* <div className="msg">
-              <span>다양한 디저트를 색다르게!</span>
-              <span>와플팬 재료 모음전 </span>
-              <span>~4월 23일(금) 11시</span>
-            </div> */}
           </div>
+          <div className="product-list-menu">
+            <div className="category-title">
+              <i class="fas fa-cookie-bite fa-lg"></i>간식･과자･떡
+            </div>
+            <div className="sub-title">
+              <span className="sub-name">과자･스낵･쿠키</span>
+              <span className="sub-name">초콜릿･젤리･캔디</span>
+              <span className="sub-name">떡･한과</span>
+              <span className="sub-name">아이스크림</span>
+              <select className="filter" name="추천순">
+                <option>혜택순</option>
+                <option>낮은가격순</option>
+                <option>높은가격순</option>
+              </select>
+            </div>
+          </div>
+
           <div className="product-list">
-            {productList.map(product => {
+            {productList.map((product, index) => {
               return (
-                <>
+                <div key={index} className="product-container">
                   <ProductCard
                     product={product}
-                    productSize={{ height: '395px', width: '310px' }}
+                    productSize={{
+                      height: '395px',
+                      width: '310px',
+                    }}
+                    productBorder={{
+                      border: '1px solid #ddd',
+                    }}
+                    fontStyle={{ fontSize: '20px' }}
+                    fontStyle2={{ fontSize: '18px' }}
+                    productMargin={{ marginBottom: '100px' }}
                   />
-                  {/* <CartIcon /> */}
-                </>
+                  <button onClick={addToCart} className="cart-button">
+                    <i className="fas fa-shopping-cart fa-lg"></i>
+                  </button>
+                </div>
               );
             })}
           </div>

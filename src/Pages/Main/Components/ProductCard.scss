@@ -1,4 +1,5 @@
 @import '../../../Styles/common.scss';
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
 
 .product-card-container {
   display: flex;
@@ -48,10 +49,14 @@
         font-weight: 600;
       }
 
-      .product-original-price {
+      .product-original-price,
+      .product-intro {
         margin-top: 10px;
         font-size: 14px;
         color: $medium-gray;
+      }
+
+      .product-original-price {
         text-decoration: line-through;
       }
     }
@@ -63,6 +68,26 @@
       background-color: #b170e8;
       color: white;
       font-size: 14px;
+    }
+
+    .cart-button {
+      position: absolute;
+      bottom: 120px;
+      right: 30px;
+      width: 45px;
+      height: 45px;
+      background-color: $main-purple;
+      opacity: 0.5;
+      border-style: none;
+      border-radius: 50%;
+      cursor: pointer;
+
+      i {
+        color: white;
+        position: absolute;
+        left: 12px;
+        top: 17px;
+      }
     }
   }
 }

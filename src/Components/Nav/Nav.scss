@@ -186,6 +186,25 @@
           width: 30px;
           height: 30px;
         }
+
+        .cart-number {
+          position: absolute;
+          top: -5px;
+          right: -5px;
+          width: 16px;
+          height: 16px;
+          background-color: $main-purple;
+          border-radius: 50%;
+
+          span {
+            position: absolute;
+            left: 5px;
+            top: 2px;
+            font-size: 10px;
+            font-weight: 500;
+            color: white;
+          }
+        }
       }
     }
   }
