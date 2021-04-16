@@ -310,3 +310,16 @@
     font-size: 16px;
   }
 }
+.SignupGuide {
+  color: #666666;
+  font-size: 12px;
+  li {
+    padding-left: 24%;
+  }
+  .correct {
+    color: #0f851a;
+  }
+  .incorrect {
+    color: #b3130b;
+  }
+}

@@ -3,7 +3,39 @@ import { Link } from 'react-router-dom';
 import './Signup.scss';
 
 class Signup extends Component {
+  constructor() {
+    super();
+    this.state = {
+      showId: false,
+      showPw: false,
+      showRe: false,
+      ID: '',
+    };
+  }
+  handleShowIdGuide = () => {
+    this.setState({
+      // show: !this.state.show,
+      showId: true,
+    });
+  };
+  handleShowPwGuide = () => {
+    this.setState({
+      showPw: true,
+    });
+  };
+  handleShowReGuide = () => {
+    this.setState({
+      showRe: true,
+    });
+  };
+  handleIdInput = e => {
+    this.setState({
+      id: e.target.value,
+    });
+  };
   render() {
+    const { showId, showPw, showRe } = this.state;
+    const idCondition = /[A-Za-z0-9]\w{5,}/;
     return (
       <div className="Signup-Main">
         <div className="Signup-Header">여기는헤더</div>
@@ -28,12 +60,27 @@ class Signup extends Component {
                   placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합"
                   data-validator="false"
                   className="Signup-Input"
+                  onChange={this.handleIdInput}
+                  onClick={this.handleShowIdGuide}
                 />
+                {/* {this.state.show ? 'Hide' : 'Show'} */}
               </div>
               <Link to="/" class="Signup-checkBtn">
                 중복확인
               </Link>
             </div>
+            {showId ? (
+              <div className="SignupGuide">
+                <li
+                  className={
+                    this.state.id.match(idCondition) ? 'correct' : 'incorrect'
+                  }
+                >
+                  6자 이상의 영문 혹은 영문과 숫자를 조합
+                </li>
+                <li>아이디 중복확인</li>
+              </div>
+            ) : null}
             <div className="SignupWrap">
               <div className="SignupContent SignupList">
                 비밀번호
@@ -46,8 +93,16 @@ class Signup extends Component {
                 maxlength="16"
                 className="Signup-Input"
                 placeholder="비밀번호를 입력해주세요"
+                onClick={this.handleShowPwGuide}
               />
             </div>
+            {showPw ? (
+              <div className="SignupGuide">
+                <li>10자 이상 입력</li>
+                <li>영문/숫자/특수문자(공백 제외)만 허용하며,2개 이상 조합</li>
+                <li>동일한 숫자 3개 이상 연속 사용 불가</li>
+              </div>
+            ) : null}
             <div className="SignupWrap">
               <div className="SignupContent SignupList">
                 비밀번호확인
@@ -60,8 +115,14 @@ class Signup extends Component {
                 maxlength="16"
                 className="Signup-Input"
                 placeholder="비밀번호를 한번 더 입력해주세요"
+                onClick={this.handleShowReGuide}
               />
             </div>
+            {showRe ? (
+              <div className="SignupGuide">
+                <li>동일한 비밀번호를 입력해주세요.</li>
+              </div>
+            ) : null}
             <div className="SignupWrap">
               <div className="SignupContent SignupList">
                 이름
