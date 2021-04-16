@@ -1,14 +1,12 @@
 @import '../../../../../../Styles/common.scss';
 
 .goods-description-wrapper {
-  width: 1010px;
-  display: flex;
-  flex-direction: column;
+  width: auto;
 
   .goods-description {
-    max-width: 100%;
-    margin: 0 0 50px 0;
-    padding: 60px 0 0 0;
+    width: 1010px;
+    margin-bottom: 50px;
+    padding-top: 60px;
 
     .goods-intro {
       width: 100%;
@@ -33,19 +31,19 @@
           width: auto;
           font-size: 24px;
           color: $midium-gray;
-          margin: 0 0 15px 0;
+          margin-bottom: 15px;
         }
 
         h2 {
           width: auto;
           font-size: 38px;
           color: $midium-gray;
-          margin: 0 0 30px 0;
+          margin-bottom: 30px;
         }
 
         span {
           width: 100%;
-          padding: 28px 0 0 0;
+          padding-top: 28px;
           display: inline-block;
           border-top: 1px solid $midium-gray;
           font-size: 18px;
@@ -74,8 +72,8 @@
       }
     }
     .goods-pick {
-      height: 1000px;
       text-align: center;
+      margin-bottom: 160px;
       .title {
         width: auto;
         padding: 0 15px;
@@ -88,6 +86,7 @@
         text-align: start;
         font-size: 18px;
         line-height: 30px;
+        margin: 30px 0;
 
         .goods-title {
           font-size: 30px;

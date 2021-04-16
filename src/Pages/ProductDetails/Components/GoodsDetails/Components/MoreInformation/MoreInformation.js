@@ -7,7 +7,6 @@ class MoreInformation extends Component {
   render() {
     return (
       <article className="more-info-wrapper">
-        <Taps />
         <table className="extra-info">
           {MoreInfoData.map(ele => {
             return (

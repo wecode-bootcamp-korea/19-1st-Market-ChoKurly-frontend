@@ -32,6 +32,7 @@
         font-size: 12px;
         font-weight: 300;
         color: $main-gray;
+        outline: none;
       }
     }
 
@@ -96,6 +97,15 @@
       .move {
         width: auto;
         text-align: center;
+        button {
+          width: 30px;
+          height: 30px;
+          border: 1px solid $main-purple;
+          border-radius: 3px;
+          outline: none;
+          color: $main-gray;
+          background: #ffffff;
+        }
       }
 
       .add-comment {
@@ -116,6 +126,9 @@
           height: 38px;
           margin-left: 20px;
           font-size: 20px;
+          background: #ffffff;
+          border: 1px solid $main-purple;
+          outline: none;
           border-radius: 10px;
         }
       }

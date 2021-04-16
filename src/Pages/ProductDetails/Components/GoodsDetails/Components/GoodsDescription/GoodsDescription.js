@@ -8,7 +8,7 @@ class GoodsDescription extends Component {
         <div className="goods-description">
           <div className="goods-intro">
             <div className="goods-img">
-              <img src="../../../../../images/ribonchoco.jpg" alt="chocKurly" />
+              <img src="../../../../../images/ribonchoco.jpg" alt="no image" />
             </div>
             <p className="goods-intro-info">
               <h3>부담없이 즐기는 미니 초콜릿</h3>
@@ -32,7 +32,7 @@ class GoodsDescription extends Component {
             <span> ChocKurly's Check Point </span>
             <img
               src="//img-cf.kurly.com/shop/data/goodsview/20191106/gv30000067069_1.jpg"
-              alt="없어"
+              alt="no image"
             />
           </div>
           <div className="goods-pick">
@@ -42,8 +42,12 @@ class GoodsDescription extends Component {
               <br />
               <b>구성:</b>
               <span> 헤이즐넛, 마카다미아, 딸기크림, 딸기요거트, 버터 </span>
+            </p>
+            <p className="goods-text">
+              <span className="goods-title"> 02. 미니미 베리 믹스 </span>
               <br />
-              <span> 그렇다고 합니다 내용은 더 적어볼께요</span>
+              <b>구성:</b>
+              <span> 다크초코, 밀크초코, 화이트초코 </span>
             </p>
           </div>
         </div>

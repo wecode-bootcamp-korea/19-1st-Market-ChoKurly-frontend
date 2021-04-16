@@ -6,7 +6,7 @@ class RelatedProduct extends Component {
   render() {
     return (
       <section className="related-products-wrapper">
-        <div className="nothing"></div>
+        <div className="lines"></div>
         <p>RELATED PRODUCT</p>
         <div className="images-slice">
           <button className="left-btn">
@@ -14,12 +14,12 @@ class RelatedProduct extends Component {
           </button>
           <div className="related-items-wrapper">
             <ul>
-              {RelatedProductData.map(ele => {
+              {RelatedProductData.map(price => {
                 return (
-                  <li key={ele.id} className="related-items-list">
-                    <img src="../../../images/timtam.png" alt="없다고" />
-                    <p className="item-name">{ele.name}</p>
-                    <p className="item-price">{ele.price}원</p>
+                  <li key={price.id} className="related-items-list">
+                    <img src="../../../images/timtam.png" alt="no image" />
+                    <p className="item-name">{price.name}</p>
+                    <p className="item-price">{price.price}원</p>
                   </li>
                 );
               })}
