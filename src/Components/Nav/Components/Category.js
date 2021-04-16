@@ -25,15 +25,10 @@ class Category extends Component {
   }
 
   handleSubOn = e => {
-    this.setState(
-      {
-        isSubOpen: true,
-        categoryIdx: e.target.id,
-      }
-      // () => {
-      //   console.log(this.state.categoryIdx);
-      // }
-    );
+    this.setState({
+      isSubOpen: true,
+      categoryIdx: e.target.id,
+    });
   };
 
   handleSubOff = e => {
@@ -66,7 +61,6 @@ class Category extends Component {
                   <i>{item.categoryIcon}</i>
                   <Link id={item.categoryId}>{item.categoryName}</Link>
                 </div>
-
                 {idx + 1 === Number(categoryIdx) && isSubOpen && (
                   <div className="subcategory-list" onMouseLeave={handleSubOff}>
                     {categoryList[categoryIdx - 1].subcategory.map(sub => {

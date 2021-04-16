@@ -27,19 +27,14 @@ class ProductList extends Component {
 
   addToCart = () => {
     const { cartNumber } = this.state;
-    this.setState(
-      {
-        clickCartButton: true,
-        cartNumber: cartNumber + 1,
-      },
-      () => {
-        console.log(cartNumber);
-      }
-    );
+    this.setState({
+      clickCartButton: true,
+      cartNumber: cartNumber + 1,
+    });
   };
 
   render() {
-    const { productList, clickCartButton, cartNumber } = this.state;
+    const { productList, cartNumber } = this.state;
     const { addToCart } = this;
 
     return (
@@ -68,7 +63,6 @@ class ProductList extends Component {
               </select>
             </div>
           </div>
-
           <div className="product-list">
             {productList.map((product, index) => {
               return (

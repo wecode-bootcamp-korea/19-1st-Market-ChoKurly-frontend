@@ -25,7 +25,6 @@ class ProductCard extends Component {
       fontStyle,
       fontStyle2,
       productMargin,
-      showCart,
     } = this.props;
 
     return (
@@ -55,11 +54,6 @@ class ProductCard extends Component {
           {product.sticker && (
             <span className="product-sticker">{product.sticker}</span>
           )}
-          {/* {showCart && (
-            <button onClick={clickCartButton} className="cart-button">
-              <i class="fas fa-shopping-cart fa-lg"></i>
-            </button>
-          )} */}
         </div>
       </div>
     );

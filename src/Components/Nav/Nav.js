@@ -37,13 +37,10 @@ class Nav extends Component {
     const scroll = window.scrollY;
     const { navBarFixed } = this.state;
 
-    if (scroll > 150 && this.state.navBarFixed === false) {
-      this.setState({
-        navBarFixed: !navBarFixed,
-      });
-    }
+    const scrollDown = scroll > 150 && this.state.navBarFixed === false;
+    const scrollUp = scroll <= 150 && this.state.navBarFixed === true;
 
-    if (scroll <= 150 && this.state.navBarFixed === true) {
+    if (scrollDown || scrollUp) {
       this.setState({
         navBarFixed: !navBarFixed,
       });
@@ -133,7 +130,7 @@ class Nav extends Component {
                       placeholder="비바니 유기농 초콜릿 4종 55% 할인!"
                       type="text"
                       required
-                    ></input>
+                    />
                     <button className="search-button" type="submit">
                       <img
                         className="search-icon"
