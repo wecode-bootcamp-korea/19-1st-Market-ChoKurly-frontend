@@ -1,0 +1,30 @@
+@import '../../../../../../Styles/common.scss';
+
+.more-info-wrapper {
+  width: 100%;
+  margin: 0;
+  .extra-info {
+    width: 1010px;
+    margin: 0;
+    display: grid;
+    grid-template-rows: repeat(5, 50px);
+    font-size: 11px;
+    color: #515151;
+
+    dl {
+      width: auto;
+      display: grid;
+      grid-template-columns: repeat(2, 152px);
+
+      dt {
+        width: 152px;
+        padding: 0 5px 0 0;
+        background-color: #f5f5f5;
+      }
+    }
+  }
+  .why-chokurly {
+    height: 850px;
+    padding: 44px 0 88px 0;
+  }
+}

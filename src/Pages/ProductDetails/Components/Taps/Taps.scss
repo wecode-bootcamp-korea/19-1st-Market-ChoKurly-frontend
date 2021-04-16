@@ -1,0 +1,45 @@
+@import '../../../../Styles/common.scss';
+
+.tap-group {
+  width: 1010px;
+  height: 48px;
+  margin: 10px auto;
+
+  ul {
+    width: 1010px;
+    display: flex;
+
+    .list {
+      width: 170px;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .li-on {
+      height: 47px;
+      border-top: 1px solid #ddd;
+      border-left: 1px solid #ddd;
+      border-right: 1px solid #ddd;
+      background: #ffffff;
+    }
+
+    .li-off {
+      height: 46px;
+      border: 1px solid #ddd;
+      background: #f0eef1;
+    }
+
+    .link-name {
+      width: auto;
+      color: $main-gray;
+      font-size: 14px;
+    }
+
+    .how-many {
+      width: auto;
+      color: $main-gray;
+      font-size: 14px;
+    }
+  }
+}

@@ -1,4 +1,6 @@
 @import '../../../../Styles/common.scss';
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css);
+
 .related-products-wrapper {
   width: 1010px;
   height: 368px;
@@ -32,17 +34,20 @@
       position: relative;
 
       i {
-        font-size: 14px;
+        font-size: 25px;
+        color: $light-gray;
         position: absolute;
-        top: 50px;
+        top: 150px;
       }
     }
     .related-items-wrapper {
       width: 940px;
       overflow: hidden;
+
       ul {
         width: auto;
         display: flex;
+        margin: 0 0 0 10px;
 
         .related-items-list {
           width: 178px;
