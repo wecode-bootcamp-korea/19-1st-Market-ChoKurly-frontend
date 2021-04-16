@@ -1,31 +1,46 @@
 @import '../../../Styles/common.scss';
 @import '../../../Styles/reset.scss';
 
-.category-list,
+.category-all,
 .subcategory-list {
   position: absolute;
-  width: 190px;
+  width: 210px;
   z-index: 2000;
   border: 1px solid #ddd;
-  background-color: white;
 
   a {
     text-decoration: none;
     color: $main-gray;
   }
-
-  li {
-    padding: 10px 15px;
-    font-size: 14px;
-    font-weight: 400;
-  }
 }
 
-.category-list {
-  left: 170px;
+.cat,
+.sub {
+  padding: 15px 15px;
+  font-size: 14px;
+  font-weight: 400;
 }
+
+.category-all {
+  left: 195px;
+  background-color: white;
+}
+
 .subcategory-list {
-  position: absolute;
-  left: 340px;
+  top: -1px;
+  left: 210px;
   height: 500px;
+  border-left: 0;
+  background-color: $gray-background;
+  transition: all 0.5s ease;
+}
+
+.cat:hover {
+  background-color: $gray-background;
+}
+
+#category-fixed {
+  position: fixed;
+  z-index: 1000;
+  top: 53px;
 }

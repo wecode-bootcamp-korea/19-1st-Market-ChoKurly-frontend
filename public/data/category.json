@@ -5,28 +5,36 @@
 		"categoryName": "채소",
 		"subcategory": [
 			{
-				"name": "친환경"
+				"subcategoryId": 1,
+				"subcategoryName": "친환경"
 			},
 			{
-				"name": "고구마･감자･당근"
+				"subcategoryId": 2,
+				"subcategoryName": "고구마･감자･당근"
 			},
 			{
-				"name": "시금치･쌈채소･나물"
+				"subcategoryId": 3,
+				"subcategoryName": "시금치･쌈채소･나물"
 			},
 			{
-				"name": "브로콜리･파프리카･양배추"
+				"subcategoryId": 4,
+				"subcategoryName": "브로콜리･파프리카･양배추"
 			},
 			{
-				"name": "양파･대파･마늘･배추"
+				"subcategoryId": 5,
+				"subcategoryName": "양파･대파･마늘･배추"
 			},
 			{
-				"name": "오이･호박･고추"
+				"subcategoryId": 6,
+				"subcategoryName": "오이･호박･고추"
 			},
 			{
-				"name": "냉동･이색･간편채소"
+				"subcategoryId": 7,
+				"subcategoryName": "냉동･이색･간편채소"
 			},
 			{
-				"name": "콩나물･버섯"
+				"subcategoryId": 8,
+				"subcategoryName": "콩나물･버섯"
 			}
 		]
 	},
@@ -131,7 +139,7 @@
 		"categoryId": 5,
 		"categoryIcon": "❤︎",
 		"categoryName": "간식･과자･떡",
-		"categoryName2": [
+		"subcategory": [
 			{
 				"subcategoryId": 1,
 				"subcategoryName": "과자･스낵･쿠키"

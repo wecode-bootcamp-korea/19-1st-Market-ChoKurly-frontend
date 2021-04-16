@@ -1,10 +1,14 @@
 @import '../../../Styles/common.scss';
 .product-slide-container {
   position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
 
   .product-slide {
     display: flex;
-    justify-content: center;
+    max-width: 1050px;
+    overflow: hidden;
   }
 
   .go-left,

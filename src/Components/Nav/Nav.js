@@ -13,13 +13,13 @@ class Nav extends Component {
     };
   }
 
-  handleMouseOnCategory = () => {
+  handleCategoryOn = () => {
     this.setState({
       isCategoryShown: true,
     });
   };
 
-  handleMouseOffCategory = () => {
+  handleCategoryOff = () => {
     this.setState({
       isCategoryShown: false,
     });
@@ -27,6 +27,10 @@ class Nav extends Component {
 
   componentDidMount() {
     window.addEventListener('scroll', this.scrollNavBar);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.scrollNavBar);
   }
 
   scrollNavBar = () => {
@@ -48,7 +52,7 @@ class Nav extends Component {
 
   render() {
     const { isCategoryShown, navBarFixed } = this.state;
-    const { handleMouseOnCategory, handleMouseOffCategory } = this;
+    const { handleCategoryOn, handleCategoryOff } = this;
 
     return (
       <div className="common-nav">
@@ -98,7 +102,7 @@ class Nav extends Component {
                 <ul className="menu">
                   <li>
                     <Link
-                      onMouseEnter={handleMouseOnCategory}
+                      onMouseEnter={handleCategoryOn}
                       className="menu-all-category"
                       to="/main"
                     >
@@ -120,7 +124,6 @@ class Nav extends Component {
                   </li>
                 </ul>
               </div>
-
               <div className="aside-menu">
                 <div className="search">
                   <form className="search-form">
@@ -165,7 +168,8 @@ class Nav extends Component {
         {isCategoryShown && (
           <Category
             isCategoryShown={isCategoryShown}
-            handleMouseOffCategory={handleMouseOffCategory}
+            handleCategoryOff={handleCategoryOff}
+            navBarFixed={navBarFixed}
           />
         )}
       </div>

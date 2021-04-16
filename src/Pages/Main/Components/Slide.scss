@@ -3,8 +3,8 @@
 @import '../../../Styles/reset.scss';
 
 .slide-container {
+  position: relative;
   .slide-img-container {
-    margin-top: 20px;
     display: flex;
     overflow: scroll;
     .slide {
@@ -21,7 +21,7 @@
   .go-left,
   .go-right {
     position: absolute;
-    top: 50%;
+    top: 45%;
     background-color: white;
     opacity: 0.3;
     border: 1px solid $medium-gray;

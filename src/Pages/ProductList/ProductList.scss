@@ -1,0 +1,39 @@
+@import '../../Styles/common.scss';
+
+.product-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .banner {
+    .banner-img {
+      width: 1050px;
+      height: 200px;
+    }
+    .msg {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 260px;
+      left: 250px;
+      font-size: 40px;
+      color: $dark-gray;
+
+      span:nth-child(2) {
+        font-size: 30px;
+        padding: 10px 0;
+      }
+
+      span:last-child {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .product-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    max-width: 1050px;
+  }
+}

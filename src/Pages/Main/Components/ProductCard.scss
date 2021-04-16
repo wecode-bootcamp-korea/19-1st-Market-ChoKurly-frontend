@@ -2,25 +2,23 @@
 
 .product-card-container {
   display: flex;
-  max-width: 1050px;
-  overflow: scroll;
+  margin-bottom: 20px;
   .product-card {
     position: relative;
     display: flex;
     flex-direction: column;
-    min-width: 245px;
     padding: 0px 10px;
     transition: 0.5s;
-    overflow: hidden;
+
     .product-link {
       width: 245px;
       height: 320px;
       overflow: hidden;
+
       .product-img {
         width: 245px;
         height: 320px;
         margin-bottom: 15px;
-        overflow: hidden;
         transition: transform 0.5s ease;
 
         &:hover {
@@ -35,7 +33,7 @@
       color: $dark-gray;
 
       .product-name {
-        margin-bottom: 15px;
+        margin: 15px 0;
         text-decoration: none;
         color: $dark-gray;
       }

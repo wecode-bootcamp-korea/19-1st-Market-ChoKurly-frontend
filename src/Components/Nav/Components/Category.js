@@ -6,128 +6,82 @@ class Category extends Component {
   constructor() {
     super();
     this.state = {
-      categoryList: [
-        {
-          categoryId: 1,
-          categoryIcon: '❤︎',
-          categoryName: '채소',
-        },
-        {
-          categoryId: 2,
-          categoryIcon: '❤︎',
-          categoryName: '과일･견과･쌀',
-        },
-      ],
-      subcategoryList: [
-        {
-          subcategoryId: 1,
-          subcategoryName: '친환경',
-        },
-        {
-          subcategoryId: 2,
-          subcategoryName: '고구마･감자･당근',
-        },
-        {
-          subcategoryId: 3,
-          subcategoryName: '시금치･쌈채소･나물',
-        },
-        {
-          subcategoryId: 4,
-          subcategoryName: '브로콜리･파프리카･양배추',
-        },
-        {
-          subcategoryId: 5,
-          subcategoryName: '양파･대파･마늘･배추',
-        },
-        {
-          subcategoryId: 6,
-          subcategoryName: '오이･호박･고추',
-        },
-        {
-          subcategoryId: 7,
-          subcategoryName: '냉동･이색･간편채소',
-        },
-        {
-          subcategoryId: 8,
-          subcategoryName: '콩나물･버섯',
-        },
-      ],
-      isSubCategoryShown: false,
+      categoryList: [],
+      isSubOpen: false,
+      categoryIdx: '',
     };
   }
 
-  // componentDidMount() {
-  //   const { categoryList, subcategoryList } = this.state;
-  //   fetch('http://localhost:3000/data/category.json', {
-  //     method: 'GET',
-  //   })
-  //     .then(res => res.json())
-  //     .then(categoryData => {
-  //       categoryData.map(categoryItem => {
-  //         this.setState({
-  //           categoryList: [
-  //             ...categoryList,
-  //             [
-  //               categoryItem.categoryId,
-  //               categoryItem.categoryIcon,
-  //               categoryItem.categoryName,
-  //             ],
-  //           ],
-  //           subcategoryList: subcategoryList.concat([categoryItem.subcategory]),
-  //         });
-  //       });
-  //     });
-  // }
+  componentDidMount() {
+    fetch('http://localhost:3000/data/category.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(categoryData => {
+        this.setState({
+          categoryList: categoryData,
+        });
+      });
+  }
 
-  handleMouseOnSubCategory = () => {
-    this.setState({
-      isCategoryShown: true,
-    });
+  handleSubOn = e => {
+    this.setState(
+      {
+        isSubOpen: true,
+        categoryIdx: e.target.id,
+      }
+      // () => {
+      //   console.log(this.state.categoryIdx);
+      // }
+    );
   };
 
-  handleMouseOffSubCategory = () => {
+  handleSubOff = e => {
     this.setState({
-      isCategoryShown: false,
-    });
-  };
-
-  handleSubcategory = () => {
-    const { subcategoryList, categoryList } = this.state;
-    this.setState({
-      subcategoryList: categoryList.map(category => {
-        return category.subcategory;
-      }),
+      isSubOpen: false,
     });
   };
 
   render() {
-    const { isCategoryShown, categoryList, subcategoryList } = this.state;
-    const { handleMouseOffCategory } = this.props;
-    const { handleSubcategory } = this;
-    console.log(subcategoryList);
+    const { categoryList, isSubOpen, categoryIdx } = this.state;
+    const { handleSubOn, handleSubOff } = this;
+    const { handleCategoryOff, navBarFixed } = this.props;
+
     return (
-      <div className="category-all">
-        <div
-          className="category-container"
-          onMouseLeave={handleMouseOffCategory}
-        >
-          <ul className="category-list">
-            {categoryList.map(category => {
-              return (
-                <li key={category.categoryId}>
-                  <i>{category.categoryIcon}</i>
-                  <Link>{category.categoryName}</Link>
-                </li>
-              );
-            })}
-          </ul>
-          <ul className="subcategory-list">
-            {subcategoryList &&
-              subcategoryList.map(item => {
-                return <li key="item.subcategoryId">{item.subcategoryName}</li>;
-              })}
-          </ul>
-        </div>
+      <div
+        className="category-container"
+        id={navBarFixed ? 'category-fixed' : null}
+        onMouseLeave={handleCategoryOff}
+      >
+        <ul className="category-all">
+          {categoryList.map((item, idx) => {
+            return (
+              <li
+                className="mapped-category"
+                key={item.categoryId}
+                onMouseEnter={handleSubOn}
+                id={item.categoryId}
+              >
+                <div className="cat" id={item.categoryId}>
+                  <i>{item.categoryIcon}</i>
+                  <Link id={item.categoryId}>{item.categoryName}</Link>
+                </div>
+
+                {idx + 1 === Number(categoryIdx) && isSubOpen && (
+                  <div className="subcategory-list" onMouseLeave={handleSubOff}>
+                    {categoryList[categoryIdx - 1].subcategory.map(sub => {
+                      return (
+                        <div className="sub">
+                          <Link to="/productlist">{sub.subcategoryName}</Link>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </li>
+            );
+          })}
+        </ul>
       </div>
     );
   }

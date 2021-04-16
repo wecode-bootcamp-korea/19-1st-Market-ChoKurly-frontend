@@ -25,28 +25,17 @@ class ProductCardSlide extends Component {
 
   goLeft = () => {
     const { x, productArray } = this.state;
-    if (x === 0) {
-      this.setState({
-        x: -100 * (productArray.length - 4),
-      });
-    } else {
-      this.setState({
-        x: x + 400,
-      });
-    }
+
+    this.setState({
+      x: x === 0 ? -100 * (productArray.length - 4) : x + 400,
+    });
   };
 
   goRight = () => {
     const { x, productArray } = this.state;
-    if (x === -100 * (productArray.length - 4)) {
-      this.setState({
-        x: 0,
-      });
-    } else {
-      this.setState({
-        x: x - 400,
-      });
-    }
+    this.setState({
+      x: x === -100 * (productArray.length - 4) ? 0 : x - 400,
+    });
   };
 
   render() {
@@ -55,11 +44,16 @@ class ProductCardSlide extends Component {
 
     return (
       <div className="product-slide-container">
-        <div
-          className="product-slide"
-          // style={{ transform: `translateX(${x}%)` }}
-        >
-          <ProductCard x={x} productArray={productArray} />
+        <div className="product-slide">
+          {productArray.map(product => {
+            return (
+              <ProductCard
+                x={x}
+                product={product}
+                moveX={{ transform: `translateX(${x}%)` }}
+              />
+            );
+          })}
         </div>
         <button onClick={goLeft} className="go-left">
           <img alt="prev-button" src="/images/Slide/prev.png" />

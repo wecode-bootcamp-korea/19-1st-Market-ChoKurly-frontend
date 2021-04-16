@@ -3,7 +3,6 @@
 .common-nav {
   width: 100%;
   background-color: white;
-  padding-bottom: 10px;
 
   .user-menu {
     display: flex;
@@ -31,6 +30,7 @@
         width: 165px;
 
         a {
+          text-decoration: none;
           color: $main-purple;
         }
 
