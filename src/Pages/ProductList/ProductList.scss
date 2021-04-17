@@ -88,8 +88,12 @@
   }
 
   .product-container {
-    position: relative;
+    display: flex;
     height: 610px;
+
+    .product-card-button {
+      position: relative;
+    }
   }
 }
 
