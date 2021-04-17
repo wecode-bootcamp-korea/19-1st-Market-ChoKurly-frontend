@@ -2,14 +2,13 @@
 
 .top-view {
   width: auto;
-  height: 984px;
-  display: flex;
-  margin: 15px auto 0 auto;
+  height: 1050px;
 
   .thumbnail-wrapper {
     width: 1050px;
     height: 552px;
-    margin: 0;
+    margin: 15px auto 0 auto;
+
     display: flex;
     justify-content: space-between;
     color: $dark-gray;
@@ -26,6 +25,7 @@
       .goods-name {
         width: 560px;
         padding: 10px 0 29px 0;
+
         dt {
           width: 560px;
           height: 34px;
@@ -137,6 +137,7 @@
             width: 410px;
             height: 40px;
             border: 1px solid rgb(204, 203, 203);
+            outline: none;
             font-size: 12px;
             color: $dark-gray;
             display: flex;
@@ -149,62 +150,40 @@
             margin-top: 10px;
             li {
               width: 383px;
-              height: 58px;
-              padding: 11px 10px 11px 15px;
+              height: 62px;
+              padding: 9px 10px 9px 15px;
               border: 1px solid #eee;
               border-radius: 1px;
-              position: relative;
               font-size: 12px;
 
               .added-goods-name {
                 width: auto;
                 margin-top: 3px;
+                padding: 0 5px;
+                display: flex;
+                justify-content: space-between;
 
                 .delete {
-                  position: absolute;
-                  right: 16px;
+                  width: 17px;
+                  height: 17px;
                   padding: 0;
                   background: #ffffff;
                   border: none;
                   outline: none;
+                  i {
+                    font-size: 15px;
+                  }
                 }
               }
-
-              .goods-quantity {
-                width: 100%;
+              .fixed-price {
+                width: auto;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 margin-top: 10px;
-
-                form {
-                  width: auto;
-                  display: flex;
-                  align-items: center;
-                  border: 1px solid rgb(226, 224, 224);
-                  border-radius: 3px;
-                }
-                button {
-                  width: 28px;
-                  height: 28px;
-                  padding: 0;
-                  background: none;
-                  border: none;
-                  font-size: 20px;
-                }
-                input {
-                  width: 30px;
-                  height: 30px;
-                  text-align: center;
-                  background: none;
-                  border: none;
-                }
-                .fixed-price {
-                  width: auto;
-                  font-size: 12px;
-                  padding-left: 5px;
-                  font-weight: 500;
-                }
+                padding: 0 5px;
+                font-size: 12px;
+                font-weight: 500;
               }
             }
           }

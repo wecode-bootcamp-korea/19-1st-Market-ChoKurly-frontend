@@ -2,12 +2,13 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css);
 
 .related-products-wrapper {
-  width: auto;
+  width: 1010px;
   margin: 0 auto;
 
-  .line {
+  .lines {
     width: 20px;
     height: 5px;
+    margin: 5px 0;
     background: #000000;
   }
 
@@ -19,7 +20,7 @@
   }
 
   .images-slice {
-    width: 1010px;
+    width: 100%;
     height: 320px;
     display: flex;
     margin-top: 30px;
@@ -27,26 +28,25 @@
     button {
       width: 30px;
       height: 100;
+      padding: 0;
       background: none;
       border: none;
       outline: none;
-      position: relative;
+      text-align: center;
 
       i {
         font-size: 25px;
         color: $light-gray;
-        position: absolute;
-        top: 150px;
       }
     }
     .related-items-wrapper {
-      width: 940px;
+      width: auto;
       overflow: hidden;
 
       ul {
         width: auto;
         display: flex;
-        margin-left: 10px;
+        margin-left: 5px;
 
         .related-items-list {
           width: 178px;

@@ -1,26 +1,26 @@
 import React, { Component } from 'react';
-import { thumbnailData } from './ThumbnailData';
+import QuantityBtn from '../QuantityBtn/QuantityBtn';
 import './Thumbnail.scss';
 
 class Thumbnail extends Component {
   constructor() {
     super();
     this.state = {
-      number: 0,
+      arr: [],
     };
   }
 
-  handleIncrease = () => {
-    this.setState({
-      number: this.state.number + 1,
-    });
-  };
-
-  handleDecrease = () => {
-    this.setState({
-      number: this.state.number - 1,
-    });
-  };
+  componentDidMount() {
+    fetch('http://localhost:3000/data/ThumbnailData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(p => {
+        this.setState({
+          arr: p,
+        });
+      });
+  }
 
   render() {
     return (
@@ -49,17 +49,16 @@ class Thumbnail extends Component {
               </div>
             </div>
             <div className="goods-dl">
-              {thumbnailData.map(ele => {
+              {this.state.arr.map(info => {
                 return (
-                  <dl key={ele.id} className="goods-units">
-                    <dt className="info">{ele.chartName}</dt>
+                  <dl key={info.id} className="goods-units">
+                    <dt className="info">{info.chartName}</dt>
                     <dd className="data">
-                      {ele.data.map(line => (
+                      {info.data.map(line => (
                         <p className="data-sub" key={line}>
                           {line}
                         </p>
                       ))}
-                      <dd className="subdata">{ele.subdata}</dd>
                     </dd>
                   </dl>
                 );
@@ -80,21 +79,17 @@ class Thumbnail extends Component {
                     <li className="goods-one">
                       <div className="added-goods-name">
                         <span>[리터 스포트]미니 초콜릿 믹스 18p</span>
-                        <span className="del-btn">
-                          <button className="delete">X</button>
-                        </span>
+                        <button className="delete">
+                          <i class="fas fa-times"></i>
+                        </button>
                       </div>
-                      <div className="goods-quantity">
-                        <form className="count-btn">
-                          <button onClick={this.handleDecrease}>--</button>
-                          <input type="text" value={this.state.number}></input>
-                          <button onClick={this.handleIncrease}>+</button>
-                          <span></span>
-                        </form>
-                        <div className="fixed-price">
+
+                      <div className="fixed-price">
+                        <QuantityBtn />
+                        <p>
                           <span className="goods-own-price">10,500</span>
                           <span>원</span>
-                        </div>
+                        </p>
                       </div>
                     </li>
                   </ul>
