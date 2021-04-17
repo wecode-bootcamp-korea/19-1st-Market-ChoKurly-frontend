@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Nav from '../../Components/Nav/Nav';
-import ProductCard from '../Main/Components/ProductCard';
-import Modal from '../ProductList/Components/Modal';
+import ProductCard from './Components/ProductCard';
+import Modal from './Components/Modal';
 import { Link } from 'react-router-dom';
 import './ProductList.scss';
 
