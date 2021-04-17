@@ -45,22 +45,35 @@
         color: $main-purple;
       }
     }
+    .sub-title {
+      display: flex;
+      justify-content: space-between;
+      .sub-names {
+        width: 345px;
+        height: 20px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #ddd;
 
-    .sub-name {
-      font-size: 14px;
-      margin-right: 25px;
-      color: $dark-gray;
-      cursor: pointer;
+        .sub-name {
+          text-decoration: 0;
+          font-size: 12px;
+          padding-right: 25px;
+          color: $dark-gray;
+          cursor: pointer;
 
-      &:hover {
-        color: $main-purple;
+          &:last-child {
+            padding-right: 0;
+          }
+
+          &:hover {
+            color: $main-purple;
+          }
+        }
       }
     }
-
     .filter {
-      position: absolute;
-      right: 45px;
       border: none;
+      font-size: 12px;
       color: $dark-gray;
       cursor: pointer;
     }

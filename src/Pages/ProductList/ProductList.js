@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Nav from '../../Components/Nav/Nav';
 import ProductCard from '../Main/Components/ProductCard';
+import Modal from '../ProductList/Components/Modal';
+import { Link } from 'react-router-dom';
 import './ProductList.scss';
 
 class ProductList extends Component {
@@ -25,17 +27,29 @@ class ProductList extends Component {
       });
   }
 
+  openCart = () => {
+    this.setState({
+      clickCartButton: true,
+    });
+  };
+
+  closeCart = () => {
+    this.setState({
+      clickCartButton: false,
+    });
+  };
+
   addToCart = () => {
     const { cartNumber } = this.state;
     this.setState({
-      clickCartButton: true,
+      clickCartButton: false,
       cartNumber: cartNumber + 1,
     });
   };
 
   render() {
-    const { productList, cartNumber } = this.state;
-    const { addToCart } = this;
+    const { productList, cartNumber, clickCartButton } = this.state;
+    const { addToCart, closeCart, openCart } = this;
 
     return (
       <>
@@ -49,18 +63,30 @@ class ProductList extends Component {
           </div>
           <div className="product-list-menu">
             <div className="category-title">
-              <i class="fas fa-cookie-bite fa-lg"></i>간식･과자･떡
+              <i className="fas fa-cookie-bite fa-lg"></i>간식･과자･떡
             </div>
             <div className="sub-title">
-              <span className="sub-name">과자･스낵･쿠키</span>
-              <span className="sub-name">초콜릿･젤리･캔디</span>
-              <span className="sub-name">떡･한과</span>
-              <span className="sub-name">아이스크림</span>
-              <select className="filter" name="추천순">
-                <option>혜택순</option>
-                <option>낮은가격순</option>
-                <option>높은가격순</option>
-              </select>
+              <div className="sub-names">
+                <Link to="/main" className="sub-name">
+                  과자･스낵･쿠키
+                </Link>
+                <Link to="/main" className="chocolate sub-name">
+                  초콜릿･젤리･캔디
+                </Link>
+                <Link to="/main" className="sub-name">
+                  떡･한과
+                </Link>
+                <Link to="/main" className="sub-name">
+                  아이스크림
+                </Link>
+              </div>
+              <div className="filter-container">
+                <select className="filter" name="추천순">
+                  <option>혜택순</option>
+                  <option>낮은가격순</option>
+                  <option>높은가격순</option>
+                </select>
+              </div>
             </div>
           </div>
           <div className="product-list">
@@ -80,13 +106,16 @@ class ProductList extends Component {
                     fontStyle2={{ fontSize: '18px' }}
                     productMargin={{ marginBottom: '100px' }}
                   />
-                  <button onClick={addToCart} className="cart-button">
+                  <button onClick={openCart} className="cart-button">
                     <i className="fas fa-shopping-cart fa-lg"></i>
                   </button>
                 </div>
               );
             })}
           </div>
+          {clickCartButton && (
+            <Modal addToCart={addToCart} closeCart={closeCart} />
+          )}
         </div>
       </>
     );

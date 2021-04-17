@@ -128,9 +128,15 @@
           margin-right: 70px;
 
           a {
+            padding-bottom: 3px;
             text-decoration: none;
             color: $main-gray;
             font-weight: 500;
+
+            &:hover {
+              color: $main-purple;
+              border-bottom: 1px solid $main-purple;
+            }
           }
           img {
             width: 15px;
