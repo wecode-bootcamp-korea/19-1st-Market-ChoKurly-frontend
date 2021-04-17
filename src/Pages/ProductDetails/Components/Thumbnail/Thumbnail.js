@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Profiler } from 'react';
 import QuantityBtn from '../QuantityBtn/QuantityBtn';
 import './Thumbnail.scss';
 
@@ -11,13 +11,13 @@ class Thumbnail extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/ThumbnailData.json', {
+    fetch('http://localhost:3000/productdetails/data/ThumbnailData.json', {
       method: 'GET',
     })
       .then(res => res.json())
-      .then(p => {
-        this.setState({
-          arr: p,
+      .then(pro => {
+        this.setState{
+          arr: pro,
         });
       });
   }
@@ -63,6 +63,7 @@ class Thumbnail extends Component {
                   </dl>
                 );
               })}
+
               <div className="goods-select-wrapper">
                 <label>상품선택</label>
                 <div className="goods-select">

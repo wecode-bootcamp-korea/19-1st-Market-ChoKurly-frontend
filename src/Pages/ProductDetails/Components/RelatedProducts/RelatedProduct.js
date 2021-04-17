@@ -1,17 +1,9 @@
 import React, { Component } from 'react';
 import { RelatedProductData } from './RelatedProductData';
 import './RelatedProduct.scss';
-import Slider from 'react-slick';
 
-export default class SimpleSlider extends Component {
+class RelatedProduct extends Component {
   render() {
-    const settings = {
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-    };
     return (
       <section className="related-products-wrapper">
         <div className="lines"></div>
@@ -41,3 +33,5 @@ export default class SimpleSlider extends Component {
     );
   }
 }
+
+export default RelatedProduct;
