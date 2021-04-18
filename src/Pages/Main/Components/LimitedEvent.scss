@@ -1,0 +1,47 @@
+@import '../../../Styles/common.scss';
+@import '../../../Styles/reset.scss';
+
+.event-info {
+  display: flex;
+  justify-content: space-between;
+  width: 1050px;
+  margin: auto;
+
+  .event-title {
+    display: flex;
+    flex-direction: column;
+
+    .event-name {
+      margin-bottom: 60px;
+      font-size: 40px;
+      color: $main-gray;
+    }
+
+    .event-subname,
+    .event-msg {
+      margin-bottom: 20px;
+      font-size: 20px;
+      color: $light-gray;
+    }
+  }
+  .event-product {
+    position: relative;
+
+    .event-timer {
+      position: absolute;
+      display: flex;
+      padding-bottom: 5px;
+      width: 695px;
+      height: 35px;
+      left: 10px;
+      bottom: 115px;
+      background-color: rgba(95, 0, 128, 0.5);
+    }
+
+    .time {
+      margin: auto;
+      font-size: 18px;
+      color: white;
+    }
+  }
+}

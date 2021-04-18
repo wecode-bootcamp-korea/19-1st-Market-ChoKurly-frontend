@@ -32,7 +32,7 @@ class ProductCardSlide extends Component {
   render() {
     const { x } = this.state;
     const { goLeft, goRight } = this;
-    const { productData, slideX } = this.props;
+    const { productData } = this.props;
 
     return (
       <div className="product-slide-container">
@@ -41,6 +41,7 @@ class ProductCardSlide extends Component {
             productData.productInfo.map(product => {
               return (
                 <ProductCard
+                  key={product.id}
                   x={x}
                   product={product}
                   moveX={{ transform: `translateX(${x}%)` }}

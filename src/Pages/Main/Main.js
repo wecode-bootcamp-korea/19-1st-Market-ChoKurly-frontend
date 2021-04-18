@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Nav from '../../Components/Nav/Nav';
 import Slide from './Components/Slide';
 import ProductCardSlide from './Components/ProductCardSlide';
+import LimitedEvent from './Components/LimitedEvent';
 import Tag from './Components/Tag';
 import './Main.scss';
 
@@ -52,6 +53,9 @@ class Main extends Component {
           <div className="main-title suggestion-title">이 상품 어때요?</div>
           <ProductCardSlide productData={suggestionArr} slideX={4} />
         </div>
+        <div className="event">
+          <LimitedEvent />
+        </div>
 
         <div className="sales">
           <div className="main-title sales-title">알뜰상품</div>
@@ -64,17 +68,17 @@ class Main extends Component {
           <ProductCardSlide productData={mdArr} slideX={2} />
         </div>
 
-        <div className="md-suggestion">
+        <div className="new">
           <div className="main-title new-title">오늘의 신상품</div>
           <ProductCardSlide productData={newArr} slideX={2} />
         </div>
 
-        <div className="md-suggestion">
+        <div className="hot">
           <div className="main-title hot-title">지금 가장 핫한 상품</div>
           <ProductCardSlide productData={hotArr} slideX={2} />
         </div>
 
-        <div className="md-suggestion">
+        <div className="final-sales">
           <div className="main-title final-sale-title">365일 최저가 도전</div>
           <ProductCardSlide productData={finalSalesArr} slideX={2} />
         </div>
