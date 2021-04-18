@@ -7,53 +7,46 @@ class ProductCardSlide extends Component {
     super();
     this.state = {
       x: 0,
-      productArray: [],
     };
   }
 
-  componentDidMount() {
-    fetch('http://localhost:3000/data/productCard.json', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(productData => {
-        this.setState({
-          productArray: productData,
-        });
-      });
-  }
-
   goLeft = () => {
-    const { x, productArray } = this.state;
+    const { x } = this.state;
+    const { slideX, productData } = this.props;
+    const productInfo2 = productData.productInfo;
 
     this.setState({
-      x: x === 0 ? -100 * (productArray.length - 4) : x + 400,
+      x: x === 0 ? -100 * (productInfo2.length - slideX) : x + slideX * 100,
     });
   };
 
   goRight = () => {
-    const { x, productArray } = this.state;
+    const { x } = this.state;
+    const { slideX, productData } = this.props;
+    const productInfo2 = productData.productInfo;
     this.setState({
-      x: x === -100 * (productArray.length - 4) ? 0 : x - 400,
+      x: x === -100 * (productInfo2.length - slideX) ? 0 : x - slideX * 100,
     });
   };
 
   render() {
-    const { x, productArray } = this.state;
+    const { x } = this.state;
     const { goLeft, goRight } = this;
+    const { productData, slideX } = this.props;
 
     return (
       <div className="product-slide-container">
         <div className="product-slide">
-          {productArray.map(product => {
-            return (
-              <ProductCard
-                x={x}
-                product={product}
-                moveX={{ transform: `translateX(${x}%)` }}
-              />
-            );
-          })}
+          {productData.productInfo &&
+            productData.productInfo.map(product => {
+              return (
+                <ProductCard
+                  x={x}
+                  product={product}
+                  moveX={{ transform: `translateX(${x}%)` }}
+                />
+              );
+            })}
         </div>
         <button onClick={goLeft} className="go-left">
           <img alt="prev-button" src="/images/Slide/prev.png" />
