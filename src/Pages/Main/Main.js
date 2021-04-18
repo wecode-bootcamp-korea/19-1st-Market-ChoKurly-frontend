@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Nav from '../../Components/Nav/Nav';
 import Slide from './Components/Slide';
 import ProductCardSlide from './Components/ProductCardSlide';
-import Tags from './Components/Tags';
+import Tag from './Components/Tag';
 import './Main.scss';
 
 class Main extends Component {
@@ -23,7 +23,7 @@ class Main extends Component {
 
         <div className="md-suggestion">
           <div className="main-title md-title">MD의 추천</div>
-          <Tags />
+          <Tag />
           <ProductCardSlide />
         </div>
       </>

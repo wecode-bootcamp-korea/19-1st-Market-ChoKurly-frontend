@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Tags.scss';
+import './Tag.scss';
 
 class Tags extends Component {
   constructor() {
@@ -23,7 +23,7 @@ class Tags extends Component {
       });
   }
 
-  handleClick = (e, index) => {
+  handleClick = index => {
     this.setState({
       isClicked: true,
       activeTag: index,
@@ -31,7 +31,7 @@ class Tags extends Component {
   };
 
   render() {
-    const { tags, isClicked } = this.state;
+    const { tags } = this.state;
     const { handleClick } = this;
     return (
       <ul className="tags-container">
@@ -39,7 +39,7 @@ class Tags extends Component {
           return (
             <li
               id={this.state.activeTag === index ? 'clicked' : ''}
-              onClick={e => handleClick(e, index)}
+              onClick={() => handleClick(index)}
               key={tag.id}
               className="tag"
             >
