@@ -20,18 +20,19 @@ class Main extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/productCard_main.json', {
+    fetch('http://localhost:3000/data/productCard_main2.json', {
       method: 'GET',
     })
       .then(res => res.json())
       .then(productData => {
         this.setState({
-          suggestionArr: productData[0],
-          salesArr: productData[1],
-          mdArr: productData[2],
-          newArr: productData[3],
-          hotArr: productData[4],
-          finalSalesArr: productData[5],
+          //테스트중
+          suggestionArr: productData.result,
+          salesArr: productData.result,
+          mdArr: productData.result,
+          newArr: productData.result,
+          hotArr: productData.result,
+          finalSalesArr: productData.result,
         });
       });
   }
