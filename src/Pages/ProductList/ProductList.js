@@ -48,9 +48,9 @@ class ProductList extends Component {
     });
   };
 
-  setFilter = sub => {
+  setFilter = subName => {
     this.setState({
-      productFilter: sub,
+      productFilter: subName,
     });
   };
 
@@ -63,7 +63,10 @@ class ProductList extends Component {
     } = this.state;
 
     const { addToCart, closeCart, openCart, setFilter } = this;
-    console.log(productFilter);
+    const filteredProductList = productList.filter(sub =>
+      sub.subcategory.includes(productFilter)
+    );
+    console.log(filteredProductList);
     return (
       <>
         <Nav cartNumber={cartNumber} />
@@ -81,18 +84,27 @@ class ProductList extends Component {
             </div>
             <div className="sub-title">
               <div className="sub-names">
-                <Link onClick={() => setFilter} to="/main" className="sub-name">
+                <span
+                  onClick={() => setFilter('과자･스낵･쿠키')}
+                  className="sub-name"
+                >
                   과자･스낵･쿠키
-                </Link>
-                <Link to="/main" className="chocolate sub-name">
+                </span>
+                <span
+                  onClick={() => setFilter('초콜릿･젤리･캔디')}
+                  className="chocolate sub-name"
+                >
                   초콜릿･젤리･캔디
-                </Link>
-                <Link to="/main" className="sub-name">
+                </span>
+                <span onClick={() => setFilter('떡･한과')} className="sub-name">
                   떡･한과
-                </Link>
-                <Link to="/main" className="sub-name">
+                </span>
+                <span
+                  onClick={() => setFilter('아이스크림')}
+                  className="sub-name"
+                >
                   아이스크림
-                </Link>
+                </span>
               </div>
               <div className="filter-container">
                 <select className="filter" name="추천순">
@@ -104,18 +116,17 @@ class ProductList extends Component {
             </div>
           </div>
           <div className="product-list">
-            {productList.map((product, index) => {
+            {filteredProductList.map((product, index) => {
               return (
                 <div
                   key={index}
                   id={product.subcategory}
                   className="product-container"
                 >
-                  {productList[index].productInfo.map(item => {
+                  {filteredProductList[index].productInfo.map(item => {
                     return (
-                      <div className="product-card-button">
+                      <div className="product-card-button" key={item.id}>
                         <ProductCard
-                          key={item.id}
                           product={item}
                           productSize={{
                             height: '395px',
