@@ -65,7 +65,7 @@ class Category extends Component {
                   <div className="subcategory-list" onMouseLeave={handleSubOff}>
                     {categoryList[categoryIdx - 1].subcategory.map(sub => {
                       return (
-                        <div className="sub">
+                        <div key={sub.subcategoryId} className="sub">
                           <Link to="/productlist">{sub.subcategoryName}</Link>
                         </div>
                       );
