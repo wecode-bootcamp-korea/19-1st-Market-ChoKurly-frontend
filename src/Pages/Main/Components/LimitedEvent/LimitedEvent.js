@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ProductCard from './ProductCard';
+import ProductCard from '../ProductCard/ProductCard';
 import './LimitedEvent.scss';
 
 class LimitedEvent extends Component {

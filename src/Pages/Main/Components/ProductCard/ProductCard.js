@@ -34,7 +34,7 @@ class ProductCard extends Component {
             <img
               className="product-img"
               alt="product"
-              src={product.productUrl}
+              src={product.thumbnail_image}
               style={{ ...productSize, ...productBorder }}
             />
           </Link>
@@ -43,17 +43,20 @@ class ProductCard extends Component {
               <span>{product.name}</span>
             </Link>
             <div className="listed-price" style={fontStyle2}>
-              {product.discount && (
+              {product.discount_rate && (
                 <span className="product-discount">
-                  {(Number(product.discount) * 100).toLocaleString('en-US')}%
+                  {(Number(product.discount_rate) * 100).toLocaleString(
+                    'en-US'
+                  )}
+                  %
                 </span>
               )}
               <span className="product-price">
-                {Number(product.price).toLocaleString('en-US')}원
+                {Number(product.discounted_price).toLocaleString('en-US')}원
               </span>
             </div>
             <div className="product-original-price">
-              {Number(product.originalPrice).toLocaleString('en-US')}원
+              {Number(product.price).toLocaleString('en-US')}원
             </div>
             <div className="product-intro">{product.intro}</div>
           </div>

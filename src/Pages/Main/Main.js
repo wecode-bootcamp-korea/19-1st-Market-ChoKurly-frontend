@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Nav from '../../Components/Nav/Nav';
-import Slide from './Components/Slide';
-import ProductCardSlide from './Components/ProductCardSlide';
-import LimitedEvent from './Components/LimitedEvent';
-import Tag from './Components/Tag';
+import Slide from './Components/Slide/Slide';
+import ProductCardSlide from './Components/ProductCardSlide/ProductCardSlide';
+import LimitedEvent from './Components/LimitedEvent/LimitedEvent';
+import Tag from './Components/Tag/Tag';
 import './Main.scss';
 
 class Main extends Component {
