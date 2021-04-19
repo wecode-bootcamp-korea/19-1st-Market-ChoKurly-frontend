@@ -9,13 +9,11 @@
   .Signup-Header {
     width: 100%;
     height: 210px;
-    background-color: beige;
   }
 
   .Signup-Footer {
     width: 100%;
     height: 523px;
-    background-color: beige;
   }
 }
 
@@ -137,8 +135,17 @@
       font-size: 14px;
       font-weight: 500;
     }
-
-    .SignupCert.disabled {
+    .SignupCert {
+      width: 118px;
+      height: 42px;
+      margin-left: 7px;
+      border-radius: 3px;
+      border: 1px solid $main-purple;
+      background-color: white;
+      color: $main-purple;
+      font-weight: 500;
+    }
+    .notSignupCert {
       width: 118px;
       height: 42px;
       margin-left: 7px;
@@ -167,6 +174,7 @@
     text-decoration: none;
     font-weight: 500;
     overflow: hidden;
+    background-color: #fff;
 
     .fas.fa-search {
       margin-right: 5px;
@@ -253,37 +261,20 @@
   font-size: 14px;
   text-align: left;
 
-  .birth_day {
-    @extend %flexCenter;
-    width: 312px;
-    height: 42px;
-    padding-left: 18px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    overflow: hidden;
-
-    &:focus {
-      outline: 1px solid #333;
-    }
-  }
-
-  .SignupBar {
-    color: #ccc;
-  }
-
   input {
-    width: 56px;
-    height: 40px;
+    width: 302px;
+    height: 42px;
     padding: 0 14px;
-    border: 0;
     line-height: 20px;
-    border-radius: 3px;
+    border: 1px solid #ccc;
     outline: none;
+    border-radius: 3px;
+    background-color: #fff;
     color: #333;
-    background: #fff;
-    text-align: center;
     font-size: 14px;
-
+    &:focus {
+      border: 1px solid #333;
+    }
     &::placeholder {
       color: #ccc;
     }
@@ -321,5 +312,29 @@
   }
   .incorrect {
     color: #b3130b;
+  }
+}
+.hiddenAddress {
+  display: flex;
+  justify-content: center;
+  .hiddenAddressInput {
+    position: relative;
+    right: 5px;
+    width: 302px;
+    height: 42px;
+    padding: 0 14px;
+    line-height: 20px;
+    border: 1px solid #ccc;
+    outline: none;
+    border-radius: 3px;
+    background-color: #fff;
+    color: #333;
+    font-size: 14px;
+    &:focus {
+      border: 1px solid #333;
+    }
+    &::placeholder {
+      color: #ccc;
+    }
   }
 }
