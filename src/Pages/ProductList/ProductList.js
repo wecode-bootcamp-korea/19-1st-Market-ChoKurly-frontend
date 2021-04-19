@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Nav from '../../Components/Nav/Nav';
 import ProductCard from './Components/ProductCard';
 import Modal from './Components/Modal';
-import { Link } from 'react-router-dom';
 import './ProductList.scss';
 
 class ProductList extends Component {
@@ -63,16 +62,11 @@ class ProductList extends Component {
       productList,
       cartNumber,
       clickCartButton,
-      productFilter,
       cartName,
       cartPrice,
     } = this.state;
 
     const { addToCart, closeCart, openCart, setFilter } = this;
-    // const filteredProductList = productList.filter(sub =>
-    //   sub.subcategory.includes(productFilter)
-    // );
-    console.log(productList);
 
     return (
       <>
