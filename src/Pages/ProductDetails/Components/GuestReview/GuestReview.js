@@ -1,9 +1,38 @@
 import React, { Component } from 'react';
 import Taps from '../Taps/Taps';
-import { guestReviewData } from './GuestReviewData';
 import './GuestReview.scss';
 class GuestReview extends Component {
+  state = {
+    text: '',
+    guestReviews: [],
+    reviewer: ['dongdong2'],
+    num: 1,
+    id: 0,
+    date: Date.now(),
+  };
+
+  handleInput = e => {
+    this.setState({
+      text: e.target.value,
+    });
+  };
+
+  addComment = () => {
+    const { id, text, guestReviews, num, reviewer, date } = this.state;
+
+    this.setState({
+      guestReviews: guestReviews.concat({
+        text: text,
+        id: id + 1,
+        num: num + 1,
+        reviewer: reviewer,
+        date: date,
+      }),
+    });
+  };
+
   render() {
+    const isBtnAble = this.state.text.length > 1 ? 'onColor' : 'offColor';
     return (
       <section className="geust-review-wrapper">
         <Taps />
@@ -33,13 +62,19 @@ class GuestReview extends Component {
               <div className="reviewer">작성자</div>
               <div className="date">작성일</div>
             </li>
-            {guestReviewData.map(ele => {
+            <li className="reviews">
+              <div className="number"> 1 </div>
+              <div className="review"> 맛있어요~ </div>
+              <div className="reviewer"> PM 이예원 </div>
+              <div className="date">2021-05-13</div>
+            </li>
+            {this.state.guestReviews.map(comment => {
               return (
-                <li key="ele.id" className="reviews">
-                  <div className="number">{ele.number}</div>
-                  <div className="review">{ele.review}</div>
-                  <div className="reviewer">{ele.reviewer}</div>
-                  <div className="date">{ele.date}</div>
+                <li key={comment.id} className="reviews">
+                  <div className="number">{comment.num}</div>
+                  <div className="review">{comment.text}</div>
+                  <div className="reviewer">{comment.reviewer}</div>
+                  <div className="date">{comment.date}</div>
                 </li>
               );
             })}
@@ -56,8 +91,17 @@ class GuestReview extends Component {
               </button>
             </form>
             <form className="add-comment">
-              <input type="text" placeholder="제품에 대한 흔적을 남겨보세요." />
-              <button type="button">
+              <input
+                type="text"
+                placeholder="제품에 대한 흔적을 남겨보세요."
+                onChange={this.handleInput}
+                value={this.state.text}
+              />
+              <button
+                type="button"
+                className={isBtnAble + ' push-btn'}
+                onClick={this.addComment}
+              >
                 <i class="fas fa-shoe-prints"></i>
               </button>
             </form>

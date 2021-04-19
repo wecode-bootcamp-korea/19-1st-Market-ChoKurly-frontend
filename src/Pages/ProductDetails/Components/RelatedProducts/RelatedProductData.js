@@ -29,4 +29,19 @@ export const RelatedProductData = [
     name: '우리집 건강한 딸기 요거트 750ml',
     price: 0,
   },
+  {
+    id: 7,
+    name: '우리집 건강한 딸기 요거트 750ml',
+    price: 0,
+  },
+  {
+    id: 8,
+    name: '우리집 건강한 딸기 요거트 750ml',
+    price: 0,
+  },
+  {
+    id: 9,
+    name: '우리집 건강한 딸기 요거트 750ml',
+    price: 0,
+  },
 ];

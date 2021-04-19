@@ -30,7 +30,7 @@ class Taps extends Component {
                 }
               >
                 <span className="link-name">
-                  <Link to="{ele.link}" onClick={this.toggle}>
+                  <Link to="{ele.link}" onMouseOver={this.toggle}>
                     {ele.content}
                   </Link>
                 </span>

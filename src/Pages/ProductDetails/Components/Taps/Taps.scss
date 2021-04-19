@@ -5,6 +5,10 @@
   height: 48px;
   margin: 10px auto;
 
+  a {
+    text-decoration: none;
+    color: $main-gray;
+  }
   ul {
     width: 1010px;
     display: flex;

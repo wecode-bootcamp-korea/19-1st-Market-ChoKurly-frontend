@@ -24,34 +24,21 @@
     height: 320px;
     display: flex;
     margin-top: 30px;
-
-    button {
-      width: 30px;
-      height: 100;
-      padding: 0;
-      background: none;
-      border: none;
-      outline: none;
-      text-align: center;
-
-      i {
-        font-size: 25px;
-        color: $light-gray;
-      }
-    }
     .related-items-wrapper {
       width: auto;
       overflow: hidden;
 
       ul {
-        width: auto;
+        width: 100%;
         display: flex;
         margin-left: 5px;
+        white-space: nowrap;
 
         .related-items-list {
           width: 178px;
           margin: 0 5px;
           border: 1px solid #ddd;
+          display: inline-block;
 
           img {
             width: 178px;
@@ -59,12 +46,14 @@
           }
 
           .item-name {
-            width: 158px;
+            width: 168px;
             height: 35px;
-            margin: 10px 0 0 5px;
+            margin: 10px 5px 0 5px;
             font-size: 14px;
             color: $main-gray;
             font-weight: 700;
+            white-space: pre-wrap;
+            word-break: break-all;
           }
 
           .item-price {
@@ -74,6 +63,20 @@
             font-size: 14px;
             color: $main-gray;
           }
+        }
+      }
+      button {
+        width: 30px;
+        height: 100;
+        padding: 0;
+        background: none;
+        border: none;
+        outline: none;
+        text-align: center;
+
+        i {
+          font-size: 25px;
+          color: $light-gray;
         }
       }
     }
