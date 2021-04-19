@@ -19,13 +19,13 @@ class ProductList extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/productCard_new.json', {
+    fetch('http://localhost:3000/data/productlist_chocolate.json', {
       method: 'GET',
     })
       .then(res => res.json())
       .then(productData => {
         this.setState({
-          productList: productData,
+          productList: productData.result,
         });
       });
   }
@@ -36,7 +36,6 @@ class ProductList extends Component {
       cartName: name,
       cartPrice: price,
     });
-    console.log(this.state.cartName);
   };
 
   closeCart = () => {
@@ -70,9 +69,10 @@ class ProductList extends Component {
     } = this.state;
 
     const { addToCart, closeCart, openCart, setFilter } = this;
-    const filteredProductList = productList.filter(sub =>
-      sub.subcategory.includes(productFilter)
-    );
+    // const filteredProductList = productList.filter(sub =>
+    //   sub.subcategory.includes(productFilter)
+    // );
+    console.log(productList);
 
     return (
       <>
@@ -123,43 +123,39 @@ class ProductList extends Component {
             </div>
           </div>
           <div className="product-list">
-            {filteredProductList.map((product, index) => {
+            {productList.map((product, index) => {
               return (
                 <div
-                  key={index}
-                  id={product.subcategory}
+                  key={product.id}
+                  // id={product.subcategory}
                   className="product-container"
                 >
-                  {filteredProductList[index].productInfo.map(item => {
-                    return (
-                      <div className="product-card-button" key={item.id}>
-                        <ProductCard
-                          product={item}
-                          productSize={{
-                            height: '395px',
-                            width: '310px',
-                          }}
-                          productBorder={{
-                            border: '1px solid #ddd',
-                          }}
-                          fontStyle={{ fontSize: '20px' }}
-                          fontStyle2={{ fontSize: '18px' }}
-                          productMargin={{ marginBottom: '100px' }}
-                        />
-                        <button
-                          key={item.id}
-                          id={item.id}
-                          name={item.name}
-                          onClick={() => {
-                            openCart(item.name, item.price);
-                          }}
-                          className="cart-button"
-                        >
-                          <i className="fas fa-shopping-cart fa-lg"></i>
-                        </button>
-                      </div>
-                    );
-                  })}
+                  <div className="product-card-button" key={product.id}>
+                    <ProductCard
+                      product={product}
+                      productSize={{
+                        height: '395px',
+                        width: '310px',
+                      }}
+                      productBorder={{
+                        border: '1px solid #ddd',
+                      }}
+                      fontStyle={{ fontSize: '20px' }}
+                      fontStyle2={{ fontSize: '18px' }}
+                      productMargin={{ marginBottom: '100px' }}
+                    />
+                    <button
+                      key={product.id}
+                      id={product.id}
+                      name={product.name}
+                      onClick={() => {
+                        openCart(product.name, product.discounted_price);
+                      }}
+                      className="cart-button"
+                    >
+                      <i className="fas fa-shopping-cart fa-lg"></i>
+                    </button>
+                  </div>
                 </div>
               );
             })}
