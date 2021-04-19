@@ -64,6 +64,10 @@ class Signup extends Component {
     } else {
       this.setState({ isValidEmail: true });
     }
+    //비밀번호 Validation
+    if (this.state.isValidPw) {
+      this.setState({ pwCheck: this.state.password });
+    }
   };
   //아이디 Validation + fetch 함수 적용
   checkId = e => {
@@ -104,15 +108,6 @@ class Signup extends Component {
         });
     }
   };
-  //비밀번호 Validation
-  checkPw = e => {
-    e.preventDefault();
-    if (this.state.isValidPw) {
-      this.setState({ pwCheck: this.state.password });
-    } else {
-      // alert('비밀번호 형식을 맞춰주세요.');
-    }
-  };
   //이메일 Validation
   checkEmail = e => {
     e.preventDefault();
@@ -147,6 +142,7 @@ class Signup extends Component {
   };
   //서버로 가입 양식 제출
   handleSubmit = e => {
+    console.log('hi');
     e.preventDefault();
     const {
       id,
@@ -175,6 +171,12 @@ class Signup extends Component {
       method: 'POST',
       body: JSON.stringify(signupInfo),
     };
+
+    // for (let [k, v] in Object.entries(signupInfo)) {
+    //   console.log(k, v);
+    // }
+    // return;
+
     if (
       id &&
       password &&
@@ -191,6 +193,7 @@ class Signup extends Component {
       fetch('http://10.58.2.7:8000/users/signup', signup_info)
         .then(response => response.json())
         .then(result => console.log('결과: ', result));
+      alert('가입이 완료되었습니다.');
       // .then(
       //   alert('가입이 안료되었습니다.')
       // );
@@ -199,12 +202,6 @@ class Signup extends Component {
     } else {
       alert('입력값을 확인해주세요.');
     }
-  };
-  //회원가입 최종 승인 바인딩
-  SignupApproval = e => {
-    e.preventDefault();
-    this.checkPw(e);
-    this.handleSubmit(e);
   };
   render() {
     const { showId, showPw, showRe } = this.state;
@@ -492,7 +489,7 @@ class Signup extends Component {
               <button
                 type="button"
                 className="btn active btn_join"
-                onClick={this.SignupApproval}
+                onClick={this.handleSubmit}
               >
                 가입하기
               </button>
