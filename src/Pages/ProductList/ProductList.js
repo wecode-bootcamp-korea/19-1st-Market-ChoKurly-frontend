@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Nav from '../../Components/Nav/Nav';
+// import Nav from '../../Components/Nav/Nav';
 import ProductCard from './Components/ProductCard';
 import Modal from './Components/Modal';
 import './ProductList.scss';
@@ -70,7 +70,7 @@ class ProductList extends Component {
 
     return (
       <>
-        <Nav cartNumber={cartNumber} />
+        {/* <Nav cartNumber={cartNumber} /> */}
         <div className="product-list-container">
           <div className="banner">
             <img
@@ -109,7 +109,7 @@ class ProductList extends Component {
               </div>
               <div className="filter-container">
                 <select className="filter" name="추천순">
-                  <option>혜택순</option>
+                  <option>신상품순</option>
                   <option>낮은가격순</option>
                   <option>높은가격순</option>
                 </select>

@@ -45,20 +45,24 @@ class ProductCard extends Component {
             <div className="listed-price" style={fontStyle2}>
               {product.discount_rate && (
                 <span className="product-discount">
-                  {(Number(product.discount_rate) * 100).toLocaleString(
-                    'en-US'
-                  )}
-                  %
+                  {(product.discount_rate * 100).toLocaleString('en-US')}%
                 </span>
               )}
               <span className="product-price">
-                {Number(product.discounted_price).toLocaleString('en-US')}원
+                {product.discounted_price
+                  ? product.discounted_price.toLocaleString('en-US')
+                  : Number(product.original_price).toLocaleString('en-US')}
+                원
               </span>
             </div>
-            <div className="product-original-price">
-              {Number(product.price).toLocaleString('en-US')}원
-            </div>
-            <div className="product-intro">{product.intro}</div>
+            {product.discount_rate && (
+              <div className="product-original-price">
+                {Number(product.original_price).toLocaleString('en-US')}원
+              </div>
+            )}
+            {product.comment && (
+              <div className="product-intro">{product.comment}</div>
+            )}
           </div>
           {product.sticker && (
             <span className="product-sticker">{product.sticker}</span>
