@@ -47,9 +47,9 @@ class LimitedEvent extends Component {
       id: 1,
       thumbnail_image: '/images/Main/limited.jpg',
       name: '1[디저트] 솔티드 버터 캐러멜 2종',
-      discount_rate: '0.15',
-      discounted_price: '1900.00',
-      price: '21000.00',
+      discount_rate: 0.15,
+      discounted_price: 1900,
+      original_price: 21000,
       sticker: '20%농할쿠폰',
       comment: '피부 미용에 도움을 주는 캐러멜!',
     };
