@@ -20,7 +20,7 @@ class LimitedEvent extends Component {
 
   setTimer = () => {
     const x = setInterval(() => {
-      let countdownDate = new Date('Apr 19, 2021, 21:00:00').getTime();
+      let countdownDate = new Date('Apr 24, 2021, 00:00:00').getTime();
       let now = new Date().getTime();
       let remaining = countdownDate - now;
       let hours = Math.floor(

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Nav from '../../Components/Nav/Nav';
+// import Nav from '../../Components/Nav/Nav';
 import Slide from './Components/Slide/Slide';
 import ProductCardSlide from './Components/ProductCardSlide/ProductCardSlide';
 import LimitedEvent from './Components/LimitedEvent/LimitedEvent';
@@ -46,9 +46,10 @@ class Main extends Component {
       hotArr,
       finalSalesArr,
     } = this.state;
+
     return (
-      <>
-        <Nav />
+      <div className="main-container">
+        {/* <Nav /> */}
         <Slide />
         <div className="suggestion">
           <div className="main-title suggestion-title">이 상품 어때요?</div>
@@ -83,7 +84,7 @@ class Main extends Component {
           <div className="main-title final-sale-title">365일 최저가 도전</div>
           <ProductCardSlide productData={finalSalesArr} slideX={2} />
         </div>
-      </>
+      </div>
     );
   }
 }

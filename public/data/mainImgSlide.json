@@ -1,18 +1,18 @@
 [
 	{
-		"alt": "picnic",
-		"path": "/images/slide/picnic.jpeg"
+		"alt": "marsh",
+		"path": "/images/slide/marsh.jpg"
 	},
 	{
-		"alt": "cupcake",
-		"path": "/images/slide/cupcake.jpg"
+		"alt": "icecream",
+		"path": "/images/slide/icecream.jpg"
 	},
 	{
-		"alt": "dessert",
-		"path": "/images/slide/dessert.jpg"
+		"alt": "donuts",
+		"path": "/images/slide/donuts.jpg"
 	},
 	{
-		"alt": "blue-picnic",
-		"path": "/images/slide/blue-picnic.jpg"
+		"alt": "macarons",
+		"path": "/images/slide/macarons.jpg"
 	}
 ]

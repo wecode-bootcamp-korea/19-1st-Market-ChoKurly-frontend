@@ -13,19 +13,18 @@ class ProductCardSlide extends Component {
   goLeft = () => {
     const { x } = this.state;
     const { slideX, productData } = this.props;
-    const productInfo2 = productData.productInfo;
 
     this.setState({
-      x: x === 0 ? -100 * (productInfo2.length - slideX) : x + slideX * 100,
+      x: x === 0 ? -100 * (productData.length - slideX) : x + slideX * 100,
     });
   };
 
   goRight = () => {
     const { x } = this.state;
     const { slideX, productData } = this.props;
-    const productInfo2 = productData.productInfo;
+
     this.setState({
-      x: x === -100 * (productInfo2.length - slideX) ? 0 : x - slideX * 100,
+      x: x === -100 * (productData.length - slideX) ? 0 : x - slideX * 100,
     });
   };
 
@@ -37,17 +36,16 @@ class ProductCardSlide extends Component {
     return (
       <div className="product-slide-container">
         <div className="product-slide">
-          {productData.productInfo &&
-            productData.productInfo.map(product => {
-              return (
-                <ProductCard
-                  key={product.id}
-                  x={x}
-                  product={product}
-                  moveX={{ transform: `translateX(${x}%)` }}
-                />
-              );
-            })}
+          {productData.map(product => {
+            return (
+              <ProductCard
+                key={product.id}
+                x={x}
+                product={product}
+                moveX={{ transform: `translateX(${x}%)` }}
+              />
+            );
+          })}
         </div>
         <button onClick={goLeft} className="go-left">
           <img alt="prev-button" src="/images/Slide/prev.png" />
