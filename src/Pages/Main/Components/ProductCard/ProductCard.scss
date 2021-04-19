@@ -1,4 +1,4 @@
-@import '../../../../Styles/common.scss';
+@import '../../../Styles/common.scss';
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
 
 .product-card-container {
@@ -53,6 +53,10 @@
         margin-top: 10px;
         font-size: 14px;
         color: $medium-gray;
+      }
+
+      .product-intro {
+        width: 310px;
       }
 
       .product-original-price {
