@@ -10,7 +10,10 @@
 
     a {
       text-decoration: none;
-      color: $main-gray;
+      color: $dark-gray;
+      &:hover {
+        color: $main-purple;
+      }
     }
   }
 
@@ -19,6 +22,10 @@
     padding: 15px 15px;
     font-size: 14px;
     font-weight: 400;
+  }
+
+  .cat:hover {
+    background-color: $gray-background;
   }
 
   .category-all {
@@ -33,10 +40,6 @@
     border-left: 0;
     background-color: $gray-background;
     transition: all 0.5s ease;
-  }
-
-  .cat:hover {
-    background-color: $gray-background;
   }
 
   .category-fixed {

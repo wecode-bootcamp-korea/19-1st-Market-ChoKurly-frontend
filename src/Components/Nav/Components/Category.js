@@ -51,7 +51,6 @@ class Category extends Component {
                 id={item.categoryId}
               >
                 <div className="cat" id={item.categoryId}>
-                  <i>{item.categoryIcon}</i>
                   <Link id={item.categoryId}>{item.categoryName}</Link>
                 </div>
                 {idx + 1 === Number(categoryIdx) && isSubOpen && (

@@ -1,7 +1,6 @@
 [
 	{
 		"categoryId": 1,
-		"categoryIcon": "❤︎",
 		"categoryName": "채소",
 		"subcategory": [
 			{
@@ -40,7 +39,6 @@
 	},
 	{
 		"categoryId": 2,
-		"categoryIcon": "❤︎",
 		"categoryName": "과일･견과･쌀",
 		"subcategory": [
 			{
@@ -79,7 +77,6 @@
 	},
 	{
 		"categoryId": 3,
-		"categoryIcon": "❤︎",
 		"categoryName": "생수･음료･우유･커피",
 		"subcategory": [
 			{
@@ -106,7 +103,6 @@
 	},
 	{
 		"categoryId": 4,
-		"categoryIcon": "❤︎",
 		"categoryName": "베이커리･치즈･델리",
 		"subcategory": [
 			{
@@ -137,7 +133,6 @@
 	},
 	{
 		"categoryId": 5,
-		"categoryIcon": "❤︎",
 		"categoryName": "간식･과자･떡",
 		"subcategory": [
 			{
