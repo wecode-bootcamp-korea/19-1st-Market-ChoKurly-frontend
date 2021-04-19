@@ -1,7 +1,7 @@
 @import '../../Styles/common.scss';
 
 .footer-wrapper {
-  width: 100%;
+  display: block;
   padding-bottom: 60px;
   border-top: 1px solid #eee;
 
@@ -19,7 +19,7 @@
       width: 1050px;
       display: flex;
       justify-content: space-between;
-      padding: 0 0 20px 0;
+      padding-bottom: 20px;
 
       .customer-center {
         width: 534px;
@@ -43,12 +43,10 @@
             height: 40px;
             display: flex;
             align-items: center;
-            padding: 0;
             font-weight: 700;
 
             .contact-number {
               width: 140px;
-              padding: 0;
               font-size: 27px;
               font-weight: 700;
             }
@@ -81,12 +79,11 @@
       }
 
       .info-center {
-        width: 476px;
-        padding: 0;
+        width: 100%;
         margin-right: 100px;
 
         .market-info {
-          width: 100%;
+          width: 476px;
           display: flex;
           justify-content: space-between;
           padding: 29px 0 2px 0;
@@ -103,11 +100,10 @@
           padding: 29px 0 2px 0;
 
           .name-list {
-            height: 22px;
             color: $light-gray;
 
             .info-datas {
-              width: 100%;
+              width: 22px;
               padding: 0 2px;
 
               a {

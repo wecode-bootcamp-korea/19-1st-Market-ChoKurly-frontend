@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import footerIconData from './FooterIconData';
 import footerInfoData from './FooterInfoData';
-import { Link } from 'react-router-dom';
 import 'Components/Footer/Footer.scss';
 
 class Footer extends Component {
