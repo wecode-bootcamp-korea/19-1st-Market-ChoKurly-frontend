@@ -46,19 +46,19 @@ class Category extends Component {
             return (
               <li
                 className="mapped-category"
-                key={item.categoryId}
+                key={item.id}
                 onMouseEnter={handleSubOn}
-                id={item.categoryId}
+                id={item.id}
               >
-                <div className="cat" id={item.categoryId}>
-                  <Link id={item.categoryId}>{item.categoryName}</Link>
+                <div className="cat" id={item.id}>
+                  <Link id={item.id}>{item.category}</Link>
                 </div>
                 {idx + 1 === Number(categoryIdx) && isSubOpen && (
                   <div className="subcategory-list" onMouseLeave={handleSubOff}>
-                    {categoryList[categoryIdx - 1].subcategory.map(sub => {
+                    {categoryList[categoryIdx - 1].sub_category.map(sub => {
                       return (
-                        <div key={sub.subcategoryId} className="sub">
-                          <Link to="/productlist">{sub.subcategoryName}</Link>
+                        <div key={sub.id} className="sub">
+                          <Link to="/productlist">{sub.name}</Link>
                         </div>
                       );
                     })}
