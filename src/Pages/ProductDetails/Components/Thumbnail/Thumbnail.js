@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { info } from 'node-sass';
 import QuantityBtn from '../QuantityBtn/QuantityBtn';
 import './Thumbnail.scss';
 
@@ -20,37 +21,34 @@ class Thumbnail extends Component {
 
   delItem = () => {
     const { unit, sell_price, sum } = this.state;
-
     console.log(unit);
     if (unit > 1) {
       this.setState({
-        unit: unit - 1,
-        sum: (unit - 1) * sell_price,
+        unit: unit--,
+        sum: unit * sell_price,
       });
     }
   };
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/ThumbnailData.json', {
-      method: 'GET',
-    })
+    fetch('/')
       .then(res => res.json())
       .then(p => {
         this.setState({
-          info: p,
+          info: p.result,
         });
       });
   }
 
   render() {
-    const { sell_price, sum, unit } = this.state;
+    const { sell_price, sum, unit, info } = this.state;
     const { addItem, delItem } = this;
 
     return (
       <section className="top-view">
         <article className="thumbnail-wrapper">
           <img
-            src="../../../images/상세페이지 썸네일.jpg"
+            src={info.url && info.url}
             alt="대표 이미지"
             className="top-img"
           />
