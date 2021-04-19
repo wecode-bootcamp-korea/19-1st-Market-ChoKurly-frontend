@@ -37,8 +37,8 @@ class Nav extends Component {
     const scroll = window.scrollY;
     const { navBarFixed } = this.state;
 
-    const scrollDown = scroll > 150 && this.state.navBarFixed === false;
-    const scrollUp = scroll <= 150 && this.state.navBarFixed === true;
+    const scrollDown = scroll > 150 && !this.state.navBarFixed;
+    const scrollUp = scroll <= 150 && this.state.navBarFixed;
 
     if (scrollDown || scrollUp) {
       this.setState({
@@ -92,8 +92,9 @@ class Nav extends Component {
         </Link>
         <>
           <div
-            className="header-container"
-            id={navBarFixed ? 'header-container-fixed' : null}
+            className={`header-container ${
+              navBarFixed ? 'header-container-fixed' : ''
+            }`}
           >
             <div className="fixed-header">
               <div className="main-menu">

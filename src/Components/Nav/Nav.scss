@@ -1,7 +1,6 @@
 @import '../../Styles/common.scss';
 
 .common-nav {
-  width: 100%;
   background-color: white;
 
   .user-menu {
@@ -98,7 +97,7 @@
     }
   }
 
-  #header-container-fixed {
+  .header-container-fixed {
     @extend %flexCenter;
     position: fixed;
     top: 0px;

@@ -1,5 +1,4 @@
 @import '../../../Styles/common.scss';
-@import '../../../Styles/reset.scss';
 
 .category-all,
 .subcategory-list {
@@ -39,7 +38,7 @@
   background-color: $gray-background;
 }
 
-#category-fixed {
+.category-fixed {
   position: fixed;
   z-index: 1000;
   top: 53px;

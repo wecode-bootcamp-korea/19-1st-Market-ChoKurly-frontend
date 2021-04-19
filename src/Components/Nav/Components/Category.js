@@ -13,15 +13,9 @@ class Category extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/category.json', {
-      method: 'GET',
-    })
+    fetch('/data/category.json')
       .then(res => res.json())
-      .then(categoryData => {
-        this.setState({
-          categoryList: categoryData,
-        });
-      });
+      .then(categoryList => this.setState({ categoryList }));
   }
 
   handleSubOn = e => {
@@ -44,8 +38,7 @@ class Category extends Component {
 
     return (
       <div
-        className="category-container"
-        id={navBarFixed ? 'category-fixed' : null}
+        className={`category-container ${navBarFixed ? 'category-fixed' : ''}`}
         onMouseLeave={handleCategoryOff}
       >
         <ul className="category-all">
