@@ -27,20 +27,20 @@ class Modal extends Component {
   };
 
   render() {
-    const price = 19000;
-    const price2 = price.toLocaleString('en-US');
     const { cartQuantity } = this.state;
     const { minusQuantity, addQuantity } = this;
-    const { addToCart, closeCart } = this.props;
+    const { addToCart, closeCart, cartName, cartPrice } = this.props;
 
     return (
       <div className="modal-container">
         <div className="cart-box">
           <div className="cart-product-name">
-            <span>초콜렛</span>
+            <span>{cartName}</span>
           </div>
           <div className="cart-quantity">
-            <div className="cart-price">{price2}원</div>
+            <div className="cart-price">
+              {Number(cartPrice).toLocaleString('en-US')}원
+            </div>
             <div className="quantity-button">
               <button onClick={minusQuantity} className="minus-button">
                 ﹣
@@ -53,7 +53,9 @@ class Modal extends Component {
           </div>
           <div className="cart-total">
             <span>합계</span>
-            <span>{(price * cartQuantity).toLocaleString('en-US')}원</span>
+            <span>
+              {(Number(cartPrice) * cartQuantity).toLocaleString('en-US')}원
+            </span>
           </div>
           <div className="cart-buttons">
             <button onClick={closeCart} className="close-button">

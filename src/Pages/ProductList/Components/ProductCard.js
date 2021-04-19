@@ -43,11 +43,17 @@ class ProductCard extends Component {
               <span>{product.name}</span>
             </Link>
             <div className="listed-price" style={fontStyle2}>
-              <span className="product-discount">{product.discount}%</span>
-              <span className="product-price">{product.price}원</span>
+              {product.sticker && (
+                <span className="product-discount">
+                  {(Number(product.discount) * 100).toLocaleString('en-US')}%
+                </span>
+              )}
+              <span className="product-price">
+                {Number(product.price).toLocaleString('en-US')}원
+              </span>
             </div>
             <div className="product-original-price">
-              {product.originalPrice}원
+              {Number(product.price).toLocaleString('en-US')}원
             </div>
             <div className="product-intro">{product.intro}</div>
           </div>

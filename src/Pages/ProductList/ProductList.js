@@ -11,6 +11,8 @@ class ProductList extends Component {
     this.state = {
       productList: [],
       clickCartButton: false,
+      cartName: '',
+      cartPrice: '',
       cartNumber: 0,
       productFilter: '',
     };
@@ -28,10 +30,13 @@ class ProductList extends Component {
       });
   }
 
-  openCart = () => {
+  openCart = (name, price) => {
     this.setState({
       clickCartButton: true,
+      cartName: name,
+      cartPrice: price,
     });
+    console.log(this.state.cartName);
   };
 
   closeCart = () => {
@@ -60,13 +65,15 @@ class ProductList extends Component {
       cartNumber,
       clickCartButton,
       productFilter,
+      cartName,
+      cartPrice,
     } = this.state;
 
     const { addToCart, closeCart, openCart, setFilter } = this;
     const filteredProductList = productList.filter(sub =>
       sub.subcategory.includes(productFilter)
     );
-    console.log(filteredProductList);
+
     return (
       <>
         <Nav cartNumber={cartNumber} />
@@ -139,7 +146,15 @@ class ProductList extends Component {
                           fontStyle2={{ fontSize: '18px' }}
                           productMargin={{ marginBottom: '100px' }}
                         />
-                        <button onClick={openCart} className="cart-button">
+                        <button
+                          key={item.id}
+                          id={item.id}
+                          name={item.name}
+                          onClick={() => {
+                            openCart(item.name, item.price);
+                          }}
+                          className="cart-button"
+                        >
                           <i className="fas fa-shopping-cart fa-lg"></i>
                         </button>
                       </div>
@@ -150,7 +165,12 @@ class ProductList extends Component {
             })}
           </div>
           {clickCartButton && (
-            <Modal addToCart={addToCart} closeCart={closeCart} />
+            <Modal
+              addToCart={addToCart}
+              closeCart={closeCart}
+              cartName={cartName}
+              cartPrice={cartPrice}
+            />
           )}
         </div>
       </>
