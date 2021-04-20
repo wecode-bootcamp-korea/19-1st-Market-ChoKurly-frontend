@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
-import { info } from 'node-sass';
 import QuantityBtn from '../QuantityBtn/QuantityBtn';
 import './Thumbnail.scss';
 
 class Thumbnail extends Component {
   state = {
     unit: 1,
-    sell_price: 9000,
+    sell_price: 0,
     sum: 0,
-    info: [],
+    info: {},
   };
 
   addItem = () => {
-    const { unit, sell_price, sum } = this.state;
+    const { unit, sell_price } = this.state;
     this.setState({
       unit: unit + 1,
       sum: unit * sell_price,
@@ -20,22 +19,23 @@ class Thumbnail extends Component {
   };
 
   delItem = () => {
-    const { unit, sell_price, sum } = this.state;
+    const { unit, sell_price } = this.state;
     console.log(unit);
     if (unit > 1) {
       this.setState({
-        unit: unit--,
+        unit: unit - 1,
         sum: unit * sell_price,
       });
     }
   };
 
   componentDidMount() {
-    fetch('/')
+    fetch('http://10.58.2.123:8000/products/7')
       .then(res => res.json())
-      .then(p => {
+      .then(data => {
+        console.log(data);
         this.setState({
-          info: p.result,
+          info: data.result[0],
         });
       });
   }
@@ -43,28 +43,28 @@ class Thumbnail extends Component {
   render() {
     const { sell_price, sum, unit, info } = this.state;
     const { addItem, delItem } = this;
-
     return (
       <section className="top-view">
         <article className="thumbnail-wrapper">
           <img
-            src={info.url && info.url}
-            alt="대표 이미지"
-            className="top-img"
+            src={info.thumbnail_image && info.thumbnail_image}
+            alt="대표"
+            className="top"
           />
           <div className="thumbnail-info">
             <dl className="goods-name">
-              <dt>[춰컬릿] 미니미 믹스 2종 (봉지)</dt>
-              <dd> 부담 없이 즐기는 미니 초콜릿</dd>
+              <dt>{info.name}</dt>
+              <dd> {info.comment}</dd>
             </dl>
             <div className="goods-price-wrapper">
               <div className="goods-price">
                 <p className="member">회원할인가</p>
                 <p className="member-price">
-                  <span className="price"> {sell_price}</span>
+                  <span className="price"> {info.price}</span>
                   <span className="unit"> 원 </span>
                   <span className="discount-percent">
-                    10<span> %</span>
+                    {info.discount_rate * 100}
+                    <span> %</span>
                   </span>
                 </p>
                 <p className="discount-price">
@@ -93,13 +93,17 @@ class Thumbnail extends Component {
                 <li className="subject">안내사항</li>
               </ul>
               <ul>
-                {this.state.info.map(ele => {
-                  return (
-                    <li className="content" key={ele.id}>
-                      {ele.data}
-                    </li>
-                  );
-                })}
+                <li className="subject">{info.sale_unit}</li>
+                <li className="subject">{info.weight_g}</li>
+                <li className="subject">{info.delivery_type}</li>
+                <li className="subject">{info.packing_type}</li>
+                <li className="subject">
+                  {info.allergy &&
+                    info.allergy.map(text => {
+                      return <p key={text.id}>{text.allergy}</p>;
+                    })}
+                </li>
+                <li className="subject">{info.instruction}</li>
               </ul>
             </div>
             <div className="goods-select-wrapper">

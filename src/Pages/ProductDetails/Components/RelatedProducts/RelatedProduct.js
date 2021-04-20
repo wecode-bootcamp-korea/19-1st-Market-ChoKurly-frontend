@@ -1,9 +1,23 @@
 import React, { Component } from 'react';
-import { RelatedProductData } from './RelatedProductData';
 import './RelatedProduct.scss';
 
 class RelatedProduct extends Component {
+  state = {
+    info: [],
+  };
+  componentDidMount() {
+    fetch('http://localhost:3000/productdetails/data/RelatedProduct.json')
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        this.setState({
+          info: data.result,
+        });
+      });
+  }
+
   render() {
+    const { info } = this.state;
     return (
       <section className="related-products-wrapper">
         <div className="lines"></div>
@@ -14,15 +28,19 @@ class RelatedProduct extends Component {
           </button>
           <div className="related-items-wrapper">
             <ul>
-              {RelatedProductData.map(price => {
-                return (
-                  <li key={price.id} className="related-items-list">
-                    <img src="../../../images/timtam.png" alt="no image" />
-                    <p className="item-name">{price.name}</p>
-                    <p className="item-price">{price.price}원</p>
-                  </li>
-                );
-              })}
+              {info.related_products &&
+                info.related_products.map(card => {
+                  return (
+                    <li key={card.id} className="related-items-list">
+                      <img
+                        src="../../../../../images/timtam.png"
+                        alt="no image"
+                      />
+                      <p className="item-name">{card.name}</p>
+                      <p className="item-price">{card.price}원</p>
+                    </li>
+                  );
+                })}
             </ul>
           </div>
           <button className="right-btn">
