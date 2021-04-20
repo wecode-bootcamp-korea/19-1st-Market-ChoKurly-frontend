@@ -1,46 +1,55 @@
 [
   {
     "id": 1,
+    "rel_img": "../images/macachoco",
     "name": "[팀탐] 앙마과자 4종",
     "price": 1000000000
   },
   {
     "id": 2,
+    "rel_img": "../images/timtam.png",
     "name": "우리집 건강한 딸기 요거트 750ml",
     "price": 2750
   },
   {
     "id": 3,
+    "rel_img": "../images/timtam.png",
     "name": "[팀탐] 앙마과자 4종",
     "price": 22020202020
   },
   {
     "id": 4,
+    "rel_img": "../images/macachoco",
     "name": "우리집 건강한 딸기 요거트 750ml",
     "price": 2750
   },
   {
     "id": 5,
+    "rel_img": "../images/timtam.png",
     "name": "[팀탐] 앙마과자 4종",
     "price": 2734534550
   },
   {
     "id": 6,
+    "rel_img": "../images/macachoco",
     "name": "우리집 건강한 딸기 요거트 750ml",
     "price": 0
   },
   {
     "id": 7,
+    "rel_img": "../images/timtam.png",
     "name": "우리집 건강한 딸기 요거트 750ml",
     "price": 0
   },
   {
     "id": 8,
+    "rel_img": "../images/timtam.png",
     "name": "우리집 건강한 딸기 요거트 750ml",
     "price": 0
   },
   {
     "id": 9,
+    "rel_img": "../images/timtam.png",
     "name": "우리집 건강한 딸기 요거트 750ml",
     "price": 0
   }

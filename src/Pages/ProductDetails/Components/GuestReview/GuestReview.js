@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import Taps from '../Taps/Taps';
 import './GuestReview.scss';
+
 class GuestReview extends Component {
   state = {
     text: '',
     guestReviews: [],
-    reviewer: ['dongdong2'],
+    // reviewer: ['dongdong2'],
     num: 1,
     id: 0,
-    date: Date.now(),
+    date: '',
   };
 
   handleInput = e => {
@@ -21,13 +22,16 @@ class GuestReview extends Component {
     const { id, text, guestReviews, num, reviewer, date } = this.state;
 
     this.setState({
-      guestReviews: guestReviews.concat({
-        text: text,
-        id: id + 1,
-        num: num + 1,
-        reviewer: reviewer,
-        date: date,
-      }),
+      guestReviews: [
+        ...guestReviews,
+        {
+          text: text,
+          id: id + 1,
+          num: num + 1,
+          reviewer: 'dongdong2',
+          date: new Date(),
+        },
+      ],
     });
   };
 
@@ -74,7 +78,7 @@ class GuestReview extends Component {
                   <div className="number">{comment.num}</div>
                   <div className="review">{comment.text}</div>
                   <div className="reviewer">{comment.reviewer}</div>
-                  <div className="date">{comment.date}</div>
+                  <div className="date">{String(comment.date)}</div>
                 </li>
               );
             })}

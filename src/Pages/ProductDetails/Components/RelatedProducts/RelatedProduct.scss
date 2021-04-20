@@ -25,46 +25,9 @@
     display: flex;
     margin-top: 30px;
     .related-items-wrapper {
-      width: auto;
+      width: 900px;
       overflow: hidden;
 
-      ul {
-        width: 100%;
-        display: flex;
-        margin-left: 5px;
-        white-space: nowrap;
-
-        .related-items-list {
-          width: 178px;
-          margin: 0 5px;
-          border: 1px solid #ddd;
-          display: inline-block;
-
-          img {
-            width: 178px;
-            height: 229px;
-          }
-
-          .item-name {
-            width: 168px;
-            height: 35px;
-            margin: 10px 5px 0 5px;
-            font-size: 14px;
-            color: $main-gray;
-            font-weight: 700;
-            white-space: pre-wrap;
-            word-break: break-all;
-          }
-
-          .item-price {
-            width: 158px;
-            height: 35px;
-            margin-left: 5px;
-            font-size: 14px;
-            color: $main-gray;
-          }
-        }
-      }
       button {
         width: 30px;
         height: 100;

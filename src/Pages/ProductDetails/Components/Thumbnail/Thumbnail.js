@@ -30,7 +30,7 @@ class Thumbnail extends Component {
   };
 
   componentDidMount() {
-    fetch('http://10.58.2.123:8000/products/7')
+    fetch('http://10.58.6.70:8000/products/7')
       .then(res => res.json())
       .then(data => {
         console.log(data);
