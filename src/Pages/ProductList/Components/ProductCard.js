@@ -24,6 +24,7 @@ class ProductCard extends Component {
       fontStyleBig,
       fontStyleSmall,
       productMargin,
+      productLimited,
     } = this.props;
 
     return (
@@ -32,11 +33,13 @@ class ProductCard extends Component {
           <Link
             to="/main"
             className={productBig ? 'product-link-big' : 'product-link'}
+            style={productLimited}
           >
             <img
               className="product-img"
               alt="product"
               src={product.thumbnail_image}
+              style={productLimited}
             />
           </Link>
           <div className="product-info">
@@ -62,7 +65,11 @@ class ProductCard extends Component {
               </div>
             )}
             {product.comment && (
-              <div className="product-intro">{product.comment}</div>
+              <div
+                className={productBig ? 'product-intro-big' : 'product-intro'}
+              >
+                {product.comment}
+              </div>
             )}
           </div>
           {product.sticker && (

@@ -18,13 +18,11 @@ class ProductList extends Component {
   }
 
   componentDidMount() {
-    fetch(
-      'http://10.58.5.220:8000/products/category/list?sub_category_id=58&order_by_type=%3F'
-    )
+    fetch('/data/productlist_chocolate.json')
       .then(res => res.json())
       .then(productData => {
         this.setState({
-          productList: productData.results,
+          productList: productData.result,
         });
       });
   }
