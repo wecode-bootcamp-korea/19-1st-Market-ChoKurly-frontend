@@ -65,7 +65,11 @@ class ProductCard extends Component {
               </div>
             )}
             {product.comment && (
-              <div className="product-intro">{product.comment}</div>
+              <div
+                className={productBig ? 'product-intro-big' : 'product-intro'}
+              >
+                {product.comment}
+              </div>
             )}
           </div>
           {product.sticker && (

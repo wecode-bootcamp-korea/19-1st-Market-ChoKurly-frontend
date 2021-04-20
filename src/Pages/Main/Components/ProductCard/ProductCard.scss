@@ -65,14 +65,15 @@
       }
 
       .product-original-price,
-      .product-intro {
+      .product-intro,
+      .product-intro-big {
         margin-top: 10px;
         font-size: 14px;
         color: $medium-gray;
       }
 
-      .product-intro {
-        width: 100%;
+      .product-intro-big {
+        width: 310px;
       }
 
       .product-original-price {
