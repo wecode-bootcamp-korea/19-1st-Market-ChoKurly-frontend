@@ -73,7 +73,7 @@ class LimitedEvent extends Component {
           <div className="event-product">
             <ProductCard
               product={eventProduct}
-              productSize={{
+              productLimited={{
                 height: '340px',
                 width: '695px',
               }}

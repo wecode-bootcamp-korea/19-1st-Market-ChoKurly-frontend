@@ -20,29 +20,33 @@ class ProductCard extends Component {
     const {
       product,
       moveX,
-      productSize,
-      productBorder,
-      fontStyle,
-      fontStyle2,
+      productBig,
+      fontStyleBig,
+      fontStyleSmall,
       productMargin,
+      productLimited,
     } = this.props;
 
     return (
       <div className="product-card-container" style={productMargin}>
         <div key={product.id} className="product-card" style={moveX}>
-          <Link to="/main" className="product-link" style={productSize}>
+          <Link
+            to="/main"
+            className={productBig ? 'product-link-big' : 'product-link'}
+            style={productLimited}
+          >
             <img
               className="product-img"
               alt="product"
               src={product.thumbnail_image}
-              style={{ ...productSize, ...productBorder }}
+              style={productLimited}
             />
           </Link>
           <div className="product-info">
-            <Link to="/main" className="product-name" style={fontStyle}>
+            <Link to="/main" className="product-name" style={fontStyleBig}>
               <span>{product.name}</span>
             </Link>
-            <div className="listed-price" style={fontStyle2}>
+            <div className="listed-price" style={fontStyleSmall}>
               {product.discount_rate && (
                 <span className="product-discount">
                   {(product.discount_rate * 100).toLocaleString('en-US')}%
@@ -51,13 +55,13 @@ class ProductCard extends Component {
               <span className="product-price">
                 {product.discounted_price
                   ? product.discounted_price.toLocaleString('en-US')
-                  : Number(product.original_price).toLocaleString('en-US')}
+                  : product.original_price.toLocaleString('en-US')}
                 원
               </span>
             </div>
             {product.discount_rate && (
               <div className="product-original-price">
-                {Number(product.original_price).toLocaleString('en-US')}원
+                {product.original_price.toLocaleString('en-US')}원
               </div>
             )}
             {product.comment && (
