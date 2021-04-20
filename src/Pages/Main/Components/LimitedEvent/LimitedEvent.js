@@ -2,6 +2,17 @@ import React, { Component } from 'react';
 import ProductCard from '../ProductCard/ProductCard';
 import './LimitedEvent.scss';
 
+const eventProduct = {
+  id: 1,
+  thumbnail_image: '/images/Main/limited.jpg',
+  name: '[디저트] 달달한 생크림과 팬케이크',
+  discount_rate: 0.15,
+  discounted_price: 17850,
+  original_price: 21000,
+  sticker: '20%농할쿠폰',
+  comment: '기분을 좋게 하는 달콤함!',
+};
+
 class LimitedEvent extends Component {
   constructor() {
     super();
@@ -52,16 +63,6 @@ class LimitedEvent extends Component {
 
   render() {
     const { time } = this.state;
-    const eventProduct = {
-      id: 1,
-      thumbnail_image: '/images/Main/limited.jpg',
-      name: '1[디저트] 솔티드 버터 캐러멜 2종',
-      discount_rate: 0.15,
-      discounted_price: 1900,
-      original_price: 21000,
-      sticker: '20%농할쿠폰',
-      comment: '피부 미용에 도움을 주는 캐러멜!',
-    };
     return (
       <div className="event-container">
         <div className="event-info">
