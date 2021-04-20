@@ -18,13 +18,13 @@ class ProductList extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/productlist_chocolate.json', {
-      method: 'GET',
-    })
+    fetch(
+      'http://10.58.5.220:8000/products/category/list?sub_category_id=58&order_by_type=%3F'
+    )
       .then(res => res.json())
       .then(productData => {
         this.setState({
-          productList: productData.result,
+          productList: productData.results,
         });
       });
   }
@@ -58,14 +58,7 @@ class ProductList extends Component {
   };
 
   render() {
-    const {
-      productList,
-      cartNumber,
-      clickCartButton,
-      cartName,
-      cartPrice,
-    } = this.state;
-
+    const { productList, clickCartButton, cartName, cartPrice } = this.state;
     const { addToCart, closeCart, openCart, setFilter } = this;
 
     return (
@@ -117,25 +110,15 @@ class ProductList extends Component {
             </div>
           </div>
           <div className="product-list">
-            {productList.map((product, index) => {
+            {productList.map(product => {
               return (
-                <div
-                  key={product.id}
-                  // id={product.subcategory}
-                  className="product-container"
-                >
+                <div key={product.id} className="product-container">
                   <div className="product-card-button" key={product.id}>
                     <ProductCard
                       product={product}
-                      productSize={{
-                        height: '395px',
-                        width: '310px',
-                      }}
-                      productBorder={{
-                        border: '1px solid #ddd',
-                      }}
-                      fontStyle={{ fontSize: '20px' }}
-                      fontStyle2={{ fontSize: '18px' }}
+                      productBig={true}
+                      fontStyleBig={{ fontSize: '20px' }}
+                      fontStyleSmall={{ fontSize: '18px' }}
                       productMargin={{ marginBottom: '100px' }}
                     />
                     <button

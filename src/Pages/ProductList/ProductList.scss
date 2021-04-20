@@ -95,24 +95,24 @@
       position: relative;
     }
   }
-}
 
-.cart-button {
-  position: absolute;
-  bottom: 230px;
-  right: 25px;
-  width: 45px;
-  height: 45px;
-  background-color: $main-purple;
-  opacity: 0.5;
-  border-style: none;
-  border-radius: 50%;
-  cursor: pointer;
+  .cart-button {
+    position: absolute;
+    bottom: 230px;
+    right: 25px;
+    width: 45px;
+    height: 45px;
+    background-color: $main-purple;
+    opacity: 0.5;
+    border-style: none;
+    border-radius: 50%;
+    cursor: pointer;
 
-  i {
-    color: white;
+    i {
+      color: white;
 
-    left: 12px;
-    top: 17px;
+      left: 12px;
+      top: 17px;
+    }
   }
 }

@@ -1,5 +1,4 @@
 @import '../../../Styles/common.scss';
-@import '../../../Styles//reset.scss';
 
 .modal-container {
   @extend %flexCenter;
@@ -26,6 +25,7 @@
 
   .cart-quantity {
     align-items: center;
+
     .quantity-button {
       border: 1px solid #ddd;
       button {

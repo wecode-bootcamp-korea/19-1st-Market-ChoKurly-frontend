@@ -3,6 +3,7 @@
 
 .product-card-container {
   margin-bottom: 20px;
+
   .product-card {
     position: relative;
     display: flex;
@@ -18,6 +19,21 @@
       .product-img {
         width: 245px;
         height: 320px;
+      }
+    }
+
+    .product-link-big {
+      width: 310px;
+      height: 395px;
+      overflow: hidden;
+
+      .product-img {
+        width: 310px;
+        height: 395px;
+        border: 1px solid #ddd;
+      }
+
+      .product-img {
         margin-bottom: 15px;
         transition: transform 0.5s ease;
 
