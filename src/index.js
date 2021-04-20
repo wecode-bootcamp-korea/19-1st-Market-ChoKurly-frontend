@@ -4,4 +4,4 @@ import Routes from './Routes';
 import './Styles/common.scss';
 import './Styles/reset.scss';
 
-ReactDOM.render(<Routes /> ,document.getElementById('root'));
+ReactDOM.render(<Routes />, document.getElementById('root'));
