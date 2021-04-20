@@ -6,7 +6,7 @@ class Findpw extends Component {
     super();
     this.state = {
       email: '',
-      id: '',
+      identification: '',
       name: '',
     };
   }
@@ -28,7 +28,13 @@ class Findpw extends Component {
 
     fetch('http://10.58.6.178:8000/users/find-password', find_pw)
       .then(response => response.json())
-      .then(result => console.log('결과: ', result));
+      .then(result => {
+        if (result['MESSAGE'] === 'SUCCESS') {
+          alert('임시 비밀번호가 해당메일로 전송되었습니다.');
+        } else {
+          alert('존재하지 않는 고객입니다.');
+        }
+      });
   };
   render() {
     return (
@@ -50,7 +56,7 @@ class Findpw extends Component {
               <strong>아이디</strong>
               <input
                 type="text"
-                name="id"
+                name="identification"
                 className="findId"
                 size="29"
                 placeholder="가입 시 등록하신 아이디를 입력해주세요"
@@ -65,7 +71,11 @@ class Findpw extends Component {
                 placeholder="가입 시 등록하신 이메일 주소를 입력해주세요"
                 onChange={this.handleInput}
               />
-              <button type="submit" className="find_submit">
+              <button
+                type="submit"
+                className="find_submit"
+                onClick={this.handleSubmit}
+              >
                 찾기
               </button>
             </div>

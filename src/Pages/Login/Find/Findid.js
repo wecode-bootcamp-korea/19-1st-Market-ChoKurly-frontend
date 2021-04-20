@@ -7,7 +7,6 @@ class Findid extends Component {
     this.state = {
       name: '',
       email: '',
-      finded: '',
     };
   }
   //인풋창 핸들링
@@ -35,9 +34,6 @@ class Findid extends Component {
         ) {
           alert('입력값을 확인해주세요.');
         } else {
-          this.setState({
-            finded: result,
-          });
           alert(`고객님의 아이디는 ${result['MESSAGE']}입니다.`);
           console.log(result);
         }

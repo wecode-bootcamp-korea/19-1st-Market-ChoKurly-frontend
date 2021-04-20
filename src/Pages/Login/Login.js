@@ -89,7 +89,6 @@ class Login extends Component {
                     <div className="login_checkbox_wrap">
                       <input type="checkbox" name="chk_security" value="y" />
                       <p>보안접속</p>
-                      {/* <span>보안접속</span> */}
                     </div>
                     <div className="login_search">
                       <Link to="/Findid" className="link">
@@ -101,11 +100,7 @@ class Login extends Component {
                       </Link>
                     </div>
                   </div>
-                  <button
-                    type="submit"
-                    className="login_btn"
-                    // onClick={this.handleSubmit}
-                  >
+                  <button type="submit" className="login_btn">
                     로그인
                   </button>
                 </form>
