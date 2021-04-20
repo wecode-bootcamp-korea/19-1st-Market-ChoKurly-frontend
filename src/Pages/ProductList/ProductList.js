@@ -15,12 +15,14 @@ class ProductList extends Component {
       cartNumber: 0,
       productFilter: '',
       sortId: '',
+      isClicked: false,
     };
   }
 
   componentDidMount() {
     fetch(
-      'http://localhost:8000/products/list?sub_category_id=59&order_by_type=%3F'
+      '/data/productList_chocolate.json'
+      // 'http://localhost:8000/products/list?sub_category_id=59&order_by_type=%3F'
     )
       .then(res => res.json())
       .then(productData => {
@@ -52,7 +54,12 @@ class ProductList extends Component {
     });
   };
 
-  handleFilter = (sub, num) => {
+  handleFilter = (sub, num, e) => {
+    const { isClicked } = this.state;
+    this.setState({
+      isClicked: !isClicked,
+    });
+
     fetch(
       `http://localhost:8000/products/list?${sub}category_id=${num}&order_by_type=%3F`
     )
@@ -79,9 +86,22 @@ class ProductList extends Component {
   };
 
   render() {
-    const { productList, clickCartButton, cartName, cartPrice } = this.state;
-    const { addToCart, closeCart, openCart, handleFilter, handleSort } = this;
-    console.log(this.state.sortId);
+    const {
+      productList,
+      clickCartButton,
+      cartName,
+      cartPrice,
+      isClicked,
+    } = this.state;
+    const {
+      addToCart,
+      closeCart,
+      openCart,
+      handleFilter,
+      handleSort,
+      sortId,
+    } = this;
+
     return (
       <>
         {/* <Nav cartNumber={cartNumber} /> */}
@@ -102,37 +122,41 @@ class ProductList extends Component {
                 <span
                   onClick={() => handleFilter(null, 9)}
                   className="sub-name"
+                  value="all"
                 >
                   전체 보기
                 </span>
                 <span
                   onClick={() => handleFilter('sub_', 58)}
                   className="sub-name"
+                  value="snack"
                 >
                   과자･스낵･쿠키
                 </span>
                 <span
                   onClick={() => handleFilter('sub_', 59)}
-                  className="chocolate sub-name"
+                  className="sub-name"
+                  value="chocolate"
                 >
                   초콜릿･젤리･캔디
                 </span>
                 <span
                   onClick={() => handleFilter('sub_', 60)}
                   className="sub-name"
+                  value="rice-cake"
                 >
                   떡･한과
                 </span>
-                <span onClick={() => handleFilter(61)} className="sub-name">
+                <span
+                  onClick={() => handleFilter('sub_', 61)}
+                  className="sub-name"
+                  value="icecream"
+                >
                   아이스크림
                 </span>
               </div>
               <div className="filter-container">
-                <select
-                  className="filter"
-                  onChange={handleSort}
-                  value={this.state.sortId}
-                >
+                <select className="filter" onChange={handleSort} value={sortId}>
                   <option value="created_at">신상품순</option>
                   <option value="-price">낮은가격순</option>
                   <option value="price">높은가격순</option>

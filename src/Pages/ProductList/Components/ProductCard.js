@@ -31,7 +31,7 @@ class ProductCard extends Component {
       <div className="product-card-container" style={productMargin}>
         <div key={product.id} className="product-card" style={moveX}>
           <Link
-            to="/main"
+            to={`/productdetails/${product.id}`}
             className={productBig ? 'product-link-big' : 'product-link'}
             style={productLimited}
           >
@@ -43,7 +43,11 @@ class ProductCard extends Component {
             />
           </Link>
           <div className="product-info">
-            <Link to="/main" className="product-name" style={fontStyleBig}>
+            <Link
+              to={`/productdetails/${product.id}`}
+              className="product-name"
+              style={fontStyleBig}
+            >
               <span>{product.name}</span>
             </Link>
             <div className="listed-price" style={fontStyleSmall}>
