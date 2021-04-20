@@ -9,6 +9,8 @@ import ProductList from './Pages/ProductList/ProductList';
 import ProductDetails from './Pages/ProductDetails/ProductDetails';
 import Cart from './Pages/Cart/Cart';
 
+import './Styles/common.scss';
+
 class Routes extends Component {
   render() {
     return (

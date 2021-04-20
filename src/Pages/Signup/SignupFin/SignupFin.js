@@ -5,8 +5,8 @@ import './SignupFin.scss';
 class SignupFin extends Component {
   render() {
     return (
-      <div id="SignupFin-Main">
-        <div id="SignupFin-Content">
+      <div className="SignupFin-Main">
+        <div className="SignupFin-Content">
           <div className="SignupFin-Wrap">
             <div className="SignupFin-Form">
               <div className="SignupFin-Ment">
