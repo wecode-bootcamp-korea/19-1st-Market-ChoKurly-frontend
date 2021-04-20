@@ -12,7 +12,7 @@ class Tags extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/tags.json', {
+    fetch('http://localhost:3000/data/mdtags.json', {
       method: 'GET',
     })
       .then(res => res.json())

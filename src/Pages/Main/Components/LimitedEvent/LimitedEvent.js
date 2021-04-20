@@ -19,23 +19,32 @@ class LimitedEvent extends Component {
   }
 
   setTimer = () => {
-    const x = setInterval(() => {
+    const timer = setInterval(() => {
       let countdownDate = new Date('Apr 24, 2021, 00:00:00').getTime();
       let now = new Date().getTime();
-      let remaining = countdownDate - now;
-      let hours = Math.floor(
-        (remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      );
-      let minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
-      let seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+      let remainingTime = countdownDate - now;
+      const MILLISECONDS = 1000;
+      const SECONDS = 60;
+      const MINUTES = 60;
+      const HOURS = 24;
+      const MSSSMMHH = MILLISECONDS * SECONDS * MINUTES * HOURS;
+      const MSSSMM = MILLISECONDS * SECONDS * MINUTES;
+      const MSSS = MILLISECONDS * SECONDS;
+
+      let hours = Math.floor((remainingTime % MSSSMMHH) / MSSSMM);
+      let minutes = Math.floor((remainingTime % MSSSMM) / MSSS);
+      let seconds = Math.floor((remainingTime % MSSS) / MILLISECONDS);
+
       const twoDigits = time => {
         return (time < 10 ? '0' : '') + time;
       };
+
       this.setState({
         time: `${twoDigits(hours)}:${twoDigits(minutes)}:${twoDigits(seconds)}`,
       });
-      if (remaining < 0) {
-        clearInterval(x);
+
+      if (remainingTime < 0) {
+        clearInterval(timer);
         return;
       }
     }, 1000);

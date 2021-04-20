@@ -11,7 +11,7 @@ class Slide extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/mainImgSlide.json', {
+    fetch('http://localhost:3000/data/bannerSlide.json', {
       method: 'GET',
     })
       .then(res => res.json())
