@@ -14,15 +14,18 @@ class ProductList extends Component {
       cartPrice: '',
       cartNumber: 0,
       productFilter: '',
+      sortId: '',
     };
   }
 
   componentDidMount() {
-    fetch('/data/productlist_chocolate.json')
+    fetch(
+      'http://localhost:8000/products/list?sub_category_id=59&order_by_type=%3F'
+    )
       .then(res => res.json())
       .then(productData => {
         this.setState({
-          productList: productData.result,
+          productList: productData.results,
         });
       });
   }
@@ -49,16 +52,36 @@ class ProductList extends Component {
     });
   };
 
-  setFilter = subName => {
-    this.setState({
-      productFilter: subName,
-    });
+  handleFilter = (sub, num) => {
+    fetch(
+      `http://localhost:8000/products/list?${sub}category_id=${num}&order_by_type=%3F`
+    )
+      .then(res => res.json())
+      .then(filteredProducts => {
+        this.setState({
+          productList: filteredProducts.results,
+        });
+      });
+  };
+
+  handleSort = e => {
+    this.setState({ sortId: e.target.value });
+
+    fetch(
+      `http://localhost:8000/products/list?sub_category_id=59&order_by_type=${this.state.sortId}`
+    )
+      .then(res => res.json())
+      .then(filteredProducts => {
+        this.setState({
+          productList: filteredProducts.results,
+        });
+      });
   };
 
   render() {
     const { productList, clickCartButton, cartName, cartPrice } = this.state;
-    const { addToCart, closeCart, openCart, setFilter } = this;
-
+    const { addToCart, closeCart, openCart, handleFilter, handleSort } = this;
+    console.log(this.state.sortId);
     return (
       <>
         {/* <Nav cartNumber={cartNumber} /> */}
@@ -77,32 +100,42 @@ class ProductList extends Component {
             <div className="sub-title">
               <div className="sub-names">
                 <span
-                  onClick={() => setFilter('과자･스낵･쿠키')}
+                  onClick={() => handleFilter(null, 9)}
+                  className="sub-name"
+                >
+                  전체 보기
+                </span>
+                <span
+                  onClick={() => handleFilter('sub_', 58)}
                   className="sub-name"
                 >
                   과자･스낵･쿠키
                 </span>
                 <span
-                  onClick={() => setFilter('초콜릿･젤리･캔디')}
+                  onClick={() => handleFilter('sub_', 59)}
                   className="chocolate sub-name"
                 >
                   초콜릿･젤리･캔디
                 </span>
-                <span onClick={() => setFilter('떡･한과')} className="sub-name">
-                  떡･한과
-                </span>
                 <span
-                  onClick={() => setFilter('아이스크림')}
+                  onClick={() => handleFilter('sub_', 60)}
                   className="sub-name"
                 >
+                  떡･한과
+                </span>
+                <span onClick={() => handleFilter(61)} className="sub-name">
                   아이스크림
                 </span>
               </div>
               <div className="filter-container">
-                <select className="filter" name="추천순">
-                  <option>신상품순</option>
-                  <option>낮은가격순</option>
-                  <option>높은가격순</option>
+                <select
+                  className="filter"
+                  onChange={handleSort}
+                  value={this.state.sortId}
+                >
+                  <option value="created_at">신상품순</option>
+                  <option value="-price">낮은가격순</option>
+                  <option value="price">높은가격순</option>
                 </select>
               </div>
             </div>
