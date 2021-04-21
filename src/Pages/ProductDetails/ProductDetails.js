@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Thumbnail from './Components/Thumbnail/Thumbnail';
 import RelatedProduct from './Components/RelatedProducts/RelatedProduct';
 import GoodsDetails from './Components/GoodsDetails/GoodsDetails';
+import Footer from '../../Components/Footer/Footer';
 import './ProductDetails.scss';
 
 class ProductDetails extends Component {
@@ -11,6 +12,7 @@ class ProductDetails extends Component {
         <Thumbnail />
         <RelatedProduct />
         <GoodsDetails />
+        <Footer />
       </main>
     );
   }
