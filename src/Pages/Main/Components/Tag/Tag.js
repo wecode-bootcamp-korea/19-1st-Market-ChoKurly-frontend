@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import './Tag.scss';
 
 class Tags extends Component {
@@ -28,11 +29,14 @@ class Tags extends Component {
       isClicked: true,
       activeTag: index,
     });
+
+    this.props.history.push(`/md/${index + 1}`);
   };
 
   render() {
     const { tags } = this.state;
     const { handleClick } = this;
+
     return (
       <ul className="tags-container">
         {tags.map((tag, index) => {
@@ -52,4 +56,4 @@ class Tags extends Component {
   }
 }
 
-export default Tags;
+export default withRouter(Tags);
