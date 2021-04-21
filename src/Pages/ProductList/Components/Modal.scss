@@ -1,0 +1,75 @@
+@import '../../../Styles/common.scss';
+
+.modal-container {
+  @extend %flexCenter;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 3000;
+  background-color: rgba(0, 0, 0, 0.6);
+
+  .cart-box {
+    display: grid;
+    box-sizing: border-box;
+    padding: 40px 30px 30px 30px;
+    width: 450px;
+    height: 340px;
+    background-color: white;
+    border-radius: 10px;
+  }
+  .cart-product-name {
+    margin-bottom: 10px;
+  }
+
+  .cart-quantity {
+    align-items: center;
+
+    .quantity-button {
+      border: 1px solid #ddd;
+      button {
+        border-style: none;
+        width: 40px;
+        height: 40px;
+        margin: 2px;
+        font-size: 20px;
+        background-color: transparent;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .cart-total {
+    margin: 60px 0 40px 0;
+    font-size: 20px;
+  }
+
+  .cart-quantity,
+  .cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+  }
+
+  .cart-buttons {
+    margin: auto 0;
+    button {
+      border-style: none;
+      font-size: 18px;
+      width: 180px;
+      height: 60px;
+      cursor: pointer;
+    }
+    .close-button {
+      margin-right: 30px;
+      background-color: white;
+      border: 1px solid #ddd;
+    }
+
+    .add-button {
+      background-color: $main-purple;
+      color: white;
+    }
+  }
+}
