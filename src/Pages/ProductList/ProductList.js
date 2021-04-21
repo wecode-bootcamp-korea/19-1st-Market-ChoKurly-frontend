@@ -25,17 +25,17 @@ class ProductList extends Component {
 
   componentDidMount() {
     fetch(
-      // '/data/productList_chocolate.json'
-      `http://localhost:8000/products/list?sub_category_id=${
-        this.props.params.id + 57
-      }&order_by_type=%3F&page=1&limit=6`
+      '/data/productList_chocolate.json'
+      // `http://10.58.5.220:8000/products/list?sub_category_id=${
+      //   Number(this.props.match.params.id) + 57
+      // }&order_by_type=%3F&page=1&limit=6`
     )
       .then(res => res.json())
       .then(productData => {
         this.setState({
           productList: productData.results,
           categoryType: 'sub_',
-          filterId: this.props.params.id + 57,
+          filterId: Number(this.props.match.params.id) + 57,
         });
       });
   }
@@ -70,8 +70,9 @@ class ProductList extends Component {
       filterId: num,
     });
 
-    fetch()
-      // `http://localhost:8000/products/list?${sub}category_id=${num}&order_by_type=%3F&page=1&limit=6`
+    fetch(
+      `http://10.58.5.220:8000/products/list?${sub}category_id=${num}&order_by_type=%3F&page=1&limit=6`
+    )
       .then(res => res.json())
       .then(filteredProducts => {
         this.setState({
@@ -83,8 +84,9 @@ class ProductList extends Component {
   handleSort = e => {
     this.setState({ sortId: e.target.value });
 
-    fetch()
-      // `http://localhost:8000/products/list?sub_category_id=59&order_by_type=${this.state.sortId}&page=1&limit=6`
+    fetch(
+      `http://10.58.5.220:8000/products/list?sub_category_id=59&order_by_type=${this.state.sortId}&page=1&limit=6`
+    )
       .then(res => res.json())
       .then(filteredProducts => {
         this.setState({
@@ -96,7 +98,7 @@ class ProductList extends Component {
   handlePage = num => {
     const { categoryType, filterId } = this.state;
     fetch(
-      `http://localhost:8000/products/list?${categoryType}category_id=${filterId}&order_by_type=%3F&page=${num}&limit=6`
+      `http://10.58.5.220:8000/products/list?${categoryType}category_id=${filterId}&order_by_type=%3F&page=${num}&limit=6`
     );
   };
 
@@ -119,8 +121,6 @@ class ProductList extends Component {
       sortId,
       handlePage,
     } = this;
-
-    console.log(this.props);
 
     return (
       <>
