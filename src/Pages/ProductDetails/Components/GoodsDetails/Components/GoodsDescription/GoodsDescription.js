@@ -2,13 +2,28 @@ import Taps from 'Pages/ProductDetails/Components/Taps/Taps';
 import React, { Component } from 'react';
 import './GoodsDescription.scss';
 class GoodsDescription extends Component {
+  state = {
+    info: [],
+  };
+  componentDidMount() {
+    fetch('http://localhost:3000/data/ThumbnailData.json')
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        this.setState({
+          info: data[0],
+        });
+      });
+  }
   render() {
+    const { info } = this.state;
+
     return (
       <ariticle className="goods-description-wrapper">
         <div className="goods-description">
           <div className="goods-intro">
             <div className="goods-img">
-              <img src="../../../../../images/ribonchoco.jpg" alt="no image" />
+              <img src={info.description_image} alt="no image" />
             </div>
             <p className="goods-intro-info">
               <h3>부담없이 즐기는 미니 초콜릿</h3>
@@ -31,7 +46,9 @@ class GoodsDescription extends Component {
           <div className="goods-point">
             <span> ChocKurly's Check Point </span>
             <img
-              src="//img-cf.kurly.com/shop/data/goodsview/20191106/gv30000067069_1.jpg"
+              src={
+                '//img-cf.kurly.com/shop/data/goodsview/20191106/gv30000067069_1.jpg'
+              }
               alt="no image"
             />
           </div>
@@ -51,6 +68,8 @@ class GoodsDescription extends Component {
             </p>
           </div>
         </div>
+        <Taps />
+        <img src={info.size_image} alt="choKurly" />
       </ariticle>
     );
   }

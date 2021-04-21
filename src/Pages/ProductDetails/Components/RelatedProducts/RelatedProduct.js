@@ -7,34 +7,36 @@ class RelatedProduct extends Component {
     this.state = {
       x: 0,
       sliderArr: [],
-      setX: 1,
       info: {},
     };
   }
 
   goLeft = () => {
     const { x, sliderArr } = this.state;
-    // x === 0 ? setX(-100 * (sliderArr.length - 1)) : setX(x + 100);
+    x === 0 ? this.setState({ x: 0 }) : this.setState({ x: x + 100 });
   };
 
   goRight = () => {
     const { x, sliderArr } = this.state;
-    // x === -100 * (sliderArr.length - 1) ? setX(0) : setX(x - 100);
+    x === -100 * (sliderArr.length - 1)
+      ? this.setState({ x: 0 })
+      : this.setState({ x: x - 100 });
   };
 
   componentDidMount() {
-    fetch('http://10.58.6.70:8000/products/7')
+    fetch('http://localhost:3000/data/ThumbnailData.json')
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         this.setState({
-          info: data.result[0],
+          info: data[0],
+          sliderArr: data[0],
         });
       });
   }
 
   render() {
-    const { x, sliderArr, setX, info } = this.state;
+    const { x, sliderArr, info } = this.state;
+
     return (
       <section className="related-products-wrapper">
         <div className="lines"></div>
@@ -43,30 +45,27 @@ class RelatedProduct extends Component {
           <button className="left-btn" onClick={this.goLeft}>
             <i class="fas fa-chevron-left"></i>
           </button>
-
-          {/* {sliderArr.map(info, index => {
-            return (
-              <div
-                key={index}
-                className="slide"
-                style={{ transform: `translateX(${x}%)` }}
-                className="related-items-wrapper"
-              >
-                <ul className="img-wrapper">
-                  {info.realted_products &&
-                    info.realted_products.map(card => {
-                      return (
-                        <li key={card.id} className="related-items-list">
-                          <img src={card.rel_img} alt="no image" />
-                          <p className="item-name">{card.name}</p>
-                          <p className="item-price">{card.price}원</p>
-                        </li>
-                      );
-                    })}
-                </ul>
-              </div>
-            );
-          })} */}
+          <div className="related-items-wrapper">
+            <ul
+              className="img-wrapper"
+              style={{ transform: `translateX(${x}%)` }}
+            >
+              {sliderArr.realted_products &&
+                sliderArr.realted_products.map(el => {
+                  return (
+                    <li key={el.id} className="related-items-list">
+                      <img
+                        src={el.rel_img}
+                        className="item-image"
+                        alt="no image"
+                      />
+                      <p className="item-name">{el.name}</p>
+                      <p className="item-price">{el.price}원</p>
+                    </li>
+                  );
+                })}
+            </ul>
+          </div>
           <button className="right-btn" onClick={this.goRight}>
             <i class="fas fa-chevron-right"></i>
           </button>

@@ -6,7 +6,6 @@ class GuestReview extends Component {
   state = {
     text: '',
     guestReviews: [],
-    // reviewer: ['dongdong2'],
     num: 1,
     id: 0,
   };
@@ -110,7 +109,7 @@ class GuestReview extends Component {
                 <li key={comment.id} className="reviews">
                   <div className="number">{comment.num}</div>
                   <div className="review">{comment.text}</div>
-                  <div className="reviewer">{comment.reviewer}</div>
+                  <div className="reviewer">백엔드 플리스 김미아이디</div>
                   <div className="date">{String(comment.date)}</div>
                 </li>
               );

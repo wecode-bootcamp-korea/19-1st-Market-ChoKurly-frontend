@@ -125,6 +125,15 @@
             color: $midium-gray;
           }
 
+          .subject-content {
+            width: 410px;
+            height: 57px;
+            display: flex;
+            align-items: center;
+            border-top: 1px solid #eee;
+            color: $midium-gray;
+          }
+
           .content {
             width: 410px;
             height: 57px;
@@ -148,10 +157,10 @@
           color: $midium-gray;
         }
         .goods-select {
-          width: 410px;
+          width: auto;
           padding-top: 6px;
 
-          select {
+          .goods-list {
             width: 410px;
             height: 40px;
             border: 1px solid rgb(204, 203, 203);
@@ -163,12 +172,12 @@
             padding-left: 10px;
           }
 
-          ul {
-            width: 410px;
+          .list {
             margin-top: 10px;
-            li {
-              width: 383px;
-              height: 62px;
+
+            .goods-own {
+              width: 410px;
+              height: 80px;
               padding: 9px 10px 9px 15px;
               border: 1px solid #eee;
               border-radius: 1px;
@@ -193,6 +202,7 @@
                   }
                 }
               }
+
               .fixed-price {
                 width: auto;
                 display: flex;

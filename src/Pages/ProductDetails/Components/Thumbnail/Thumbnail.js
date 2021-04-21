@@ -4,45 +4,47 @@ import './Thumbnail.scss';
 
 class Thumbnail extends Component {
   state = {
-    unit: 1,
-    sell_price: 0,
-    sum: 0,
     info: {},
+    number: 0,
   };
 
-  addItem = () => {
-    const { unit, sell_price } = this.state;
+  handleIncrease = () => {
+    if (this.state.number > 30) {
+      return 30;
+    }
     this.setState({
-      unit: unit + 1,
-      sum: unit * sell_price,
+      number: this.state.number + 1,
     });
   };
 
-  delItem = () => {
-    const { unit, sell_price } = this.state;
-    console.log(unit);
-    if (unit > 1) {
-      this.setState({
-        unit: unit - 1,
-        sum: unit * sell_price,
-      });
+  handleDecrease = () => {
+    if (this.state.number < 2) {
+      return 1;
     }
+    this.setState({
+      number: this.state.number - 1,
+    });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
   };
 
   componentDidMount() {
-    fetch('http://10.58.6.70:8000/products/7')
+    fetch('http://localhost:3000/data/ThumbnailData.json')
       .then(res => res.json())
       .then(data => {
         console.log(data);
         this.setState({
-          info: data.result[0],
+          info: data[0],
         });
       });
   }
 
   render() {
-    const { sell_price, sum, unit, info } = this.state;
-    const { addItem, delItem } = this;
+    const { info, number } = this.state;
+    const { handleDecrease, handleIncrease, handleSubmit } = this;
+
     return (
       <section className="top-view">
         <article className="thumbnail-wrapper">
@@ -60,7 +62,10 @@ class Thumbnail extends Component {
               <div className="goods-price">
                 <p className="member">회원할인가</p>
                 <p className="member-price">
-                  <span className="price"> {info.price}</span>
+                  <span className="price">
+                    {' '}
+                    {info.price - info.price * info.discount_rate}
+                  </span>
                   <span className="unit"> 원 </span>
                   <span className="discount-percent">
                     {info.discount_rate * 100}
@@ -69,7 +74,8 @@ class Thumbnail extends Component {
                 </p>
                 <p className="discount-price">
                   <span>
-                    1,000<span>원</span>
+                    {info.price}
+                    <span>원</span>
                   </span>
                   <span>
                     <i class="far fa-question-circle"></i>
@@ -93,17 +99,18 @@ class Thumbnail extends Component {
                 <li className="subject">안내사항</li>
               </ul>
               <ul>
-                <li className="subject">{info.sale_unit}</li>
-                <li className="subject">{info.weight_g}</li>
-                <li className="subject">{info.delivery_type}</li>
-                <li className="subject">{info.packing_type}</li>
-                <li className="subject">
+                <li className="subject-content">{info.sale_unit}</li>
+                <li className="subject-content">{info.weight_g * 10}kg</li>
+                <li className="subject-content">{info.delivery_type}</li>
+                <li className="subject-content">{info.packing_type}</li>
+                <li className="subject-content">
                   {info.allergy &&
                     info.allergy.map(text => {
                       return <p key={text.id}>{text.allergy}</p>;
-                    })}
+                    })}{' '}
+                  함유
                 </li>
-                <li className="subject">{info.instruction}</li>
+                <li className="subject-content">{info.instruction}</li>
               </ul>
             </div>
             <div className="goods-select-wrapper">
@@ -111,26 +118,29 @@ class Thumbnail extends Component {
               <div className="goods-select">
                 <select className="goods-list">
                   <option value="">상품선택</option>
-                  <option value="nuts-mix">
-                    [리터 스포트]미니미 넛츠믹스 15p
-                  </option>
-                  <option value="berry-mix">
-                    [리터 스포트]미니미 베리믹스 15p
-                  </option>
+                  <option value="nuts-mix">[품절] {info.name} 딸기</option>
+                  <option value="berry-mix">{info.name} 녹차</option>
                 </select>
                 <ul className="list">
-                  <li className="goods-one">
+                  <li className="goods-own">
                     <div className="added-goods-name">
-                      <span>[리터 스포트]미니 초콜릿 믹스 18p</span>
+                      <span>{info.name} 녹차</span>
                       <button className="delete">
                         <i class="fas fa-times"></i>
                       </button>
                     </div>
 
                     <div className="fixed-price">
-                      <QuantityBtn add={addItem} del={delItem} unit={unit} />
+                      <QuantityBtn
+                        num={number}
+                        submit={handleSubmit}
+                        up={handleIncrease}
+                        down={handleDecrease}
+                      />
                       <p>
-                        <span className="goods-own-price">{sell_price}</span>
+                        <span className="goods-own-price">
+                          {info.price - info.price * info.discount_rate}
+                        </span>
                         <span>원</span>
                       </p>
                     </div>
@@ -141,7 +151,9 @@ class Thumbnail extends Component {
             <div className="buy-for-it">
               <div className="total-price-wrapper">
                 <span> 총 상품금액: </span>
-                <span className="total-price">{sum}</span>
+                <span className="total-price">
+                  {(info.price - info.price * info.discount_rate) * number}
+                </span>
                 <span className="won">원</span>
               </div>
               <form className="mark-btn">
