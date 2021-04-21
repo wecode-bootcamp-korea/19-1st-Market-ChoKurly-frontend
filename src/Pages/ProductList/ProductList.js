@@ -16,6 +16,7 @@ class ProductList extends Component {
       productFilter: '',
       sortId: '',
       isClicked: false,
+      titleId: '',
     };
   }
 
@@ -55,18 +56,17 @@ class ProductList extends Component {
   };
 
   handleFilter = (sub, num, e) => {
-    const { isClicked } = this.state;
     this.setState({
-      isClicked: !isClicked,
+      isClicked: true,
+      titleId: e.target.id,
     });
 
-    fetch(
-      `http://localhost:8000/products/list?${sub}category_id=${num}&order_by_type=%3F`
-    )
+    fetch()
+      // `http://localhost:8000/products/list?${sub}category_id=${num}&order_by_type=%3F`
       .then(res => res.json())
       .then(filteredProducts => {
         this.setState({
-          productList: filteredProducts.results,
+          productList: filteredProducts.RESULTS,
         });
       });
   };
@@ -74,13 +74,12 @@ class ProductList extends Component {
   handleSort = e => {
     this.setState({ sortId: e.target.value });
 
-    fetch(
-      `http://localhost:8000/products/list?sub_category_id=59&order_by_type=${this.state.sortId}`
-    )
+    fetch()
+      // `http://localhost:8000/products/list?sub_category_id=59&order_by_type=${this.state.sortId}`
       .then(res => res.json())
       .then(filteredProducts => {
         this.setState({
-          productList: filteredProducts.results,
+          productList: filteredProducts.RESULTS,
         });
       });
   };
@@ -92,6 +91,7 @@ class ProductList extends Component {
       cartName,
       cartPrice,
       isClicked,
+      titleId,
     } = this.state;
     const {
       addToCart,
@@ -120,37 +120,57 @@ class ProductList extends Component {
             <div className="sub-title">
               <div className="sub-names">
                 <span
-                  onClick={() => handleFilter(null, 9)}
-                  className="sub-name"
-                  value="all"
+                  onClick={e => handleFilter(null, 9, e)}
+                  className={
+                    isClicked && titleId === '1'
+                      ? 'sub-name-clicked'
+                      : 'sub-name'
+                  }
+                  id="1"
                 >
                   전체 보기
                 </span>
                 <span
-                  onClick={() => handleFilter('sub_', 58)}
-                  className="sub-name"
-                  value="snack"
+                  onClick={e => handleFilter('sub_', 58, e)}
+                  className={
+                    isClicked && titleId === '2'
+                      ? 'sub-name-clicked'
+                      : 'sub-name'
+                  }
+                  id="2"
                 >
                   과자･스낵･쿠키
                 </span>
                 <span
-                  onClick={() => handleFilter('sub_', 59)}
-                  className="sub-name"
-                  value="chocolate"
+                  onClick={e => handleFilter('sub_', 59, e)}
+                  className={
+                    isClicked && titleId === '3'
+                      ? 'sub-name-clicked'
+                      : 'sub-name'
+                  }
+                  id="3"
                 >
                   초콜릿･젤리･캔디
                 </span>
                 <span
-                  onClick={() => handleFilter('sub_', 60)}
-                  className="sub-name"
-                  value="rice-cake"
+                  onClick={e => handleFilter('sub_', 60, e)}
+                  className={
+                    isClicked && titleId === '4'
+                      ? 'sub-name-clicked'
+                      : 'sub-name'
+                  }
+                  id="4"
                 >
                   떡･한과
                 </span>
                 <span
-                  onClick={() => handleFilter('sub_', 61)}
-                  className="sub-name"
-                  value="icecream"
+                  onClick={e => handleFilter('sub_', 61, e)}
+                  className={
+                    isClicked && titleId === '5'
+                      ? 'sub-name-clicked'
+                      : 'sub-name'
+                  }
+                  id="5"
                 >
                   아이스크림
                 </span>
@@ -191,6 +211,12 @@ class ProductList extends Component {
                 </div>
               );
             })}
+            <div className="pages-container">
+              <button className="to-left">◀︎</button>
+              <button className="page-number">1</button>
+              <button className="page-number">2</button>
+              <button className="to-right">►</button>
+            </div>
           </div>
           {clickCartButton && (
             <Modal
