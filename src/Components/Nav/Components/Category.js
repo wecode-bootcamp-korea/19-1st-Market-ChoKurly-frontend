@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import './Category.scss';
 
 class Category extends Component {
@@ -13,9 +13,14 @@ class Category extends Component {
   }
 
   componentDidMount() {
-    fetch('/data/category.json')
+    // fetch('/data/category.json')
+    fetch('http://localhost:8000/products/category')
       .then(res => res.json())
-      .then(categoryList => this.setState({ categoryList }));
+      .then(category =>
+        this.setState({
+          categoryList: category.RESULTS,
+        })
+      );
   }
 
   handleSubOn = e => {
@@ -35,10 +40,12 @@ class Category extends Component {
     const { categoryList, isSubOpen, categoryIdx } = this.state;
     const { handleSubOn, handleSubOff } = this;
     const { handleCategoryOff, navBarFixed } = this.props;
-
+    console.log(this.props);
     return (
       <div
-        className={`category-container ${navBarFixed ? 'category-fixed' : ''}`}
+        className={`category-container ${
+          navBarFixed ? 'category-fixed-container' : ''
+        }`}
         onMouseLeave={handleCategoryOff}
       >
         <ul className="category-all">
@@ -46,20 +53,21 @@ class Category extends Component {
             return (
               <li
                 className="mapped-category"
-                key={item.categoryId}
+                key={item.id}
                 onMouseEnter={handleSubOn}
-                id={item.categoryId}
+                id={item.id}
               >
-                <div className="cat" id={item.categoryId}>
-                  <i>{item.categoryIcon}</i>
-                  <Link id={item.categoryId}>{item.categoryName}</Link>
+                <div className="cat" id={item.id}>
+                  <Link to="/productlist" id={item.id}>
+                    {item.category}
+                  </Link>
                 </div>
                 {idx + 1 === Number(categoryIdx) && isSubOpen && (
                   <div className="subcategory-list" onMouseLeave={handleSubOff}>
-                    {categoryList[categoryIdx - 1].subcategory.map(sub => {
+                    {categoryList[categoryIdx - 1].sub_category.map(sub => {
                       return (
-                        <div key={sub.subcategoryId} className="sub">
-                          <Link to="/productlist">{sub.subcategoryName}</Link>
+                        <div key={sub.id} className="sub">
+                          <Link to={`/productlist/${sub.id}`}>{sub.name}</Link>
                         </div>
                       );
                     })}
@@ -74,4 +82,4 @@ class Category extends Component {
   }
 }
 
-export default Category;
+export default withRouter(Category);
