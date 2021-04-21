@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import Nav from '../../Components/Nav/Nav';
 import ProductCard from './Components/ProductCard';
 import Modal from './Components/Modal';
@@ -14,6 +15,8 @@ class ProductList extends Component {
       cartPrice: '',
       cartNumber: 0,
       productFilter: '',
+      categoryType: '',
+      filterId: '',
       sortId: '',
       isClicked: false,
       titleId: '',
@@ -22,13 +25,17 @@ class ProductList extends Component {
 
   componentDidMount() {
     fetch(
-      '/data/productList_chocolate.json'
-      // 'http://localhost:8000/products/list?sub_category_id=59&order_by_type=%3F'
+      // '/data/productList_chocolate.json'
+      `http://localhost:8000/products/list?sub_category_id=${
+        this.props.params.id + 57
+      }&order_by_type=%3F&page=1&limit=6`
     )
       .then(res => res.json())
       .then(productData => {
         this.setState({
           productList: productData.results,
+          categoryType: 'sub_',
+          filterId: this.props.params.id + 57,
         });
       });
   }
@@ -59,10 +66,12 @@ class ProductList extends Component {
     this.setState({
       isClicked: true,
       titleId: e.target.id,
+      categoryType: sub,
+      filterId: num,
     });
 
     fetch()
-      // `http://localhost:8000/products/list?${sub}category_id=${num}&order_by_type=%3F`
+      // `http://localhost:8000/products/list?${sub}category_id=${num}&order_by_type=%3F&page=1&limit=6`
       .then(res => res.json())
       .then(filteredProducts => {
         this.setState({
@@ -75,13 +84,20 @@ class ProductList extends Component {
     this.setState({ sortId: e.target.value });
 
     fetch()
-      // `http://localhost:8000/products/list?sub_category_id=59&order_by_type=${this.state.sortId}`
+      // `http://localhost:8000/products/list?sub_category_id=59&order_by_type=${this.state.sortId}&page=1&limit=6`
       .then(res => res.json())
       .then(filteredProducts => {
         this.setState({
           productList: filteredProducts.RESULTS,
         });
       });
+  };
+
+  handlePage = num => {
+    const { categoryType, filterId } = this.state;
+    fetch(
+      `http://localhost:8000/products/list?${categoryType}category_id=${filterId}&order_by_type=%3F&page=${num}&limit=6`
+    );
   };
 
   render() {
@@ -101,7 +117,10 @@ class ProductList extends Component {
       handleFilter,
       handleSort,
       sortId,
+      handlePage,
     } = this;
+
+    console.log(this.props);
 
     return (
       <>
@@ -213,10 +232,18 @@ class ProductList extends Component {
               );
             })}
             <div className="pages-container">
-              <button className="to-left">◀︎</button>
-              <button className="page-number">1</button>
-              <button className="page-number">2</button>
-              <button className="to-right">►</button>
+              <button onClick={() => handlePage(1)} className="to-left">
+                ◀︎
+              </button>
+              <button onClick={() => handlePage(1)} className="page-number">
+                1
+              </button>
+              <button onClick={() => handlePage(2)} className="page-number">
+                2
+              </button>
+              <button onClick={() => handlePage(2)} className="to-right">
+                ►
+              </button>
             </div>
           </div>
           {clickCartButton && (
@@ -233,4 +260,4 @@ class ProductList extends Component {
   }
 }
 
-export default ProductList;
+export default withRouter(ProductList);
