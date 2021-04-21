@@ -1,10 +1,25 @@
 import React, { Component } from 'react';
-import Slider from '../../Components/RelatedProducts/Component/Slider';
 import './RelatedProduct.scss';
 
 class RelatedProduct extends Component {
-  state = {
-    info: {},
+  constructor() {
+    super();
+    this.state = {
+      x: 0,
+      sliderArr: [],
+      setX: 1,
+      info: {},
+    };
+  }
+
+  goLeft = () => {
+    const { x, sliderArr } = this.state;
+    // x === 0 ? setX(-100 * (sliderArr.length - 1)) : setX(x + 100);
+  };
+
+  goRight = () => {
+    const { x, sliderArr } = this.state;
+    // x === -100 * (sliderArr.length - 1) ? setX(0) : setX(x - 100);
   };
 
   componentDidMount() {
@@ -19,19 +34,40 @@ class RelatedProduct extends Component {
   }
 
   render() {
-    const { info } = this.state;
+    const { x, sliderArr, setX, info } = this.state;
     return (
       <section className="related-products-wrapper">
         <div className="lines"></div>
         <p>RELATED PRODUCT</p>
         <div className="images-slice">
-          <button className="left-btn">
+          <button className="left-btn" onClick={this.goLeft}>
             <i class="fas fa-chevron-left"></i>
           </button>
-          <div className="related-items-wrapper">
-            <Slider info={this.state.info} />
-          </div>
-          <button className="right-btn">
+
+          {/* {sliderArr.map(info, index => {
+            return (
+              <div
+                key={index}
+                className="slide"
+                style={{ transform: `translateX(${x}%)` }}
+                className="related-items-wrapper"
+              >
+                <ul className="img-wrapper">
+                  {info.realted_products &&
+                    info.realted_products.map(card => {
+                      return (
+                        <li key={card.id} className="related-items-list">
+                          <img src={card.rel_img} alt="no image" />
+                          <p className="item-name">{card.name}</p>
+                          <p className="item-price">{card.price}원</p>
+                        </li>
+                      );
+                    })}
+                </ul>
+              </div>
+            );
+          })} */}
+          <button className="right-btn" onClick={this.goRight}>
             <i class="fas fa-chevron-right"></i>
           </button>
         </div>

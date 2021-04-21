@@ -9,7 +9,6 @@ class GuestReview extends Component {
     // reviewer: ['dongdong2'],
     num: 1,
     id: 0,
-    date: '',
   };
 
   handleInput = e => {
@@ -18,8 +17,42 @@ class GuestReview extends Component {
     });
   };
 
+  getToday() {
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = ('0' + (1 + date.getMonth())).slice(-2);
+    const day = ('0' + date.getDate()).slice(-2);
+    return year + '-' + month + '-' + day;
+  }
+
+  handleKeyPress = e => {
+    if (e.key === 'Enter') {
+      if (!this.state.text) {
+        e.preventDefault();
+      } else {
+        return this.addComment();
+      }
+    }
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+  };
+
+  indexNum = () => {
+    const { num } = this.state;
+    const count = this.addComment;
+
+    if (count === 1) {
+      return this.state.num + 1;
+    }
+  };
+
   addComment = () => {
-    const { id, text, guestReviews, num, reviewer, date } = this.state;
+    const { id, text, guestReviews, reviewer } = this.state;
+    const date = this.getToday();
+    // const num = this.indexNum()
+    const num = guestReviews.length;
 
     this.setState({
       guestReviews: [
@@ -27,9 +60,9 @@ class GuestReview extends Component {
         {
           text: text,
           id: id + 1,
-          num: num + 1,
+          num: guestReviews.length + 1,
           reviewer: 'dongdong2',
-          date: new Date(),
+          date: date,
         },
       ],
     });
@@ -67,7 +100,7 @@ class GuestReview extends Component {
               <div className="date">작성일</div>
             </li>
             <li className="reviews">
-              <div className="number"> 1 </div>
+              <div className="number"> 0 </div>
               <div className="review"> 맛있어요~ </div>
               <div className="reviewer"> PM 이예원 </div>
               <div className="date">2021-05-13</div>
@@ -94,11 +127,12 @@ class GuestReview extends Component {
                 <i class="fas fa-chevron-right"></i>
               </button>
             </form>
-            <form className="add-comment">
+            <form className="add-comment" onSubmit={this.handleSubmit}>
               <input
                 type="text"
                 placeholder="제품에 대한 흔적을 남겨보세요."
                 onChange={this.handleInput}
+                onKeyPress={this.handleKeyPress}
                 value={this.state.text}
               />
               <button
