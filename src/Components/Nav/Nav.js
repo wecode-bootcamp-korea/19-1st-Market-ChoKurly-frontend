@@ -59,7 +59,7 @@ class Nav extends Component {
             <button className="shipping fast-shipping">
               <span>
                 서울・경기・인천{' '}
-                <Link to="/main">
+                <Link to="/productlist">
                   샛별배송
                   <img alt="arrow" src="/images/Nav/next.png" />
                 </Link>
@@ -68,7 +68,7 @@ class Nav extends Component {
             <button className="shipping regular-shipping">
               <span>
                 수도권 이외 지역{' '}
-                <Link to="/main">
+                <Link to="/productlist">
                   택배배송
                   <img alt="arrow" src="/images/Nav/next.png" />
                 </Link>
@@ -77,17 +77,17 @@ class Nav extends Component {
           </div>
           <ul className="user-menu-list">
             <li className="signup">
-              <Link to="/main">회원가입</Link>
+              <Link to="/productlist">회원가입</Link>
             </li>
             <li className="login">
-              <Link to="/main">로그인</Link>
+              <Link to="/productlist">로그인</Link>
             </li>
             <li className="cs">
-              <Link to="/main">고객센터 ▾</Link>
+              <Link to="/productlist">고객센터 ▾</Link>
             </li>
           </ul>
         </div>
-        <Link to="/main" className="logo">
+        <Link to="/productlist" className="logo">
           <img alt="logo" src="/images/Nav/chokurly.png" />
         </Link>
         <>
@@ -103,23 +103,23 @@ class Nav extends Component {
                     <Link
                       onMouseEnter={handleCategoryOn}
                       className="menu-all-category"
-                      to="/main"
+                      to="/productlist"
                     >
                       <img alt="menu" src="images/Nav/menu.png" />
                       전체 카테고리
                     </Link>
                   </li>
                   <li>
-                    <Link to="/main">신상품</Link>
+                    <Link to="/productlist">신상품</Link>
                   </li>
                   <li>
-                    <Link to="/main">베스트</Link>
+                    <Link to="/productlist">베스트</Link>
                   </li>
                   <li>
-                    <Link to="/main">알뜰쇼핑</Link>
+                    <Link to="/productlist">알뜰쇼핑</Link>
                   </li>
                   <li>
-                    <Link to="/main">금주혜택</Link>
+                    <Link to="/productlist">금주혜택</Link>
                   </li>
                 </ul>
               </div>
@@ -142,7 +142,7 @@ class Nav extends Component {
                   </form>
                 </div>
                 <div className="location">
-                  <Link to="/main">
+                  <Link to="/productlist">
                     <img
                       className="menu-icons"
                       alt="shipping-location"
@@ -151,7 +151,7 @@ class Nav extends Component {
                   </Link>
                 </div>
                 <div className="cart">
-                  <Link to="/main">
+                  <Link to="/productlist">
                     <img
                       className="menu-icons"
                       alt="cart"

@@ -1,156 +1,158 @@
-[
-	{
-		"categoryId": 1,
-		"categoryName": "채소",
-		"subcategory": [
-			{
-				"subcategoryId": 1,
-				"subcategoryName": "친환경"
-			},
-			{
-				"subcategoryId": 2,
-				"subcategoryName": "고구마･감자･당근"
-			},
-			{
-				"subcategoryId": 3,
-				"subcategoryName": "시금치･쌈채소･나물"
-			},
-			{
-				"subcategoryId": 4,
-				"subcategoryName": "브로콜리･파프리카･양배추"
-			},
-			{
-				"subcategoryId": 5,
-				"subcategoryName": "양파･대파･마늘･배추"
-			},
-			{
-				"subcategoryId": 6,
-				"subcategoryName": "오이･호박･고추"
-			},
-			{
-				"subcategoryId": 7,
-				"subcategoryName": "냉동･이색･간편채소"
-			},
-			{
-				"subcategoryId": 8,
-				"subcategoryName": "콩나물･버섯"
-			}
-		]
-	},
-	{
-		"categoryId": 2,
-		"categoryName": "과일･견과･쌀",
-		"subcategory": [
-			{
-				"subcategoryId": 1,
-				"subcategoryName": "친환경"
-			},
-			{
-				"subcategoryId": 2,
-				"subcategoryName": "제철과일"
-			},
-			{
-				"subcategoryId": 3,
-				"subcategoryName": "국산과일"
-			},
-			{
-				"subcategoryId": 4,
-				"subcategoryName": "수입과일"
-			},
-			{
-				"subcategoryId": 5,
-				"subcategoryName": "간편과일"
-			},
-			{
-				"subcategoryId": 6,
-				"subcategoryName": "냉동･견과일"
-			},
-			{
-				"subcategoryId": 7,
-				"subcategoryName": "견과류"
-			},
-			{
-				"subcategoryId": 8,
-				"subcategoryName": "쌀･잡곡"
-			}
-		]
-	},
-	{
-		"categoryId": 3,
-		"categoryName": "생수･음료･우유･커피",
-		"subcategory": [
-			{
-				"subcategoryId": 1,
-				"subcategoryName": "생수･탄산수"
-			},
-			{
-				"subcategoryId": 2,
-				"subcategoryName": "음료･주스"
-			},
-			{
-				"subcategoryId": 3,
-				"subcategoryName": "우유･두유･요거트"
-			},
-			{
-				"subcategoryId": 4,
-				"subcategoryName": "커피"
-			},
-			{
-				"subcategoryId": 5,
-				"subcategoryName": "차"
-			}
-		]
-	},
-	{
-		"categoryId": 4,
-		"categoryName": "베이커리･치즈･델리",
-		"subcategory": [
-			{
-				"subcategoryId": 1,
-				"subcategoryName": "식빵･빵류"
-			},
-			{
-				"subcategoryId": 2,
-				"subcategoryName": "잼･버터･스프레드"
-			},
-			{
-				"subcategoryId": 3,
-				"subcategoryName": "케이크･파이･디저트"
-			},
-			{
-				"subcategoryId": 4,
-				"subcategoryName": "치즈"
-			},
-			{
-				"subcategoryId": 5,
-				"subcategoryName": "델리"
-			},
-			{
-				"subcategoryId": 6,
-				"subcategoryName": "올리브･피클"
-			}
-		]
-	},
-	{
-		"categoryId": 5,
-		"categoryName": "간식･과자･떡",
-		"subcategory": [
-			{
-				"subcategoryId": 1,
-				"subcategoryName": "과자･스낵･쿠키"
-			},
-			{
-				"subcategoryId": 2,
-				"subcategoryName": "초콜릿･젤리･캔디"
-			},
-			{
-				"subcategoryId": 3,
-				"subcategoryName": "떡･한과"
-			},
-			{
-				"subcategoryId": 4,
-				"subcategoryName": "아이스크림"
-			}
-		]
-	}
-]
+{
+	"RESULTS": [
+		{
+			"id": 1,
+			"category": "채소",
+			"sub_category": [
+				{
+					"id": 1,
+					"name": "친환경"
+				},
+				{
+					"id": 2,
+					"name": "고구마･감자･당근"
+				},
+				{
+					"id": 3,
+					"name": "시금치･쌈채소･나물"
+				},
+				{
+					"id": 4,
+					"name": "브로콜리･파프리카･양배추"
+				},
+				{
+					"id": 5,
+					"name": "양파･대파･마늘･배추"
+				},
+				{
+					"id": 6,
+					"name": "오이･호박･고추"
+				},
+				{
+					"id": 7,
+					"name": "냉동･이색･간편채소"
+				},
+				{
+					"id": 8,
+					"name": "콩나물･버섯"
+				}
+			]
+		},
+		{
+			"id": 2,
+			"category": "과일･견과･쌀",
+			"sub_category": [
+				{
+					"id": 1,
+					"name": "친환경"
+				},
+				{
+					"id": 2,
+					"name": "제철과일"
+				},
+				{
+					"id": 3,
+					"name": "국산과일"
+				},
+				{
+					"id": 4,
+					"name": "수입과일"
+				},
+				{
+					"id": 5,
+					"name": "간편과일"
+				},
+				{
+					"id": 6,
+					"name": "냉동･견과일"
+				},
+				{
+					"id": 7,
+					"name": "견과류"
+				},
+				{
+					"id": 8,
+					"name": "쌀･잡곡"
+				}
+			]
+		},
+		{
+			"id": 3,
+			"category": "생수･음료･우유･커피",
+			"sub_category": [
+				{
+					"id": 1,
+					"name": "생수･탄산수"
+				},
+				{
+					"id": 2,
+					"name": "음료･주스"
+				},
+				{
+					"id": 3,
+					"name": "우유･두유･요거트"
+				},
+				{
+					"id": 4,
+					"name": "커피"
+				},
+				{
+					"id": 5,
+					"name": "차"
+				}
+			]
+		},
+		{
+			"id": 4,
+			"category": "베이커리･치즈･델리",
+			"sub_category": [
+				{
+					"id": 1,
+					"name": "식빵･빵류"
+				},
+				{
+					"id": 2,
+					"name": "잼･버터･스프레드"
+				},
+				{
+					"id": 3,
+					"name": "케이크･파이･디저트"
+				},
+				{
+					"id": 4,
+					"name": "치즈"
+				},
+				{
+					"id": 5,
+					"name": "델리"
+				},
+				{
+					"id": 6,
+					"name": "올리브･피클"
+				}
+			]
+		},
+		{
+			"id": 5,
+			"category": "간식･과자･떡",
+			"sub_category": [
+				{
+					"id": 1,
+					"name": "과자･스낵･쿠키"
+				},
+				{
+					"id": 2,
+					"name": "초콜릿･젤리･캔디"
+				},
+				{
+					"id": 3,
+					"name": "떡･한과"
+				},
+				{
+					"id": 4,
+					"name": "아이스크림"
+				}
+			]
+		}
+	]
+}

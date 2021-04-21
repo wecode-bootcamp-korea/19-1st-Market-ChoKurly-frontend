@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import './Category.scss';
 
 class Category extends Component {
@@ -14,8 +14,13 @@ class Category extends Component {
 
   componentDidMount() {
     fetch('/data/category.json')
+      // fetch('http://10.58.5.220:8000/products/category')
       .then(res => res.json())
-      .then(categoryList => this.setState({ categoryList }));
+      .then(category =>
+        this.setState({
+          categoryList: category.RESULTS,
+        })
+      );
   }
 
   handleSubOn = e => {
@@ -35,7 +40,7 @@ class Category extends Component {
     const { categoryList, isSubOpen, categoryIdx } = this.state;
     const { handleSubOn, handleSubOff } = this;
     const { handleCategoryOff, navBarFixed } = this.props;
-
+    console.log(this.props);
     return (
       <div
         className={`category-container ${navBarFixed ? 'category-fixed' : ''}`}
@@ -51,14 +56,16 @@ class Category extends Component {
                 id={item.id}
               >
                 <div className="cat" id={item.id}>
-                  <Link id={item.id}>{item.category}</Link>
+                  <Link to="/productlist" id={item.id}>
+                    {item.category}
+                  </Link>
                 </div>
                 {idx + 1 === Number(categoryIdx) && isSubOpen && (
                   <div className="subcategory-list" onMouseLeave={handleSubOff}>
                     {categoryList[categoryIdx - 1].sub_category.map(sub => {
                       return (
                         <div key={sub.id} className="sub">
-                          <Link to="/productlist">{sub.name}</Link>
+                          <Link to={`/productlist/${sub.id}`}>{sub.name}</Link>
                         </div>
                       );
                     })}
@@ -73,4 +80,4 @@ class Category extends Component {
   }
 }
 
-export default Category;
+export default withRouter(Category);
