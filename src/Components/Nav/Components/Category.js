@@ -13,8 +13,8 @@ class Category extends Component {
   }
 
   componentDidMount() {
-    fetch('/data/category.json')
-      // fetch('http://10.58.5.220:8000/products/category')
+    // fetch('/data/category.json')
+    fetch('http://localhost:8000/products/category')
       .then(res => res.json())
       .then(category =>
         this.setState({
@@ -40,7 +40,7 @@ class Category extends Component {
     const { categoryList, isSubOpen, categoryIdx } = this.state;
     const { handleSubOn, handleSubOff } = this;
     const { handleCategoryOff, navBarFixed } = this.props;
-    console.log(this.props);
+
     return (
       <div
         className={`category-container ${
