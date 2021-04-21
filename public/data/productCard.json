@@ -1,0 +1,122 @@
+[
+	{
+		"id": 1,
+		"productUrl": "/images/ProductCard/product1.jpg",
+		"name": "1[디저트] 솔티드 버터 캐러멜 2종",
+		"discount": 10,
+		"price": "19,000",
+		"originalPrice": "21,000",
+		"sticker": "20%농할쿠폰",
+		"description": "피부 미용에 도움을 주는 캐러멜!"
+	},
+	{
+		"id": 2,
+		"productUrl": "/images/ProductCard/product2.jpg",
+		"name": "2[디저트] 솔티드 버터 캐러멜 2종",
+		"discount": 10,
+		"price": "19,000",
+		"originalPrice": "21,000",
+		"sticker": "20%농할쿠폰",
+		"description": "피부 미용에 도움을 주는 캐러멜!"
+	},
+	{
+		"id": 3,
+		"productUrl": "/images/ProductCard/product3.jpg",
+		"name": "3[디저트] 솔티드 버터 캐러멜 2종",
+		"discount": 10,
+		"price": "19,000",
+		"originalPrice": "21,000",
+		"sticker": "증정품",
+		"intro": ""
+	},
+	{
+		"id": 4,
+		"productUrl": "/images/ProductCard/product4.jpg",
+		"name": "4[디저트] 솔티드 버터 캐러멜 2종",
+		"discount": 10,
+		"price": "19,000",
+		"originalPrice": "21,000",
+		"sticker": "",
+		"intro": "피부 미용에 도움을 주는 캐러멜!"
+	},
+	{
+		"id": 5,
+		"productUrl": "/images/ProductCard/product1.jpg",
+		"name": "5[디저트] 솔티드 버터 캐러멜 2종",
+		"discount": 10,
+		"price": "19,000",
+		"originalPrice": "21,000",
+		"sticker": "",
+		"intro": ""
+	},
+	{
+		"id": 6,
+		"productUrl": "/images/ProductCard/product2.jpg",
+		"name": "6[디저트] 솔티드 버터 캐러멜 2종",
+		"discount": 10,
+		"price": "19,000",
+		"originalPrice": "21,000",
+		"sticker": "",
+		"intro": "피부 미용에 도움을 주는 캐러멜!"
+	},
+	{
+		"id": 7,
+		"productUrl": "/images/ProductCard/product3.jpg",
+		"name": "7[디저트] 솔티드 버터 캐러멜 2종",
+		"discount": 10,
+		"price": "19,000",
+		"originalPrice": "21,000",
+		"sticker": "",
+		"intro": ""
+	},
+	{
+		"id": 8,
+		"productUrl": "/images/ProductCard/product4.jpg",
+		"name": "8[디저트] 솔티드 버터 캐러멜 2종",
+		"discount": 10,
+		"price": "19,000",
+		"originalPrice": "21,000",
+		"sticker": "",
+		"intro": ""
+	},
+	{
+		"id": 9,
+		"productUrl": "/images/ProductCard/product1.jpg",
+		"name": "9[디저트] 솔티드 버터 캐러멜 2종",
+		"discount": 10,
+		"price": "19,000",
+		"originalPrice": "21,000",
+		"sticker": "",
+		"intro": ""
+	},
+	{
+		"id": 10,
+		"productUrl": "/images/ProductCard/product2.jpg",
+		"name": "10[디저트] 솔티드 버터 캐러멜 2종",
+		"discount": 10,
+		"price": "19,000",
+		"originalPrice": "21,000",
+		"sticker": "",
+		"intro": ""
+	},
+	{
+		"id": 11,
+		"productUrl": "/images/ProductCard/product3.jpg",
+		"name": "11[디저트] 솔티드 버터 캐러멜 2종",
+		"discount": 10,
+		"price": "19,000",
+		"originalPrice": "21,000",
+		"sticker": "",
+		"intro": ""
+	},
+	{
+		"id": 12,
+		"productUrl": "/images/ProductCard/product4.jpg",
+		"name": "12[디저트] 솔티드 버터 캐러멜 2종",
+		"discount": 10,
+		"price": "19,000",
+		"originalPrice": "21,000",
+		"sticker": "",
+		"intro": ""
+	}
+]

@@ -1,0 +1,18 @@
+[
+	{
+		"alt": "picnic",
+		"path": "/images/slide/picnic.jpeg"
+	},
+	{
+		"alt": "cupcake",
+		"path": "/images/slide/cupcake.jpg"
+	},
+	{
+		"alt": "dessert",
+		"path": "/images/slide/dessert.jpg"
+	},
+	{
+		"alt": "blue-picnic",
+		"path": "/images/slide/blue-picnic.jpg"
+	}
+]
