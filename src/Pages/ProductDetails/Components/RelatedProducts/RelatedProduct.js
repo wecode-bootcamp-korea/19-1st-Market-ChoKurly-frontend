@@ -18,6 +18,7 @@ class RelatedProduct extends Component {
 
   goRight = () => {
     const { x, sliderArr } = this.state;
+    console.log(sliderArr);
     x === -100 * (sliderArr.length - 1)
       ? this.setState({ x: 0 })
       : this.setState({ x: x - 100 });
