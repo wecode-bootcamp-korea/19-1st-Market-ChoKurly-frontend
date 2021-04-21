@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { isEmail, isId, isPassword } from './Check';
 import './Signup.scss';
 
@@ -95,7 +95,7 @@ class Signup extends Component {
       // );
       // this.setState({ idCheck: this.state.id });
       // this.setState({ checkedId: true });
-      fetch('http://10.58.2.7:8000/users/signupcheck', id_info)
+      fetch('http://10.58.6.178:8000/users/signupcheck', id_info)
         .then(response => response.json())
         .then(result => {
           if (result === false) {
@@ -122,7 +122,7 @@ class Signup extends Component {
     };
 
     if (this.state.isValidEmail) {
-      fetch('http://10.58.2.7:8000/users/signupcheck', email_info)
+      fetch('http://10.58.6.178:8000/users/signupcheck', email_info)
         .then(response => response.json())
         .then(result => {
           if (result === false) {
@@ -142,7 +142,6 @@ class Signup extends Component {
   };
   //서버로 가입 양식 제출
   handleSubmit = e => {
-    console.log('hi');
     e.preventDefault();
     const {
       id,
@@ -190,10 +189,11 @@ class Signup extends Component {
       password === pwCheck &&
       password === repassword
     ) {
-      fetch('http://10.58.2.7:8000/users/signup', signup_info)
+      fetch('http://10.58.6.178:8000/users/signup', signup_info)
         .then(response => response.json())
         .then(result => console.log('결과: ', result));
       alert('가입이 완료되었습니다.');
+      this.props.history.push('/signupfin');
       // .then(
       //   alert('가입이 안료되었습니다.')
       // );
@@ -206,7 +206,6 @@ class Signup extends Component {
   render() {
     const { showId, showPw, showRe } = this.state;
     const { password, repassword } = this.state;
-    console.log(this.state.birth);
     // console.log(pwCheck)
     return (
       <div className="Signup-Main">
@@ -449,40 +448,6 @@ class Signup extends Component {
               <div className="SignupContent SignupList">생년월일</div>
               <div className="birth_day_wrap">
                 <input type="date" name="birth" onChange={this.handleInput} />
-                {/* <div className="birth_day">
-                  <input
-                    type="text"
-                    name="birth_year"
-                    id="birth_year"
-                    pattern="[0-9]*"
-                    label="생년월일"
-                    size="4"
-                    maxlength="4"
-                    placeholder="YYYY"
-                  />
-                  <span class="SignupBar">/</span>
-                  <input
-                    type="text"
-                    name="birth[]"
-                    id="birth_month"
-                    pattern="[0-9]*"
-                    label="생년월일"
-                    size="2"
-                    maxLength="2"
-                    placeholder="MM"
-                  />
-                  <span class="SignupBar">/</span>
-                  <input
-                    type="text"
-                    name="birth[]"
-                    id="birth_day"
-                    pattern="[0-9]*"
-                    label="생년월일"
-                    size="2"
-                    maxLength="2"
-                    placeholder="DD"
-                  />
-                </div> */}
               </div>
             </div>
             <div id="formSubmit" className="form_footer">
@@ -502,4 +467,4 @@ class Signup extends Component {
   }
 }
 
-export default Signup;
+export default withRouter(Signup);
