@@ -1,0 +1,124 @@
+{
+	"result": [
+		{
+			"comment": "입안 가득 퍼지는 달콤한 행복",
+			"discount_rate": null,
+			"discounted_price": 3000,
+			"id": 1,
+			"name": "과일캔디",
+			"original_price": 3000,
+			"sticker": "20%농할쿠폰",
+			"thumbnail_image": "https://images.unsplash.com/photo-1567653418876-5bb0e566e1c2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2800&q=80"
+		},
+		{
+			"comment": "고급 카카오와 화이트 바닐라가 어우러진 달콤 씁쓸한 인생의 맛",
+			"discount_rate": 0.05,
+			"discounted_price": 3040,
+			"id": 2,
+			"name": "화이트초코",
+			"original_price": 3200,
+			"sticker": "30%일일특가",
+			"thumbnail_image": "https://images.unsplash.com/photo-1548907040-4baa42d10919?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+		},
+		{
+			"comment": "일상에 찾아온 황홀한 쿠키 NEW 플뢰르드셀 쇼콜라 오픈!",
+			"discount_rate": 0.15,
+			"discounted_price": 8415,
+			"id": 3,
+			"name": "머랭쿠키",
+			"original_price": 9900,
+			"sticker": "20%농할쿠폰",
+			"thumbnail_image": "https://images.unsplash.com/photo-1559622214-f8a9850965bb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=802&q=80"
+		},
+		{
+			"comment": "스페인 정통쿠키 맛볼 시간!",
+			"discount_rate": null,
+			"discounted_price": 4500,
+			"id": 4,
+			"name": "초코쿠키",
+			"original_price": 4500,
+			"sticker": "20%농할쿠폰",
+			"thumbnail_image": "https://images.unsplash.com/photo-1589218436045-ee320057f443?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80"
+		},
+		{
+			"comment": "프랑스산 발효 버터로 만든 고품격 쿠키",
+			"discount_rate": 0.05,
+			"discounted_price": 7125,
+			"id": 5,
+			"name": "초코칩쿠키",
+			"original_price": 7500,
+			"sticker": "30%일일특가",
+			"thumbnail_image": "https://images.unsplash.com/photo-1579618385552-046edd29f899?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2800&q=80"
+		},
+		{
+			"comment": "유기농 식물성 원료로 더 깔끔하고 건강한 비바니 초콜릿",
+			"discount_rate": 0.10,
+			"discounted_price": 18000,
+			"id": 6,
+			"name": "로이스초콜릿",
+			"original_price": 20000,
+			"sticker": "30%일일특가",
+			"thumbnail_image": "https://images.unsplash.com/photo-1587271644048-2fbb187de8d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+		},
+		{
+			"comment": "말랑말랑한 꿀을 머금은 사탕",
+			"discount_rate": 0.15,
+			"discounted_price": 2125,
+			"id": 7,
+			"name": "레몬사탕",
+			"original_price": 2500,
+			"sticker": "증정품",
+			"thumbnail_image": "https://images.unsplash.com/photo-1569201529241-f96205e2f2c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=802&q=80"
+		},
+		{
+			"comment": "하나씩 꺼내 즐기는 오렌지맛 초콜릿의 풍미",
+			"discount_rate": null,
+			"discounted_price": 4900,
+			"id": 8,
+			"name": "오렌지초콜릿",
+			"original_price": 4900,
+			"sticker": null,
+			"thumbnail_image": "https://images.unsplash.com/photo-1557800634-7bf3c7305596?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=802&q=80"
+		},
+		{
+			"comment": "사랑스러운 첫 번째 자일리톨",
+			"discount_rate": 0.05,
+			"discounted_price": 7315,
+			"id": 9,
+			"name": "필란드자일리톨",
+			"original_price": 7700,
+			"sticker": "20%농할쿠폰",
+			"thumbnail_image": "https://images.unsplash.com/photo-1554080204-5c97677848bd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
+		},
+		{
+			"comment": "1사랑스러운 첫 번째 자일리톨",
+			"discount_rate": 0.05,
+			"discounted_price": 7315,
+			"id": 10,
+			"name": "필란드자일리톨",
+			"original_price": 7700,
+			"sticker": "20%농할쿠폰",
+			"thumbnail_image": "https://images.unsplash.com/photo-1559703248-dcaaec9fab78?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
+		},
+		{
+			"comment": "1사랑스러운 첫 번째 자일리톨",
+			"discount_rate": 0.05,
+			"discounted_price": 7315,
+			"id": 11,
+			"name": "필란드자일리톨",
+			"original_price": 7700,
+			"sticker": "20%농할쿠폰",
+			"thumbnail_image": "https://images.unsplash.com/photo-1529688499411-262f191fe29e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80"
+		},
+		{
+			"comment": "1사랑스러운 첫 번째 자일리톨",
+			"discount_rate": 0.05,
+			"discounted_price": 7315,
+			"id": 12,
+			"name": "필란드자일리톨",
+			"original_price": 7700,
+			"sticker": "20%농할쿠폰",
+			"thumbnail_image": "https://images.unsplash.com/photo-1514517521153-1be72277b32f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=668&q=80"
+		}
+	]
+}
