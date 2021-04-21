@@ -13,9 +13,7 @@ class Tags extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/mdtags.json', {
-      method: 'GET',
-    })
+    fetch('/data/mdtags.json')
       .then(res => res.json())
       .then(tagsData => {
         this.setState({
@@ -24,26 +22,26 @@ class Tags extends Component {
       });
   }
 
-  handleClick = index => {
+  handleClick = id => {
     this.setState({
       isClicked: true,
-      activeTag: index,
+      activeTag: id,
     });
 
-    this.props.history.push(`/md/${index + 1}`);
+    this.props.history.push(`/main/md/${id}`);
   };
 
   render() {
     const { tags } = this.state;
     const { handleClick } = this;
-
+    console.log(this.state.activeTag);
     return (
       <ul className="tags-container">
         {tags.map((tag, index) => {
           return (
             <li
-              id={this.state.activeTag === index ? 'clicked' : ''}
-              onClick={() => handleClick(index)}
+              id={this.state.activeTag === tag.id ? 'clicked' : ''}
+              onClick={() => handleClick(tag.id)}
               key={tag.id}
               className="tag"
             >

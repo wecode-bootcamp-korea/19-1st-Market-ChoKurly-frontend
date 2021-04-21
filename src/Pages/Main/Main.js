@@ -69,21 +69,21 @@ class Main extends Component {
     //   );
   }
 
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps.location.pathname !== this.props.location.pathname) {
-  //     fetch(
-  //       `http://localhost:8000/products/list?order_by_type=%3F&sub_category_id=${
-  //         this.props.match.params.id + 57
-  //       }`
-  //     )
-  //       .then(res => res.json())
-  //       .then(data =>
-  //         this.setState({
-  //           mdArr: data.RESULTS,
-  //         })
-  //       );
-  //   }
-  // }
+  componentDidUpdate(prevState) {
+    if (prevState.location.pathname !== this.props.location.pathname) {
+      fetch(
+        `http://localhost:8000/products/list?order_by_type=%3F&sub_category_id=${
+          Number(this.props.match.params.id) + 57
+        }`
+      )
+        .then(res => res.json())
+        .then(data =>
+          this.setState({
+            mdArr: data.RESULTS,
+          })
+        );
+    }
+  }
 
   render() {
     const {
@@ -94,7 +94,7 @@ class Main extends Component {
       hotArr,
       finalSalesArr,
     } = this.state;
-    console.log(this.prevState.location.pathname);
+
     return (
       <div className="main-container">
         {/* <Nav /> */}
@@ -137,4 +137,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default withRouter(Main);
