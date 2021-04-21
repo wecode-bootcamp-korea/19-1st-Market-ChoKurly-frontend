@@ -35,16 +35,15 @@
 
   .subcategory-list {
     top: -1px;
-    left: 210px;
+    left: 209px;
     height: 500px;
     border-left: 0;
     background-color: $gray-background;
     transition: all 0.5s ease;
   }
-
-  .category-fixed {
-    position: fixed;
-    z-index: 1000;
-    top: 53px;
-  }
+}
+.category-fixed-container {
+  position: fixed;
+  z-index: 1000;
+  top: 53px;
 }

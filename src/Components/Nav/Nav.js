@@ -105,7 +105,7 @@ class Nav extends Component {
                       className="menu-all-category"
                       to="/productlist"
                     >
-                      <img alt="menu" src="images/Nav/menu.png" />
+                      <img alt="menu" src="/images/Nav/menu.png" />
                       전체 카테고리
                     </Link>
                   </li>

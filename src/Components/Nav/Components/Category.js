@@ -43,7 +43,9 @@ class Category extends Component {
     console.log(this.props);
     return (
       <div
-        className={`category-container ${navBarFixed ? 'category-fixed' : ''}`}
+        className={`category-container ${
+          navBarFixed ? 'category-fixed-container' : ''
+        }`}
         onMouseLeave={handleCategoryOff}
       >
         <ul className="category-all">
