@@ -22,13 +22,13 @@ class ProductList extends Component {
       titleId: '',
     };
   }
-
+  // '/data/productList_chocolate.json'
   componentDidMount() {
     fetch(
-      // '/data/productList_chocolate.json'
-      `http://localhost:8000/products/list?sub_category_id=${
-        Number(this.props.match.params.id) + 57
-      }&order_by_type=%3F&page=1&limit=6`
+      // eslint-disable-next-line prettier/prettier
+      `http://localhost:8000/products/list?sub_category_id=${Number( 
+        this.props.match.params.id
+      )}&order_by_type=%3F&page=1&limit=6`
     )
       .then(res => res.json())
       .then(productData => {
