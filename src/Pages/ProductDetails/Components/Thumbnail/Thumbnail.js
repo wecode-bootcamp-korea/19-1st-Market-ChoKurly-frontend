@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import QuantityBtn from '../QuantityBtn/QuantityBtn';
-import { Link } from 'react-router-dom';
 import './Thumbnail.scss';
 
 class Thumbnail extends Component {
@@ -41,8 +40,6 @@ class Thumbnail extends Component {
         });
       });
   }
-
-  // goToCart ()= >
 
   render() {
     const { info, number } = this.state;

@@ -8,6 +8,10 @@ import Login from './Pages/Login/Login';
 import ProductList from './Pages/ProductList/ProductList';
 import ProductDetails from './Pages/ProductDetails/ProductDetails';
 import Cart from './Pages/Cart/Cart';
+import Findid from './Pages/Login/Find/Findid';
+import Findpw from './Pages/Login/Find/Findpw';
+
+// import './Styles/common.scss';
 
 import './Styles/common.scss';
 
@@ -20,6 +24,8 @@ class Routes extends Component {
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/signupfin" component={Signupfin} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/findid" component={Findid} />
+          <Route exact path="/findpw" component={Findpw} />
           <Route exact path="/productlist" component={ProductList} />
           <Route exact path="/productdetails" component={ProductDetails} />
           <Route exact path="/productdetails/:id" component={ProductDetails} />
