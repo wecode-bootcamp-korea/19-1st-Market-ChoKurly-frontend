@@ -28,6 +28,7 @@ class Routes extends Component {
           <Route exact path="/findid" component={Findid} />
           <Route exact path="/findpw" component={Findpw} />
           <Route exact path="/productlist" component={ProductList} />
+          <Route exact path="/productlist/:id" component={ProductList} />
           <Route exact path="/productdetails" component={ProductDetails} />
           <Route exact path="/productdetails/:id" component={ProductDetails} />
           <Route exact path="/cart" component={Cart} />

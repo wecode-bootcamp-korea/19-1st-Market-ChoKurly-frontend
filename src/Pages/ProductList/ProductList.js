@@ -13,6 +13,7 @@ class ProductList extends Component {
       clickCartButton: false,
       cartName: '',
       cartPrice: '',
+      cartId: '',
       cartNumber: 0,
       productFilter: '',
       categoryType: '',
@@ -26,25 +27,27 @@ class ProductList extends Component {
   componentDidMount() {
     fetch(
       '/data/productList_chocolate.json'
-      // `http://10.58.5.220:8000/products/list?sub_category_id=${
-      //   Number(this.props.match.params.id) + 57
-      // }&order_by_type=%3F&page=1&limit=6`
+      // eslint-disable-next-line prettier/prettier
+      // `http://localhost:8000/products/list?sub_category_id=${Number(
+      //   this.props.match.params.id
+      // )}&order_by_type=%3F&page=1&limit=6`
     )
       .then(res => res.json())
       .then(productData => {
         this.setState({
-          productList: productData.results,
+          productList: productData.RESULTS,
           categoryType: 'sub_',
           filterId: Number(this.props.match.params.id) + 57,
         });
       });
   }
 
-  openCart = (name, price) => {
+  openCart = (name, price, id) => {
     this.setState({
       clickCartButton: true,
       cartName: name,
       cartPrice: price,
+      cartId: id,
     });
   };
 
@@ -71,7 +74,7 @@ class ProductList extends Component {
     });
 
     fetch(
-      `http://10.58.5.220:8000/products/list?${sub}category_id=${num}&order_by_type=%3F&page=1&limit=6`
+      `http://localhost:8000/products/list?${sub}category_id=${num}&order_by_type=%3F&page=1&limit=6`
     )
       .then(res => res.json())
       .then(filteredProducts => {
@@ -85,7 +88,7 @@ class ProductList extends Component {
     this.setState({ sortId: e.target.value });
 
     fetch(
-      `http://10.58.5.220:8000/products/list?sub_category_id=59&order_by_type=${this.state.sortId}&page=1&limit=6`
+      `http://localhost:8000/products/list?sub_category_id=59&order_by_type=${this.state.sortId}&page=1&limit=6`
     )
       .then(res => res.json())
       .then(filteredProducts => {
@@ -98,7 +101,7 @@ class ProductList extends Component {
   handlePage = num => {
     const { categoryType, filterId } = this.state;
     fetch(
-      `http://10.58.5.220:8000/products/list?${categoryType}category_id=${filterId}&order_by_type=%3F&page=${num}&limit=6`
+      `http://localhost:8000/products/list?${categoryType}category_id=${filterId}&order_by_type=%3F&page=${num}&limit=6`
     );
   };
 
@@ -108,6 +111,7 @@ class ProductList extends Component {
       clickCartButton,
       cartName,
       cartPrice,
+      cartId,
       isClicked,
       titleId,
       cartNumber,
@@ -124,7 +128,7 @@ class ProductList extends Component {
 
     return (
       <>
-        {/*<Nav cartNumber={cartNumber} />*/}
+        <Nav cartNumber={cartNumber} cartId={cartId} />
         <div className="product-list-container">
           <div className="banner">
             <img
@@ -221,7 +225,11 @@ class ProductList extends Component {
                       id={product.id}
                       name={product.name}
                       onClick={() => {
-                        openCart(product.name, product.discounted_price);
+                        openCart(
+                          product.name,
+                          product.discounted_price,
+                          product.id
+                        );
                       }}
                       className="cart-button"
                     >
