@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import OrderList from './OrderList/OrderList';
 import { API } from '../../config';
 
 import './Cart.scss';
-import { withRouter } from 'react-router-dom';
 
 class Cart extends Component {
   constructor() {
@@ -11,7 +11,6 @@ class Cart extends Component {
     this.state = {
       ItemList: [],
       number: 0,
-      isEmpty: false,
       isCheck: false,
       SumList: [],
       total: 0,
@@ -19,32 +18,22 @@ class Cart extends Component {
       delivery: 3000,
     };
   }
-  // componentDidMount = () => {
-  //   fetch(`${API}/orders/basket`, {
-  //     headers: {
-  //       Authorization: localStorage.getItem('Authorization'),
-  //     },
-  //   })
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       this.setState({
-  //         ItemList: data.result,
-  //       });
-  //     });
-  // };
-  //목데이터 관리(Get)
   componentDidMount = () => {
-    fetch('data/cartdata.json')
+    // fetch(`${API}/orders/basket`, {
+    fetch('data/cartdata.json', {
+      headers: {
+        Authorization: localStorage.getItem('Authorization'),
+      },
+    })
       .then(res => res.json())
       .then(data => {
         this.setState({
+          // ItemList: data.result,
           ItemList: data,
-        });
-        data.map(item => {
-          return { ...item, isChecked: true };
         });
       });
   };
+
   componentDidUpdate(prevProps, prevState) {
     if (prevState.ItemList !== this.state.ItemList) {
       //계산
@@ -63,82 +52,36 @@ class Cart extends Component {
       this.setState({ total: totalAmount, discount: totalDiscount });
     }
   }
-  //장바구니 선택한거 BackEnd 보내기
-  // giveItemList = () => {
-  //   let products = this.state.orderList.map(order => {
-  //     return {
-  //       product_id: order.id,
-  //       count: order.count,
-  //     };
-  //   });
-  //   console.log(products);
-  //   fetch('http://10.5.30.109:8000/products/basket', {
-  //     method: 'POST',
-  //     body: {
-  //       products: products,
-  //     },
-  //   })
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       // { MESSAGE: SUCCESS }
-  //       console.log(data);
-  //     });
-  //   this.props.history.push('/');
-  // };
   //장바구니 - 개별리스트 삭제
   delOrderItem = hot => {
     const { ItemList } = this.state;
     this.setState({
-      ItemList: ItemList.filter(order => {
-        console.log(order.id);
-        if (order.id === hot) {
-          return;
-        }
-        return order;
-      }),
+      ItemList: ItemList.filter(({ id }) => id !== hot),
     });
   };
   //장바구니 - 전체리스트 삭제
   delOrderItemAll = e => {
     e.preventDefault();
     const { ItemList } = this.state;
-    this.setState(
-      {
-        ItemList: ItemList.filter(() => {}),
-        isEmpty: true,
-      },
-      () => {
-        console.log(this.state.ItemList);
-      }
-    );
+    this.setState({
+      ItemList: ItemList.filter(() => false),
+    });
   };
 
   // 수량 증감 표현식
-  changeCount = (id, count) => {
+  changeCount = (itemId, count) => {
     if (!count) return;
 
     const { ItemList } = this.state;
 
-    const newOrderList = ItemList.filter(order => {
-      if (order.id === id) {
-        order.count = count;
-      }
-      return order;
-    });
     this.setState({
-      ItemList: newOrderList,
+      ItemList: ItemList.map(order => ({ ...order, count })),
     });
-  };
-
-  hiddenDiv = e => {
-    e.preventDefault();
-    if (this.state.ItemList === null) {
-      this.setState({ isEmpty: true });
-    }
   };
 
   render() {
-    const { ItemList } = this.state;
+    const { ItemList, total, discount, delivery } = this.state;
+
     return (
       <main className="cart-wrapper">
         <h2> 장바구니 </h2>
@@ -167,11 +110,12 @@ class Cart extends Component {
               </label>
             </form>
             <div className="cart-select">
-              <ul className="cart-select-list" onChange={this.hiddenDiv}>
+              <ul className="cart-select-list">
                 {ItemList.map(item => {
                   return (
                     <OrderList
                       delOrderItem={this.delOrderItem}
+                      key={item.id}
                       id={item.id}
                       item={item}
                       handleDecrease={this.handleDecrease}
@@ -180,18 +124,15 @@ class Cart extends Component {
                       number={this.state.number}
                       prCount={item.count}
                       changeCount={this.changeCount}
-                      // total={this.state.total}
-                      // discount={this.state.discount}
-                      // delivery={this.state.delivery}
                     />
                   );
                 })}
               </ul>
-              {this.state.isEmpty ? (
+              {!ItemList.length && (
                 <div className="inner-empty">
                   <p className="empty-txt">장바구니에 담긴 상품이 없습니다</p>
                 </div>
-              ) : null}
+              )}
             </div>
             <form className="check-wrapper">
               <label className="check">
@@ -210,7 +151,8 @@ class Cart extends Component {
             <div className="inner-result">
               <div className="cart-delivery">
                 <p className="address">
-                  <i className="fas fa-map-marker-alt"></i>배송지
+                  <i className="fas fa-map-marker-alt" />
+                  배송지
                 </p>
                 <p className="address">백엔드에서 받을곳</p>
                 <button type="button" className="change-btn">
@@ -222,7 +164,7 @@ class Cart extends Component {
                   <dt className="price-product">상품금액</dt>
                   <dd>
                     <span className="total-price">
-                      {this.state.total}
+                      {total}
                       <span>원</span>
                     </span>
                   </dd>
@@ -231,7 +173,7 @@ class Cart extends Component {
                   <dt className="price-product">상품할인금액</dt>
                   <dd>
                     <span>
-                      {this.state.discount}
+                      {discount}
                       <span>원</span>
                     </span>
                   </dd>
@@ -240,7 +182,7 @@ class Cart extends Component {
                   <dt className="price-product">배송비</dt>
                   <dd>
                     <span className="total-price">
-                      {this.state.delivery}
+                      {delivery}
                       <span>원</span>
                     </span>
                   </dd>
@@ -249,9 +191,7 @@ class Cart extends Component {
                   <dt className="price-product">결제예정금액</dt>
                   <dd>
                     <span className="final-price">
-                      {this.state.total -
-                        this.state.discount +
-                        this.state.delivery}
+                      {total - discount + delivery}
                       <span>원</span>
                     </span>
                   </dd>
@@ -260,7 +200,7 @@ class Cart extends Component {
               <div className="free-delivery-fee">
                 <span>주문하면</span>
                 <span className="final-price">
-                  {this.state.total - this.state.discount + this.state.delivery}
+                  {total - discount + delivery}
                   <span>분</span>
                 </span>
                 <span>동안 무료배송</span>

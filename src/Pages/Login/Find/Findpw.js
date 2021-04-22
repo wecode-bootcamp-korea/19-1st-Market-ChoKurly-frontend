@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { API } from 'config';
 import './Findpw.scss';
 
 class Findpw extends Component {
@@ -26,7 +27,7 @@ class Findpw extends Component {
       body: JSON.stringify(this.state),
     };
 
-    fetch('http://10.58.6.178:8000/users/find-password', find_pw)
+    fetch(`${API}/users/find-password`, find_pw)
       .then(response => response.json())
       .then(result => {
         if (result['MESSAGE'] === 'SUCCESS') {
@@ -36,6 +37,7 @@ class Findpw extends Component {
         }
       });
   };
+
   render() {
     return (
       <div>

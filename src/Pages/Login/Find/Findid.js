@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { API } from 'config';
 import './Findid.scss';
 
 class Findid extends Component {
@@ -25,7 +26,7 @@ class Findid extends Component {
       body: JSON.stringify(this.state),
     };
 
-    fetch('http://10.58.6.178:8000/users/find', find_id)
+    fetch(`${API}/users/find`, find_id)
       .then(response => response.json())
       .then(result => {
         if (
@@ -35,12 +36,11 @@ class Findid extends Component {
           alert('입력값을 확인해주세요.');
         } else {
           alert(`고객님의 아이디는 ${result['MESSAGE']}입니다.`);
-          console.log(result);
         }
       });
   };
+
   render() {
-    console.log(this.state.finded);
     return (
       <div>
         <div className="f_id_head"></div>

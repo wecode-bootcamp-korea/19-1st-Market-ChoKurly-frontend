@@ -7,16 +7,15 @@ class OrderList extends Component {
   deleteItem = () => {
     this.props.delOrderItem(this.props.id);
   };
+
   upClick = () => {
     this.props.changeCount(this.props.id, this.props.prCount + 1);
-    console.log('하이');
   };
 
   downClick = () => {
     this.props.changeCount(this.props.id, this.props.prCount - 1);
-    console.log('하이');
   };
-  countOnChange = () => {};
+
   render() {
     const { item } = this.props;
     return (

@@ -6,7 +6,6 @@
   margin: 30px auto;
 
   h2 {
-    width: 100%;
     height: 50px;
     margin: 25px 312px 25px 0;
     text-align: center;
@@ -16,7 +15,6 @@
 
   .cart-content {
     display: flex;
-    flex-direction: row;
 
     .select-products {
       margin-right: 20px;
@@ -27,19 +25,19 @@
         height: 60px;
         align-items: center;
         font-size: 14px;
-        .check {
-          .check-all {
-            width: auto;
-            height: 24px;
-            padding: 0 10px;
-            background: none;
-            border: none;
-            outline: none;
-            font-size: 14px;
-            font-weight: 500;
-            color: #4c4c4c;
-          }
+
+        .check-all {
+          width: auto;
+          height: 24px;
+          padding: 0 10px;
+          background: none;
+          border: none;
+          outline: none;
+          font-size: 14px;
+          font-weight: 500;
+          color: #4c4c4c;
         }
+
         .del-select,
         .del-all-clear {
           position: relative;
@@ -55,33 +53,39 @@
           font-weight: 500;
           color: #4c4c4c;
         }
+
         .del-all {
           position: absolute;
           right: 0;
           top: 25px;
         }
+
         .divide {
           font-size: 13px;
           color: $midium-gray;
         }
       }
+
       .cart-select-list {
         width: 742px;
         margin: 10px 0;
         border-top: 1.5px solid $main-gray;
         border-bottom: 1px solid #eee;
         font-weight: 500;
+
         .item {
           display: flex;
           position: relative;
           align-items: center;
           width: 742px;
           height: 128px;
+
           img {
             width: 60px;
             height: 78px;
             margin-left: 15px;
           }
+
           .item-name {
             width: 326px;
             height: 91px;
@@ -89,12 +93,14 @@
             flex-direction: column;
             justify-content: center;
             margin: 0 15px;
+
             .package {
               width: auto;
               color: #333;
               font-size: 16px;
               text-decoration: none;
             }
+
             .product {
               width: auto;
               color: #999999;
@@ -103,6 +109,7 @@
               padding-top: 10px;
             }
           }
+
           .count-btn {
             width: auto;
             display: flex;
@@ -110,6 +117,7 @@
             margin: 0 15px;
             border: 1px solid rgb(226, 224, 224);
             border-radius: 3px;
+
             button {
               width: 28px;
               height: 28px;
@@ -119,6 +127,7 @@
               outline: none;
               font-size: 15px;
             }
+
             input {
               width: 28px;
               height: 28px;
@@ -128,16 +137,20 @@
               outline: none;
             }
           }
+
           .price {
             width: auto;
             display: flex;
             align-items: center;
+
             .total-price-wrapper {
               width: auto;
               margin: 0 20px;
+
               .total-price {
                 color: $main-purple;
               }
+
               .discount-price {
                 font-size: 14px;
                 color: $light-gray;
@@ -145,6 +158,7 @@
                 margin-top: 5px;
               }
             }
+
             button {
               position: absolute;
               right: 30px;
@@ -159,26 +173,31 @@
         }
       }
     }
+
     .cart-result {
       width: 284px;
       border: 1px solid #f2f2f2;
+
       .inner-result {
         width: auto;
         display: flex;
         flex-direction: column;
         color: #4c4c4c;
         font-weight: 500;
+
         .cart-delivery {
           width: 284px;
           display: flex;
           flex-direction: column;
           justify-content: center;
           padding: 23px 19px 20px 19px;
+
           p.address {
             width: 243px;
             margin: 5px 0;
             font-size: 16px;
           }
+
           .change-btn {
             width: 240px;
             height: 33px;
@@ -195,20 +214,24 @@
             color: #5f0080;
           }
         }
+
         .amount-view {
           width: 284px;
           padding: 9px 18px 18px 20px;
           background-color: #fafafa;
+
           .price-detail {
             width: 243px;
             display: flex;
             justify-content: space-between;
             padding-top: 9px;
             margin: 0;
+
             .price-product {
               width: auto;
             }
           }
+
           .final-price-main {
             width: 243px;
             display: flex;
@@ -218,6 +241,7 @@
             margin-top: 17px;
           }
         }
+
         .free-delivery-fee {
           width: 284px;
           margin-bottom: 20px;
@@ -227,16 +251,20 @@
           text-align: center;
           font-size: 14px;
           font-weight: 600;
+
           span {
             margin: 0 2px;
           }
+
           .final-price {
             color: #5f0080;
           }
         }
+
         .submit {
           width: auto;
           margin-bottom: 20px;
+
           .submit-btn {
             width: 284px;
             height: 55px;
@@ -247,6 +275,7 @@
             border-radius: 3px;
           }
         }
+
         .notice {
           width: 284px;
           margin-top: 10px;
@@ -254,6 +283,7 @@
           font-size: 12px;
           color: #666;
           line-break: pre-line;
+
           p {
             margin: 10px 0;
           }
@@ -261,8 +291,7 @@
       }
     }
   }
-}
-.inner-empty {
+
   .empty-txt {
     width: 100%;
     margin-top: 0;
@@ -272,9 +301,10 @@
     text-align: center;
     color: #333;
   }
-}
-.moreFree {
-  margin-top: 10px;
-  color: $main-gray;
-  font-size: 10px;
+
+  .moreFree {
+    margin-top: 10px;
+    color: $main-gray;
+    font-size: 10px;
+  }
 }

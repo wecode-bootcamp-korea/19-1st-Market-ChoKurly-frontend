@@ -23,11 +23,6 @@ class Login extends Component {
   //서버로 로그인 정보 제출
   handleSubmit = e => {
     e.preventDefault();
-    // const inputForLogin = {
-    //   id: this.state.id,
-    //   password: this.state.password,
-    // };
-    //this.state
 
     const Login_Info = {
       method: 'POST',
@@ -60,8 +55,8 @@ class Login extends Component {
   goToSignup = () => {
     this.props.history.push('/signup');
   };
+
   render() {
-    console.log(this.state.token);
     return (
       <div>
         <div className="login_header"></div>
