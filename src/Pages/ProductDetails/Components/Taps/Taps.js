@@ -1,43 +1,34 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { tapsData } from './TapsData';
+
 import './Taps.scss';
 
 class Taps extends Component {
-  constructor() {
-    super();
-    this.state = {
-      toggleStatus: true,
-    };
-  }
-
-  toggle = () => {
-    this.setState({
-      toggleStatus: !this.state.toggleStatus,
-    });
-  };
-
   render() {
+    const { goToDetail, goToReview } = this.props;
     return (
       <div className="tap-group">
         <ul>
-          {tapsData.map(ele => {
-            return (
-              <li
-                key={ele.id}
-                className={
-                  (this.state.toggleStatus ? 'li-off' : 'li-on') + ' list'
-                }
-              >
-                <span className="link-name">
-                  <Link to="{ele.link}" onMouseOver={this.toggle}>
-                    {ele.content}
-                  </Link>
-                </span>
-                <span className="how-many">{ele.num}</span>
-              </li>
-            );
-          })}
+          <li className="tap-list">
+            <span className="link-name">
+              <button onMouseOver={this.toggle} onClick={goToDetail}>
+                상품설명
+              </button>
+            </span>
+          </li>
+          <li className="tap-list">
+            <span className="link-name">
+              <button onMouseOver={this.toggle} onClick={goToReview}>
+                상세정보
+              </button>
+            </span>
+          </li>
+          <li className="tap-list">
+            <span className="link-name">
+              <button onMouseOver={this.toggle} onClick={goToReview}>
+                고객후기 ()
+              </button>
+            </span>
+          </li>
         </ul>
       </div>
     );

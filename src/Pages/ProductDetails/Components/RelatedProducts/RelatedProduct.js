@@ -36,7 +36,7 @@ class RelatedProduct extends Component {
   }
 
   render() {
-    const { x, sliderArr, info } = this.state;
+    const { x, sliderArr } = this.state;
 
     return (
       <section className="related-products-wrapper">

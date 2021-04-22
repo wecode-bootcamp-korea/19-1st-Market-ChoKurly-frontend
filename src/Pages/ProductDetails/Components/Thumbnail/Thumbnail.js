@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import QuantityBtn from '../QuantityBtn/QuantityBtn';
+import { Link } from 'react-router-dom';
 import './Thumbnail.scss';
 
 class Thumbnail extends Component {
@@ -41,6 +43,8 @@ class Thumbnail extends Component {
       });
   }
 
+  // goToCart ()= >
+
   render() {
     const { info, number } = this.state;
     const { handleDecrease, handleIncrease, handleSubmit } = this;
@@ -63,7 +67,6 @@ class Thumbnail extends Component {
                 <p className="member">회원할인가</p>
                 <p className="member-price">
                   <span className="price">
-                    {' '}
                     {info.price - info.price * info.discount_rate}
                   </span>
                   <span className="unit"> 원 </span>
@@ -159,7 +162,9 @@ class Thumbnail extends Component {
               <form className="mark-btn">
                 <button className="restock">재입고 알림</button>
                 <button className="buy-often"> 늘 사는 것</button>
-                <button className="add-cart-btn">장바구니 담기</button>
+                <button className="add-cart-btn" onClick={this.props.goToCart}>
+                  장바구니 담기
+                </button>
               </form>
             </div>
           </div>
@@ -169,4 +174,4 @@ class Thumbnail extends Component {
   }
 }
 
-export default Thumbnail;
+export default withRouter(Thumbnail);

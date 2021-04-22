@@ -2,7 +2,7 @@
 
 .more-info-wrapper {
   width: 100%;
-  margin: 0;
+  margin-bottom: 30px;
   .extra-info {
     width: 1010px;
     margin: 0;
@@ -20,7 +20,8 @@
         width: 152px;
         height: 36px;
         text-align: center;
-
+        display: flex;
+        align-items: center;
         background: #f5f5f5;
       }
       dd {

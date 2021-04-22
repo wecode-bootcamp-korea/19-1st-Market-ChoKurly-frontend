@@ -3,26 +3,63 @@ import { withRouter } from 'react-router-dom';
 import Thumbnail from './Components/Thumbnail/Thumbnail';
 import RelatedProduct from './Components/RelatedProducts/RelatedProduct';
 import GoodsDetails from './Components/GoodsDetails/GoodsDetails';
-import Footer from '../../Components/Footer/Footer';
+import Taps from './Components/Taps/Taps';
+import GuestReview from './Components/GuestReview/GuestReview';
+
 import './ProductDetails.scss';
 
 class ProductDetails extends Component {
+  constructor() {
+    super();
+    this.state = {
+      toggleStatus: true,
+    };
+  }
+
+  goTop = () => {
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  };
+
+  goToDetail = () => {
+    window.scrollTo({ top: 1400, behavior: 'auto' });
+
+    this.setState({
+      toggleStatus: !this.state.toggleStatus,
+    });
+  };
+
+  goToReview = () => {
+    window.scrollTo({ top: 4300, behavior: 'auto' });
+    this.setState({
+      toggleStatus: !this.state.toggleStatus,
+    });
+  };
+
+  goToCart = () => {
+    this.props.history.push('/cart');
+  };
+
   componentDidMount() {
-    fetch(`${API}/${this.props.match.params.id}`)
+    fetch(`http://10.58.6.70:8000/products/${this.props.match.params.id}`)
       .then(res => res.json())
       .then(res => this.setState({ data: res.result }));
   }
+
   render() {
-    console.log(this.props.match.parmas.id);
     return (
       <main className="product-details-main">
-        <Thumbnail />
+        <Thumbnail goToCart={this.goToCart} />
         <RelatedProduct />
+        <Taps goToDetail={this.goToDetail} goToReview={this.goToReview} />
         <GoodsDetails />
-        <Footer />
+        <Taps goToDetail={this.goToDetail} goToReview={this.goToReview} />
+        <GuestReview />
+        <button className="goTop" onClick={this.goTop}>
+          <i class="fas fa-arrow-circle-up"></i>
+        </button>
       </main>
     );
   }
 }
 
-export default withRounter(ProductDetails);
+export default withRouter(ProductDetails);
