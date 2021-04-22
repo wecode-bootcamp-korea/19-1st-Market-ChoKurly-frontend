@@ -40,9 +40,10 @@ class ProductDetails extends Component {
   };
 
   componentDidMount() {
-    fetch(`http://10.58.6.70:8000/products/${this.props.match.params.id}`)
+    fetch(`http://10.58.5.227:8000/products/${this.props.match.params.id}`)
       .then(res => res.json())
       .then(res => this.setState({ data: res.result }));
+    window.scrollTo(0, 0);
   }
 
   render() {

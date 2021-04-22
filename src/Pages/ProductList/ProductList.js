@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-//import Nav from '../../Components/Nav/Nav';
+import Nav from '../../Components/Nav/Nav';
 import ProductCard from './Components/ProductCard';
 import Modal from './Components/Modal';
 import './ProductList.scss';
@@ -112,6 +112,7 @@ class ProductList extends Component {
       titleId,
       cartNumber,
     } = this.state;
+
     const {
       addToCart,
       closeCart,
@@ -124,7 +125,7 @@ class ProductList extends Component {
 
     return (
       <>
-        {/*<Nav cartNumber={cartNumber} />*/}
+        <Nav cartNumber={cartNumber} />
         <div className="product-list-container">
           <div className="banner">
             <img

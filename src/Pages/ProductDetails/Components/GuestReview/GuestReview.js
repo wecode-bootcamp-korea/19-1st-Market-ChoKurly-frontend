@@ -41,6 +41,31 @@ class GuestReview extends Component {
     });
   };
 
+  delComment = hot => {
+    const { guestReviews } = this.state;
+    this.setState({
+      guestReviews: guestReviews.filter(({ id }) => id !== hot),
+    });
+  };
+
+  componentDidMount() {
+    fetch('http://10.58.5.227:8000/', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: this.state.id,
+        password: this.state.pw,
+        name: this.state.name,
+        phone_number: this.state.phone_number,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => {
+        console.log(result);
+
+        localStorage.setItem('getToken', result.ACCESS_TOKEN);
+      });
+  }
+
   render() {
     const isBtnAble = this.state.text.length > 9 ? 'onColor' : 'offColor';
 
@@ -85,6 +110,9 @@ class GuestReview extends Component {
                   <div className="review">{comment.text}</div>
                   <div className="reviewer">백엔드 플리스 김미아이디</div>
                   <div className="date">{String(comment.date)}</div>
+                  <button className="delete" onClick={this.delComment}>
+                    <i class="fas fa-times"></i>
+                  </button>
                 </li>
               );
             })}

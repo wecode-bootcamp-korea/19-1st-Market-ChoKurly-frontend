@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
+import Nav from './Components/Nav/Nav';
+import Footer from './Components/Footer/Footer';
 import Main from './Pages/Main/Main';
 import Signup from './Pages/Signup/Signup';
 import Signupfin from './Pages/Signup/SignupFin/SignupFin';
@@ -15,6 +16,7 @@ class Routes extends Component {
   render() {
     return (
       <Router>
+        <Nav />
         <Switch>
           <Route exact path="/main" component={Main} />
           <Route exact path="/signup" component={Signup} />
@@ -26,6 +28,7 @@ class Routes extends Component {
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/cart/:id" component={Cart} />
         </Switch>
+        <Footer />
       </Router>
     );
   }

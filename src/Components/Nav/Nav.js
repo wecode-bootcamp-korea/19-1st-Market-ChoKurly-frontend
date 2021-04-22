@@ -13,6 +13,15 @@ class Nav extends Component {
     };
   }
 
+  componentDidMount() {
+    console.log('nav CDM pathname >>>> ', window.location.pathname);
+    window.addEventListener('scroll', this.scrollNavBar);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.scrollNavBar);
+  }
+
   handleCategoryOn = () => {
     this.setState({
       isCategoryShown: true,
@@ -24,14 +33,6 @@ class Nav extends Component {
       isCategoryShown: false,
     });
   };
-
-  componentDidMount() {
-    window.addEventListener('scroll', this.scrollNavBar);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.scrollNavBar);
-  }
 
   scrollNavBar = () => {
     const scroll = window.scrollY;
