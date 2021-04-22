@@ -1,0 +1,35 @@
+@import '../../../../Styles/common.scss';
+
+.tap-group {
+  width: auto;
+  height: 48px;
+  margin: 10px 0;
+
+  ul {
+    width: 1010px;
+    display: flex;
+
+    .tap-list {
+      width: auto;
+      height: 47px;
+      margin: 0 5px;
+      border: 1px solid #ddd;
+      border-bottom: none;
+      background-color: #ffffff;
+      &:hover {
+        background: rgba(90, 4, 107, 0.356);
+        cursor: pointer;
+      }
+
+      button {
+        width: 170px;
+        height: 50px;
+        outline: none;
+        border: none;
+        font-size: 14px;
+        color: $main-gray;
+        background: none;
+      }
+    }
+  }
+}
