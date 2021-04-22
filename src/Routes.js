@@ -14,7 +14,6 @@ import Findpw from './Pages/Login/Find/Findpw';
 // import './Styles/common.scss';
 
 import './Styles/common.scss';
-import Nav from 'Components/Nav/Nav';
 import Footer from 'Components/Footer/Footer';
 
 class Routes extends Component {
@@ -23,9 +22,8 @@ class Routes extends Component {
       <Router>
         <Switch>
           <div>
-            <Nav />
             <Route exact path="/main" component={Main} />
-            <Route exact path="/main/md/:id" component={Main} />
+            <Route exact path="/main/:id" component={Main} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/signupfin" component={Signupfin} />
             <Route exact path="/login" component={Login} />

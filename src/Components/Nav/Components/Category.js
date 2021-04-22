@@ -14,7 +14,7 @@ class Category extends Component {
 
   componentDidMount() {
     // fetch('/data/category.json')
-    fetch('http://localhost:8000/products/category')
+    fetch('http://10.58.5.244:8000/products/category')
       .then(res => res.json())
       .then(category =>
         this.setState({

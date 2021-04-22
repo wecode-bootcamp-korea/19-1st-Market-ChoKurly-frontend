@@ -46,12 +46,12 @@
     .product-info {
       display: flex;
       flex-direction: column;
-      color: $dark-gray;
+      color: $main-gray;
 
       .product-name {
         margin: 15px 0;
         text-decoration: none;
-        color: $dark-gray;
+        color: $main-gray;
       }
 
       .product-discount {
@@ -69,7 +69,7 @@
       .product-intro-big {
         margin-top: 10px;
         font-size: 14px;
-        color: $midium-gray;
+        color: $medium-gray;
       }
 
       .product-intro {

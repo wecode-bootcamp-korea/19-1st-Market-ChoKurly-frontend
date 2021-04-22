@@ -8,11 +8,11 @@ class GoodsDescription extends Component {
   };
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/ThumbnailData.json')
+    fetch('/data/ThumbnailData.json')
       .then(res => res.json())
       .then(data => {
         this.setState({
-          info: data[0],
+          info: data.result[0],
         });
       });
   }
