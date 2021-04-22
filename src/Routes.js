@@ -10,6 +10,8 @@ import Cart from './Pages/Cart/Cart';
 import Findid from './Pages/Login/Find/Findid';
 import Findpw from './Pages/Login/Find/Findpw';
 
+// import './Styles/common.scss';
+
 class Routes extends Component {
   render() {
     return (

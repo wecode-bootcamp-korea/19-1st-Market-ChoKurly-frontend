@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1876,
+    "pickedItemName": "춰컬일",
+    "pickedItemImg": "https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-19/s150x150/70612494_1272091566296124_7078356886948413440_n.jpg?tp=1&_nc_ht=scontent-ssn1-1.cdninstagram.com&_nc_ohc=noDqq2vgVdEAX8vgsp5&edm=AP_V10EAAAAA&ccb=7-4&oh=e2c8f51ee0912dcedc9e329a050a333c&oe=6094B3A2&_nc_sid=4f375e",
+    "pickedItemUrl": "www.naver.com",
+    "pickedPrice": 3000,
+    "discountRate": 0.1,
+    "count": 3
+  },
+  {
+    "id": 288,
+    "pickedItemName": "춰컬이",
+    "pickedItemImg": "https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-19/s150x150/70612494_1272091566296124_7078356886948413440_n.jpg?tp=1&_nc_ht=scontent-ssn1-1.cdninstagram.com&_nc_ohc=noDqq2vgVdEAX8vgsp5&edm=AP_V10EAAAAA&ccb=7-4&oh=e2c8f51ee0912dcedc9e329a050a333c&oe=6094B3A2&_nc_sid=4f375e",
+    "pickedItemUrl": "www.naver.com",
+    "pickedPrice": 5000,
+    "discountRate": 0.1,
+    "count": 4
+  },
+  {
+    "id": 32323,
+    "pickedItemName": "춰컬삼",
+    "pickedItemImg": "https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-19/s150x150/70612494_1272091566296124_7078356886948413440_n.jpg?tp=1&_nc_ht=scontent-ssn1-1.cdninstagram.com&_nc_ohc=noDqq2vgVdEAX8vgsp5&edm=AP_V10EAAAAA&ccb=7-4&oh=e2c8f51ee0912dcedc9e329a050a333c&oe=6094B3A2&_nc_sid=4f375e",
+    "pickedItemUrl": "www.naver.com",
+    "pickedPrice": 6000,
+    "discountRate": 0.1,
+    "count": 5
+  }
+]

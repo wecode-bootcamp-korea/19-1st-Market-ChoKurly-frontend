@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom';
+import { API } from '../../config';
 import './Login.scss';
 
 class Login extends Component {
@@ -33,14 +34,17 @@ class Login extends Component {
       body: JSON.stringify(this.state),
     };
 
-    fetch('http://10.58.6.178:8000/users/login', Login_Info)
+    fetch(`${API}/users/signin`, Login_Info)
       .then(response => response.json())
       .then(result => {
         //json데이터 형태가 어떠냐에 따라 ex) {idx: 8, nickname: "noh", email:"aa@n.com" success: true}
         if (result['MESSAGE'] === 'SUCCESS') {
           alert('로그인 되었습니다.');
           //서버로 부터 받은 JSON형태의 데이터 그 중 token값만 (객체 형태 key & value) 를 로컬스토리지에 우선 저장.
-          window.localStorage.setItem('token', JSON.stringify(result['TOKEN']));
+          window.localStorage.setItem(
+            'Authorization',
+            JSON.stringify(result['TOKEN'])
+          );
           this.setState({
             id: result.id,
             password: result.password,

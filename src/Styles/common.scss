@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
 #root {
-  box-sizing: border-box;
   font-family: 'Noto Sans KR', 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana',
     sans-serif;
+}
+* {
+  box-sizing: border-box;
 }
 
 %flexCenter {
@@ -15,7 +17,7 @@
 $main-purple: #5f0080;
 $main-gray: #4c4c4c;
 $dark-gray: #333333;
-$medium-gray: #666666;
+$midium-gray: #666666;
 $light-gray: #999999;
 $point-orange: #fa622f;
 $gray-background: #f7f7f7;
