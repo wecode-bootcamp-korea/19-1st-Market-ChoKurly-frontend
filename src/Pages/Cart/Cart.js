@@ -9,18 +9,18 @@ class Cart extends Component {
   constructor() {
     super();
     this.state = {
-      ItemList: [],
+      ItemList: {},
       number: 0,
       isCheck: false,
       SumList: [],
       total: 0,
       discount: 0,
-      delivery: 3000,
+      delivery: 0,
     };
   }
   componentDidMount = () => {
-    // fetch(`${API}/orders/basket`, {
-    fetch('data/cartdata.json', {
+    fetch(`${API}/orders/basket`, {
+      // fetch('data/cartdata.json', {
       headers: {
         Authorization: localStorage.getItem('Authorization'),
       },
@@ -29,8 +29,9 @@ class Cart extends Component {
       .then(data => {
         this.setState({
           // ItemList: data.result,
-          ItemList: data,
+          ItemList: data.result[0],
         });
+        console.log(this.state.ItemList);
       });
   };
 
@@ -39,9 +40,15 @@ class Cart extends Component {
       //계산
       let totalAmount = 0;
       let totalDiscount = 0;
-      this.state.ItemList.forEach(order => {
-        totalAmount += order.pickedPrice * order.count;
-        totalDiscount += order.pickedPrice * order.discountRate * order.count;
+      console.log('ItemList', this.state.ItemList);
+      this.state.ItemList.cart_product_info.forEach(order => {
+        // const [price] = order.price.split('.');
+        console.log(order.price);
+        console.log(order.quantity);
+        console.log(order.discount_rate);
+
+        totalAmount += order.price * order.quantity;
+        totalDiscount += order.price * +order.discount_rate * order.quantity;
         if (totalAmount > 40000) {
           this.setState({ delivery: 0 });
         } else {
@@ -111,18 +118,15 @@ class Cart extends Component {
             </form>
             <div className="cart-select">
               <ul className="cart-select-list">
-                {ItemList.map(item => {
+                {ItemList.cart_product_info?.map(el => {
                   return (
                     <OrderList
                       delOrderItem={this.delOrderItem}
-                      key={item.id}
-                      id={item.id}
-                      item={item}
-                      handleDecrease={this.handleDecrease}
-                      handleIncrease={this.handleIncrease}
-                      handleSubmit={this.handleSubmit}
+                      key={el.id}
+                      id={el.product_id}
+                      item={el}
                       number={this.state.number}
-                      prCount={item.count}
+                      prCount={el.count}
                       changeCount={this.changeCount}
                     />
                   );
@@ -164,7 +168,7 @@ class Cart extends Component {
                   <dt className="price-product">상품금액</dt>
                   <dd>
                     <span className="total-price">
-                      {total}
+                      {total.toLocaleString()}
                       <span>원</span>
                     </span>
                   </dd>
@@ -173,7 +177,7 @@ class Cart extends Component {
                   <dt className="price-product">상품할인금액</dt>
                   <dd>
                     <span>
-                      {discount}
+                      {discount.toLocaleString()}
                       <span>원</span>
                     </span>
                   </dd>
@@ -191,7 +195,7 @@ class Cart extends Component {
                   <dt className="price-product">결제예정금액</dt>
                   <dd>
                     <span className="final-price">
-                      {total - discount + delivery}
+                      {(total - discount + delivery).toLocaleString()}
                       <span>원</span>
                     </span>
                   </dd>

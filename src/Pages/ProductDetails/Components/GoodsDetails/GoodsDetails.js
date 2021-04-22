@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import GoodsDescription from './Components/GoodsDescription/GoodsDescription';
 import MoreInformation from './Components/MoreInformation/MoreInformation';
-import Taps from '../Taps/Taps';
 import './GoodsDetails.scss';
 
 class GoodsDetails extends Component {

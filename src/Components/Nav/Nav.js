@@ -105,7 +105,7 @@ class Nav extends Component {
                       className="menu-all-category"
                       to="/main"
                     >
-                      <img alt="menu" src="images/Nav/menu.png" />
+                      <img alt="menu" src="/images/Nav/menu.png" />
                       전체 카테고리
                     </Link>
                   </li>
@@ -151,7 +151,7 @@ class Nav extends Component {
                   </Link>
                 </div>
                 <div className="cart">
-                  <Link to={`/cart/${cartId}`}>
+                  <Link to={`/cart/${cartId ? cartId : ''}`}>
                     <img
                       className="menu-icons"
                       alt="cart"

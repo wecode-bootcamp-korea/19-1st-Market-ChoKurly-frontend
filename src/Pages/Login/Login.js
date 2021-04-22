@@ -45,7 +45,7 @@ class Login extends Component {
             password: result.password,
             token: result['TOKEN'],
           });
-          this.props.history.push('/Findid');
+          this.props.history.push('/main');
         } else {
           alert('아이디 또는 비밀번호를 확인해주세요.');
         }
@@ -59,7 +59,6 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <div className="login_header"></div>
         <div className="login_main">
           <div className="login_content">
             <div className="login_wrap">
@@ -110,7 +109,6 @@ class Login extends Component {
             </div>
           </div>
         </div>
-        <div className="login_footer"></div>
       </div>
     );
   }

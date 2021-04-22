@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { MoreInfoData } from './MoreInfoData';
-import Taps from '../../../Taps/Taps';
 import './MoreInformation.scss';
 
 class MoreInformation extends Component {

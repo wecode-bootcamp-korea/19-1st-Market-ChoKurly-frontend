@@ -24,13 +24,13 @@ class OrderList extends Component {
           <label>
             <input className="check-circle" type="checkbox" />
           </label>
-          <img src="/" alt="no img" />
+          <img src={item.thumbnail_image} alt="no img" />
           <div className="item-name">
             <Link to="#" className="package">
-              [춰컬릿] 여기서 맵 돌려야 함
+              {item.name}
             </Link>
             <Link to="#" className="product">
-              [춰컬릿] 미니미 베리베리{' '}
+              {item.name}
             </Link>
           </div>
           <div className="count-btn">
@@ -50,12 +50,11 @@ class OrderList extends Component {
           <div className="price">
             <dl class="total-price-wrapper">
               <dt className="total-price">
-                {(item.pickedPrice - item.pickedPrice * item.discountRate) *
-                  this.props.prCount}
+                {(item.price * 0.9).toLocaleString('en-US')}
                 <span>원</span>
               </dt>
               <dd className="discount-price">
-                {item.pickedPrice * this.props.prCount}
+                {(item.price * 1).toLocaleString('en-US')}
                 <span>원</span>
               </dd>
             </dl>

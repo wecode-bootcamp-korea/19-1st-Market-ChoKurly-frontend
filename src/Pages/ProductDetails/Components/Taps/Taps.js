@@ -25,7 +25,7 @@ class Taps extends Component {
           <li className="tap-list">
             <span className="link-name">
               <button onMouseOver={this.toggle} onClick={goToReview}>
-                고객후기 ()
+                고객후기
               </button>
             </span>
           </li>
