@@ -34,7 +34,7 @@ class Tags extends Component {
   render() {
     const { tags } = this.state;
     const { handleClick } = this;
-    console.log(this.state.activeTag);
+
     return (
       <ul className="tags-container">
         {tags.map((tag, index) => {
