@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { API_URL } from 'config';
+import { API } from '../../../../../src/config';
 import './RelatedProduct.scss';
 
 class RelatedProduct extends Component {
@@ -28,7 +28,7 @@ class RelatedProduct extends Component {
   };
 
   componentDidMount() {
-    fetch(`${API_URL}/products/${this.props.match.params.id}`)
+    fetch(`${API}/products/${this.props.match.params.id}`)
       .then(res => res.json())
       .then(data => {
         this.setState({

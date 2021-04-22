@@ -19,13 +19,19 @@ class Cart extends Component {
       delivery: 3000,
     };
   }
-  // addSum = () => {
-  //   for (i = 0; i < SumList.length; i++) {
-  //     SumList;
-  //   }
+  // componentDidMount = () => {
+  //   fetch(`${API}/orders/basket`, {
+  //     headers: {
+  //       Authorization: localStorage.getItem('Authorization'),
+  //     },
+  //   })
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       this.setState({
+  //         ItemList: data.result,
+  //       });
+  //     });
   // };
-  //,{header: {Authorization: localStorage.getItem('Authorization or Token')}}
-
   //목데이터 관리(Get)
   componentDidMount = () => {
     fetch('data/cartdata.json')
@@ -33,6 +39,9 @@ class Cart extends Component {
       .then(data => {
         this.setState({
           ItemList: data,
+        });
+        data.map(item => {
+          return { ...item, isChecked: true };
         });
       });
   };
@@ -76,19 +85,6 @@ class Cart extends Component {
   //     });
   //   this.props.history.push('/');
   // };
-  // componentDidMount = () => {
-  //   fetch(`${API}/orders/basket`, {
-  //     headers: {
-  //       Authorization: localStorage.getItem('Authorization'),
-  //     },
-  //   })
-  //     .then(response => response.json())
-  //     .then(result => {
-  //       this.setState({
-  //         ItemList: result.data.result,
-  //       });
-  //     });
-  // };
   //장바구니 - 개별리스트 삭제
   delOrderItem = hot => {
     const { ItemList } = this.state;
@@ -117,7 +113,7 @@ class Cart extends Component {
     );
   };
 
-  // 바뀌기
+  // 수량 증감 표현식
   changeCount = (id, count) => {
     if (!count) return;
 
@@ -133,39 +129,7 @@ class Cart extends Component {
       ItemList: newOrderList,
     });
   };
-  // //증가함수 핸들링
-  // handleIncrease = (id, count) => {
-  //   const { ItemList } = this.state;
-  //   this.setState({
-  //     ItemList: ItemList.filter(order => {
-  //       if (order.idx === id) {
-  //         if (this.state.number > 29) {
-  //           return 30;
-  //         }
-  //       }
-  //       return order;
-  //     }),
-  //   });
-  //   if (this.state.number > 29) {
-  //     return 30;
-  //   }
-  //   this.setState({
-  //     number: this.state.number + 1,
-  //   });
-  // };
-  // //감소함수 핸들링
-  // handleDecrease = () => {
-  //   if (this.state.number < 1) {
-  //     return 0;
-  //   }
-  //   this.setState({
-  //     number: this.state.number - 1,
-  //   });
-  // };
-  // //제출 핸들링
-  // handleSubmit = e => {
-  //   e.preventDefault();
-  // };
+
   hiddenDiv = e => {
     e.preventDefault();
     if (this.state.ItemList === null) {
@@ -174,15 +138,6 @@ class Cart extends Component {
   };
 
   render() {
-    // const { carts } = this.state;
-    // const totalPrice =
-    //   carts.length &&
-    //   carts
-    //     .reduce((totalPrice, cart) => {
-    //       totalPrice = totalPrice + cart.price * cart.count;
-    //       return totalPrice;
-    //     }, 0)
-    //     .toLocaleString();
     const { ItemList } = this.state;
     return (
       <main className="cart-wrapper">
