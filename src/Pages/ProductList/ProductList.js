@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import Nav from '../../Components/Nav/Nav';
+//import Nav from '../../Components/Nav/Nav';
 import ProductCard from './Components/ProductCard';
 import Modal from './Components/Modal';
 import './ProductList.scss';
