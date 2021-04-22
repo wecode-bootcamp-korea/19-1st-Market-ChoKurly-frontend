@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Taps from '../Taps/Taps';
-import { GuestReviewTap } from './Component/GuestReviewTap';
 import './GuestReview.scss';
 
 class GuestReview extends Component {
@@ -65,6 +63,7 @@ class GuestReview extends Component {
           date: date,
         },
       ],
+      text: '',
     });
   };
 
@@ -116,7 +115,6 @@ class GuestReview extends Component {
             })}
           </ul>
           <div className="input-wrapper">
-            <GuestReviewTap />
             <form className="add-comment" onSubmit={this.handleSubmit}>
               <input
                 type="text"
