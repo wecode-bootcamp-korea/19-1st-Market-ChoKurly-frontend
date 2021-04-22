@@ -13,6 +13,7 @@ class ProductList extends Component {
       clickCartButton: false,
       cartName: '',
       cartPrice: '',
+      cartId: '',
       cartNumber: 0,
       productFilter: '',
       categoryType: '',
@@ -22,13 +23,14 @@ class ProductList extends Component {
       titleId: '',
     };
   }
-  // '/data/productList_chocolate.json'
+
   componentDidMount() {
     fetch(
+      '/data/productList_chocolate.json'
       // eslint-disable-next-line prettier/prettier
-      `http://localhost:8000/products/list?sub_category_id=${Number( 
-        this.props.match.params.id
-      )}&order_by_type=%3F&page=1&limit=6`
+      // `http://localhost:8000/products/list?sub_category_id=${Number(
+      //   this.props.match.params.id
+      // )}&order_by_type=%3F&page=1&limit=6`
     )
       .then(res => res.json())
       .then(productData => {
@@ -40,11 +42,12 @@ class ProductList extends Component {
       });
   }
 
-  openCart = (name, price) => {
+  openCart = (name, price, id) => {
     this.setState({
       clickCartButton: true,
       cartName: name,
       cartPrice: price,
+      cartId: id,
     });
   };
 
@@ -108,6 +111,7 @@ class ProductList extends Component {
       clickCartButton,
       cartName,
       cartPrice,
+      cartId,
       isClicked,
       titleId,
       cartNumber,
@@ -124,7 +128,7 @@ class ProductList extends Component {
 
     return (
       <>
-        <Nav cartNumber={cartNumber} />
+        <Nav cartNumber={cartNumber} cartId={cartId} />
         <div className="product-list-container">
           <div className="banner">
             <img
@@ -221,7 +225,11 @@ class ProductList extends Component {
                       id={product.id}
                       name={product.name}
                       onClick={() => {
-                        openCart(product.name, product.discounted_price);
+                        openCart(
+                          product.name,
+                          product.discounted_price,
+                          product.id
+                        );
                       }}
                       className="cart-button"
                     >
