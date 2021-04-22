@@ -1,0 +1,29 @@
+@import '../../../../Styles/common.scss';
+
+.tags-container {
+  @extend %flexCenter;
+  flex-wrap: wrap;
+  max-width: 1050px;
+  margin: 0 auto 40px auto;
+  text-align: center;
+  .tag {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 15px;
+    border-radius: 20px;
+    background-color: $gray-background;
+    color: $dark-gray;
+    font-size: 14px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #f7f3f9;
+      color: $main-purple;
+    }
+  }
+}
+
+#clicked {
+  background-color: $main-purple;
+  color: white;
+}

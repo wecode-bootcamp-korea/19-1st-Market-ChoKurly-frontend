@@ -3,6 +3,7 @@ import OrderList from './OrderList/OrderList';
 import { API } from '../../config';
 
 import './Cart.scss';
+import { withRouter } from 'react-router-dom';
 
 class Cart extends Component {
   constructor() {
@@ -328,4 +329,4 @@ class Cart extends Component {
   }
 }
 
-export default Cart;
+export default withRouter(Cart);
