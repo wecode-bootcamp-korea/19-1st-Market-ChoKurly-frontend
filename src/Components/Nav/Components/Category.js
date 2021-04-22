@@ -40,7 +40,7 @@ class Category extends Component {
     const { categoryList, isSubOpen, categoryIdx } = this.state;
     const { handleSubOn, handleSubOff } = this;
     const { handleCategoryOff, navBarFixed } = this.props;
-
+    console.log(this.props);
     return (
       <div
         className={`category-container ${

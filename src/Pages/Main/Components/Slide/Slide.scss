@@ -1,5 +1,6 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
 @import '../../../../Styles/common.scss';
+@import '../../../../Styles/reset.scss';
 
 .slide-container {
   position: relative;
@@ -25,9 +26,11 @@
     opacity: 0.3;
     border: 1px solid $midium-gray;
     border-radius: 50%;
+    cursor: pointer;
+
     img {
-      width: 20px;
-      height: 20px;
+      width: 40px;
+      height: 40px;
       padding: 10px;
     }
   }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import Nav from '../../Components/Nav/Nav';
 import Slide from './Components/Slide/Slide';
 import ProductCardSlide from './Components/ProductCardSlide/ProductCardSlide';
@@ -20,36 +21,68 @@ class Main extends Component {
   }
 
   componentDidMount() {
-    Promise.all([
-      fetch('http://localhost:8000/products/list?order_by_type=%3F'),
-      fetch('http://localhost:8000/products/list?order_by_type=-discount_rate'),
-      fetch(
-        'http://localhost:8000/products/list?order_by_type=%3F&sub_category_id=58'
-      ),
-      fetch('http://localhost:8000/products/list?order_by_type=created_at'),
-      fetch('http://localhost:8000/products/list?order_by_type=-stock'),
-      fetch('http://localhost:8000/products/list?order_by_type=price'),
-    ])
-      .then(([res1, res2, res3, res4, res5, res6]) =>
-        Promise.all([
-          res1.json(),
-          res2.json(),
-          res3.json(),
-          res4.json(),
-          res5.json(),
-          res6.json(),
-        ])
-      )
-      .then(([data1, data2, data3, data4, data5, data6]) =>
+    fetch('http://localhost:3000/data/productCard_main2.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(productData => {
         this.setState({
-          suggestionArr: data1.results,
-          salesArr: data2.results,
-          mdArr: data3.results,
-          newArr: data4.results,
-          hotArr: data5.results,
-          finalSalesArr: data6.results,
-        })
-      );
+          //테스트중
+          suggestionArr: productData.RESULTS,
+          salesArr: productData.RESULTS,
+          mdArr: productData.RESULTS,
+          newArr: productData.RESULTS,
+          hotArr: productData.RESULTS,
+          finalSalesArr: productData.RESULTS,
+        });
+      });
+
+    // Promise.all([
+    //   fetch('http://localhost:8000/products/list?order_by_type=%3F'),
+    //   fetch('http://localhost:8000/products/list?order_by_type=-discount_rate'),
+    //   fetch(
+    //     'http://localhost:8000/products/list?order_by_type=%3F&sub_category_id=58'
+    //   ),
+    //   fetch('http://localhost:8000/products/list?order_by_type=created_at'),
+    //   fetch('http://localhost:8000/products/list?order_by_type=-stock'),
+    //   fetch('http://localhost:8000/products/list?order_by_type=price'),
+    // ])
+    //   .then(([res1, res2, res3, res4, res5, res6]) =>
+    //     Promise.all([
+    //       res1.json(),
+    //       res2.json(),
+    //       res3.json(),
+    //       res4.json(),
+    //       res5.json(),
+    //       res6.json(),
+    //     ])
+    //   )
+    //   .then(([data1, data2, data3, data4, data5, data6]) =>
+    //     this.setState({
+    //       suggestionArr: data1.RESULTS,
+    //       salesArr: data2.RESULTS,
+    //       mdArr: data3.RESULTS,
+    //       newArr: data4.RESULTS,
+    //       hotArr: data5.RESULTS,
+    //       finalSalesArr: data6.RESULTS,
+    //     })
+    //   );
+  }
+
+  componentDidUpdate(prevState) {
+    if (prevState.location.pathname !== this.props.location.pathname) {
+      fetch(
+        `http://localhost:8000/products/list?order_by_type=%3F&sub_category_id=${
+          Number(this.props.match.params.id) + 57
+        }`
+      )
+        .then(res => res.json())
+        .then(data =>
+          this.setState({
+            mdArr: data.RESULTS,
+          })
+        );
+    }
   }
 
   render() {
@@ -104,4 +137,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default withRouter(Main);
