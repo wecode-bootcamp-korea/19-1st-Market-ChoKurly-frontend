@@ -1,0 +1,278 @@
+@import '../../../../Styles/common.scss';
+
+.top-view {
+  width: auto;
+  height: 930px;
+
+  .thumbnail-wrapper {
+    width: 1050px;
+    height: 552px;
+    margin: 15px auto 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    color: $dark-gray;
+    font-size: 14px;
+
+    img {
+      width: 430px;
+      height: 552px;
+    }
+
+    .thumbnail-info {
+      width: auto;
+
+      .goods-name {
+        width: 560px;
+        padding: 10px 0 29px 0;
+
+        dt {
+          width: 560px;
+          height: 34px;
+          padding-right: 60px;
+          color: $dark-gray;
+          font-size: 24px;
+          font-weight: 500;
+        }
+
+        dd {
+          width: 560px;
+          height: 24px;
+          padding: 4px 60px 0 0;
+          color: $light-gray;
+          font-size: 14px;
+        }
+      }
+
+      .goods-price-wrapper {
+        width: 560px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        border-bottom: 1px solid #eee;
+
+        .member {
+          margin-bottom: 5px;
+        }
+        .member-price {
+          width: auto;
+          margin-bottom: 10px;
+
+          .price {
+            font-size: 28px;
+          }
+          .unit {
+            font-size: 18px;
+          }
+          .discount-percent {
+            font-size: 28px;
+            font-weight: 500;
+            color: #fa622f;
+            letter-spacing: -3px;
+          }
+        }
+        .discount-price {
+          font-size: 16px;
+          color: $light-gray;
+
+          span {
+            text-decoration: line-through;
+          }
+        }
+
+        .cupon-benefit {
+          width: 540px;
+          padding-top: 11px;
+          display: flex;
+          align-items: center;
+          font-weight: 500;
+          margin-bottom: 19px;
+
+          .cupon-percent {
+            width: 56px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 6px;
+            border: 1px solid #949296;
+            border-radius: 10px;
+
+            span {
+              font-size: 12px;
+              color: #949296;
+            }
+          }
+        }
+      }
+
+      .goods-ul {
+        width: auto;
+        display: flex;
+
+        ul {
+          width: auto;
+          display: flex;
+          flex-direction: column;
+          border-bottom: 1px solid #eee;
+
+          .subject {
+            width: 150px;
+            height: 57px;
+            display: flex;
+            align-items: center;
+            border-top: 1px solid #eee;
+            color: $medium-gray;
+          }
+
+          .subject-content {
+            width: 410px;
+            height: 57px;
+            display: flex;
+            align-items: center;
+            border-top: 1px solid #eee;
+            color: $medium-gray;
+          }
+
+          .content {
+            width: 410px;
+            height: 57px;
+            display: flex;
+            align-items: center;
+            border-top: 1px solid #eee;
+          }
+        }
+      }
+
+      .goods-select-wrapper {
+        width: 560px;
+        padding: 18px 0;
+        display: flex;
+        align-items: flex-start;
+        border-bottom: 1px solid #eee;
+
+        label {
+          width: 150px;
+          padding-top: 18px;
+          color: $medium-gray;
+        }
+        .goods-select {
+          width: auto;
+          padding-top: 6px;
+
+          .goods-list {
+            width: 410px;
+            height: 40px;
+            border: 1px solid rgb(204, 203, 203);
+            outline: none;
+            font-size: 12px;
+            color: $dark-gray;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+          }
+
+          .list {
+            margin-top: 10px;
+
+            .goods-own {
+              width: 410px;
+              height: 80px;
+              padding: 9px 10px 9px 15px;
+              border: 1px solid #eee;
+              border-radius: 1px;
+              font-size: 12px;
+
+              .added-goods-name {
+                width: auto;
+                margin-top: 3px;
+                padding: 0 5px;
+                display: flex;
+                justify-content: space-between;
+
+                .delete {
+                  width: 17px;
+                  height: 17px;
+                  padding: 0;
+                  background: #ffffff;
+                  border: none;
+                  outline: none;
+                  i {
+                    font-size: 15px;
+                  }
+                }
+              }
+
+              .fixed-price {
+                width: auto;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 10px;
+                padding: 0 5px;
+                font-size: 12px;
+                font-weight: 500;
+              }
+            }
+          }
+        }
+      }
+
+      .buy-for-it {
+        width: auto;
+        text-align: right;
+
+        .total-price-wrapper {
+          width: 560px;
+          margin-top: 40px;
+
+          .restock {
+            font-size: 13px;
+          }
+          .total-price {
+            margin: 0 5px;
+            font-size: 32px;
+            font-weight: 700;
+            border: none;
+            outline: none;
+          }
+          .won {
+            font-size: 20px;
+          }
+        }
+
+        .mark-btn {
+          width: 560px;
+          margin: 16px 0;
+        }
+
+        .restock {
+          width: 128px;
+          height: 56px;
+          margin-right: 12px;
+          border: 1px solid $main-purple;
+          border-radius: 3px;
+          outline: none;
+          background-color: #ffffff;
+          font-size: 16px;
+          color: $main-purple;
+          font-weight: 700;
+        }
+        .buy-often {
+          @extend .restock;
+        }
+        .add-cart-btn {
+          width: 278px;
+          height: 56px;
+          border: none;
+          border-radius: 3px;
+          background-color: $main-purple;
+          font-size: 16px;
+          color: #ffffff;
+          font-weight: 700;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
