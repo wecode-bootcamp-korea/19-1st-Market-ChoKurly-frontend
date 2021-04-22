@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import { API_URL } from 'config';
 import './RelatedProduct.scss';
 
@@ -78,4 +79,4 @@ class RelatedProduct extends Component {
   }
 }
 
-export default RelatedProduct;
+export default withRouter(RelatedProduct);
