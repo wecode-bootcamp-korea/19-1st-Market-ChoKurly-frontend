@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import Nav from '../../Components/Nav/Nav';
 import Slide from './Components/Slide/Slide';
 import ProductCardSlide from './Components/ProductCardSlide/ProductCardSlide';
 import LimitedEvent from './Components/LimitedEvent/LimitedEvent';
@@ -96,6 +97,7 @@ class Main extends Component {
 
     return (
       <div className="main-container">
+        <Nav />
         <Slide />
         <div className="suggestion">
           <div className="main-title suggestion-title">이 상품 어때요?</div>

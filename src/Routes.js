@@ -23,7 +23,6 @@ class Routes extends Component {
       <Router>
         <Switch>
           <div>
-            <Nav />
             <Route exact path="/main" component={Main} />
             <Route exact path="/main/md/:id" component={Main} />
             <Route exact path="/signup" component={Signup} />

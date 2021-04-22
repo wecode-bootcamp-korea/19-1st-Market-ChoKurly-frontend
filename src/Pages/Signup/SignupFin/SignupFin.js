@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Nav from '../../../Components/Nav/Nav';
 import './SignupFin.scss';
 
 class SignupFin extends Component {
   render() {
     return (
       <div className="SignupFin-Main">
+        <Nav />
         <div className="SignupFin-Content">
           <div className="SignupFin-Wrap">
             <div className="SignupFin-Form">

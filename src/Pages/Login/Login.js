@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import { API } from '../../config';
+import Nav from '../../Components/Nav/Nav';
 import './Login.scss';
 
 class Login extends Component {
@@ -59,6 +60,7 @@ class Login extends Component {
   render() {
     return (
       <div>
+        <Nav />
         <div className="login_main">
           <div className="login_content">
             <div className="login_wrap">

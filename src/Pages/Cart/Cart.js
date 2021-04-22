@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Nav from '../../Components/Nav/Nav';
 import { withRouter } from 'react-router-dom';
 import OrderList from './OrderList/OrderList';
 import { API } from '../../config';
@@ -91,6 +92,7 @@ class Cart extends Component {
 
     return (
       <main className="cart-wrapper">
+        <Nav />
         <h2> 장바구니 </h2>
         <div className="cart-content">
           <div className="select-products">

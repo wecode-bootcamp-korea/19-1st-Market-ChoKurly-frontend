@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import Nav from '../../Components/Nav/Nav';
 import Thumbnail from './Components/Thumbnail/Thumbnail';
 import RelatedProduct from './Components/RelatedProducts/RelatedProduct';
 import GoodsDetails from './Components/GoodsDetails/GoodsDetails';
@@ -43,11 +44,13 @@ class ProductDetails extends Component {
     fetch(`http://10.58.6.70:8000/products/${this.props.match.params.id}`)
       .then(res => res.json())
       .then(res => this.setState({ data: res.result }));
+    window.scrollTo(0, 0);
   }
 
   render() {
     return (
       <main className="product-details-main">
+        <Nav />
         <Thumbnail goToCart={this.goToCart} />
         <RelatedProduct />
         <Taps goToDetail={this.goToDetail} goToReview={this.goToReview} />

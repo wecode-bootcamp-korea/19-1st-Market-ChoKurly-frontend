@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { isEmail, isId, isPassword } from './Check';
+import Nav from '../../Components/Nav/Nav';
 import './Signup.scss';
 
 class Signup extends Component {
@@ -95,7 +96,7 @@ class Signup extends Component {
       // );
       // this.setState({ idCheck: this.state.id });
       // this.setState({ checkedId: true });
-      fetch('http://10.58.6.178:8000/users/signupcheck', id_info)
+      fetch('http://10.58.6.178:8000/users/signup-check', id_info)
         .then(response => response.json())
         .then(result => {
           if (result === false) {
@@ -122,7 +123,7 @@ class Signup extends Component {
     };
 
     if (this.state.isValidEmail) {
-      fetch('http://10.58.6.178:8000/users/signupcheck', email_info)
+      fetch('http://10.58.6.178:8000/users/signup-check', email_info)
         .then(response => response.json())
         .then(result => {
           if (result === false) {
@@ -210,6 +211,7 @@ class Signup extends Component {
     // console.log(pwCheck)
     return (
       <div className="Signup-Main">
+        <Nav />
         <div className="Signup-Container">
           <h3>회원가입</h3>
           <p className="Signup-Sub">
