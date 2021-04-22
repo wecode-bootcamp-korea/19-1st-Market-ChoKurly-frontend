@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 class Cart extends Component {
   render() {
@@ -6,4 +7,4 @@ class Cart extends Component {
   }
 }
 
-export default Cart;
+export default withRouter(Cart);

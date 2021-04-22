@@ -35,12 +35,10 @@ class Findid extends Component {
           alert('입력값을 확인해주세요.');
         } else {
           alert(`고객님의 아이디는 ${result['MESSAGE']}입니다.`);
-          console.log(result);
         }
       });
   };
   render() {
-    console.log(this.state.finded);
     return (
       <div>
         <div className="f_id_head"></div>

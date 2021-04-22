@@ -57,7 +57,6 @@ class Login extends Component {
     this.props.history.push('/signup');
   };
   render() {
-    console.log(this.state.token);
     return (
       <div>
         <div className="login_header"></div>

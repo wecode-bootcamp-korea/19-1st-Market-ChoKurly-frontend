@@ -1,0 +1,36 @@
+@import '../../../../../../Styles/common.scss';
+
+.more-info-wrapper {
+  width: 100%;
+  margin-bottom: 30px;
+  .extra-info {
+    width: 1010px;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 40% 40%;
+    grid-column-gap: 10%;
+    font-size: 11px;
+    color: #515151;
+
+    dl {
+      height: 36px;
+      display: flex;
+      align-items: center;
+      dt {
+        width: 152px;
+        height: 36px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        background: #f5f5f5;
+      }
+      dd {
+        display: inline-block;
+      }
+    }
+  }
+  .why-chokurly {
+    height: 850px;
+    padding: 44px 0 88px 0;
+  }
+}

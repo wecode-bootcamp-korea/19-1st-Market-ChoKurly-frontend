@@ -1,0 +1,98 @@
+[
+  {
+    "allergy": [
+      {
+        "allergy": "우유",
+        "id": "1"
+      },
+      {
+        "allergy": "대두",
+        "id": "2"
+      },
+      {
+        "allergy": "땅콩",
+        "id": "3"
+      },
+      {
+        "allergy": "함유",
+        "id": "4"
+      }
+    ],
+    "comment": "유기농 식물성 원료로 더 깔끔하고 건강한 비바니 초콜릿",
+    "delivery_type": "햇볕배송/택배배송",
+    "description_image": "https://images.unsplash.com/photo-1584270354950-6e55b749ae63?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+    "discount_rate": 0.1,
+    "id": "1",
+    "instruction": "전 상품의 패키지가 리뉴얼되었습니다. 아래 상품 상세 정보 확인 부탁드립니다.",
+    "name": "로이스초콜릿",
+    "packing_type": "냉장/종이포장",
+    "price": 2000,
+    "realted_products": [
+      {
+        "id": "1",
+        "name": "화이트초코",
+        "price": 3200,
+        "rel_img": "https://images.unsplash.com/photo-1548907040-4baa42d10919?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+      },
+      {
+        "id": "2",
+        "name": "오렌지초콜릿",
+        "price": 4900,
+        "rel_img": "https://images.unsplash.com/photo-1490324412536-e044eae4b09a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+      },
+      {
+        "id": "3",
+        "name": "다크초코",
+        "price": 3400,
+        "rel_img": "https://images.unsplash.com/photo-1606312619070-d48b4c652a52?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+      },
+      {
+        "id": "4",
+        "name": "레몬사탕",
+        "price": 2500,
+        "rel_img": "https://images.unsplash.com/photo-1603202902092-3eb7a76ecf5f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+      },
+      {
+        "id": "5",
+        "name": "초코칩쿠키",
+        "price": 7500,
+        "rel_img": "https://images.unsplash.com/photo-1497051788611-2c64812349fa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+      },
+      {
+        "id": "6",
+        "name": "필란드자일리톨",
+        "price": 7700,
+        "rel_img": "https://images.unsplash.com/photo-1576644461179-ddd318c669e4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+      },
+      {
+        "id": "7",
+        "name": "초코쿠키",
+        "price": 4500,
+        "rel_img": "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+      },
+      {
+        "id": "8",
+        "name": "머랭쿠키",
+        "price": 9900,
+        "rel_img": "https://images.unsplash.com/photo-1607919565782-d49c91cb46cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+      },
+      {
+        "id": "9",
+        "name": "로이스초콜릿",
+        "price": 2000,
+        "rel_img": "https://images.unsplash.com/photo-1587271644048-2fbb187de8d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+      },
+      {
+        "id": "10",
+        "name": "과일캔디",
+        "price": 3000,
+        "rel_img": "https://images.unsplash.com/photo-1601493700625-9185417898cf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+      }
+    ],
+    "review": "없음",
+    "sale_unit": "1개",
+    "size_image": "https://i.esdrop.com/d/NlsEZZFqTI.jpg",
+    "thumbnail_image": "https://images.unsplash.com/photo-1587271644048-2fbb187de8d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
+    "weight_g": 0.1
+  }
+]

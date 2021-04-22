@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { isEmail, isId, isPassword } from './Check';
 import './Signup.scss';
 
@@ -193,6 +193,7 @@ class Signup extends Component {
         .then(response => response.json())
         .then(result => console.log('결과: ', result));
       alert('가입이 완료되었습니다.');
+      this.props.history.push('/signupfin');
       // .then(
       //   alert('가입이 안료되었습니다.')
       // );
@@ -466,4 +467,4 @@ class Signup extends Component {
   }
 }
 
-export default Signup;
+export default withRouter(Signup);
