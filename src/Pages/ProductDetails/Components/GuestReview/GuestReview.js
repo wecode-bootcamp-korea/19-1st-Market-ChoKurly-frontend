@@ -15,42 +15,16 @@ class GuestReview extends Component {
     });
   };
 
-  getToday() {
-    const date = new Date();
-    const year = date.getFullYear();
-    const month = ('0' + (1 + date.getMonth())).slice(-2);
-    const day = ('0' + date.getDate()).slice(-2);
-    return year + '-' + month + '-' + day;
-  }
-
   handleKeyPress = e => {
-    if (e.key === 'Enter') {
-      if (!this.state.text) {
-        e.preventDefault();
-      } else {
-        return this.addComment();
-      }
-    }
-  };
+    if (e.key !== 'Enter') return;
+    if (!this.state.text) return;
 
-  handleSubmit = e => {
-    e.preventDefault();
-  };
-
-  indexNum = () => {
-    const { num } = this.state;
-    const count = this.addComment;
-
-    if (count === 1) {
-      return this.state.num + 1;
-    }
+    this.addComment();
   };
 
   addComment = () => {
-    const { id, text, guestReviews, reviewer } = this.state;
-    const date = this.getToday();
-    // const num = this.indexNum()
-    const num = guestReviews.length;
+    const { id, text, guestReviews } = this.state;
+    const date = getToday();
 
     this.setState({
       guestReviews: [
@@ -69,8 +43,9 @@ class GuestReview extends Component {
 
   render() {
     const isBtnAble = this.state.text.length > 9 ? 'onColor' : 'offColor';
+
     return (
-      <section className="geust-review-wrapper">
+      <section className="guest-review-wrapper">
         <div className="guest-review">
           <b>PRODUCT REVIEW</b>
           <div className="review-info">
@@ -115,7 +90,7 @@ class GuestReview extends Component {
             })}
           </ul>
           <div className="input-wrapper">
-            <form className="add-comment" onSubmit={this.handleSubmit}>
+            <form className="add-comment">
               <input
                 type="text"
                 placeholder="제품에 대한 흔적을 남겨보세요(10자 이상)."
@@ -139,3 +114,11 @@ class GuestReview extends Component {
 }
 
 export default GuestReview;
+
+const getToday = () => {
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = ('0' + (1 + date.getMonth())).slice(-2);
+  const day = ('0' + date.getDate()).slice(-2);
+  return year + '-' + month + '-' + day;
+};

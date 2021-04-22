@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { API_URL } from 'config';
 import './RelatedProduct.scss';
 
 class RelatedProduct extends Component {
@@ -13,19 +14,20 @@ class RelatedProduct extends Component {
 
   goLeft = () => {
     const { x, sliderArr } = this.state;
+
     x === 0 ? this.setState({ x: 0 }) : this.setState({ x: x + 100 });
   };
 
   goRight = () => {
     const { x, sliderArr } = this.state;
-    console.log(sliderArr);
+
     x === -100 * (sliderArr.length - 1)
       ? this.setState({ x: 0 })
       : this.setState({ x: x - 100 });
   };
 
   componentDidMount() {
-    fetch('`http:// 10.58.6.70:8000/products/${this.props.match.params.id')
+    fetch(`${API_URL}/products/${this.props.match.params.id}`)
       .then(res => res.json())
       .then(data => {
         this.setState({

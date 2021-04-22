@@ -1,20 +1,22 @@
-import Taps from 'Pages/ProductDetails/Components/Taps/Taps';
 import React, { Component } from 'react';
+import Taps from 'Pages/ProductDetails/Components/Taps/Taps';
 import './GoodsDescription.scss';
+
 class GoodsDescription extends Component {
   state = {
     info: [],
   };
+
   componentDidMount() {
     fetch('http://localhost:3000/data/ThumbnailData.json')
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         this.setState({
           info: data[0],
         });
       });
   }
+
   render() {
     const { info } = this.state;
 

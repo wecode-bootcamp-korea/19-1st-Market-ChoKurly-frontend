@@ -36,7 +36,6 @@ class Thumbnail extends Component {
     fetch('http://localhost:3000/data/ThumbnailData.json')
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         this.setState({
           info: data[0],
         });
