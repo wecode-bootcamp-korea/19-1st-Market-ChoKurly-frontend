@@ -18,6 +18,7 @@ class GuestReview extends Component {
   handleKeyPress = e => {
     if (e.key !== 'Enter') return;
     if (!this.state.text) return;
+    e.preventDefault();
 
     this.addComment();
   };
@@ -42,7 +43,7 @@ class GuestReview extends Component {
   };
 
   render() {
-    const isBtnAble = this.state.text.length > 9 ? 'onColor' : 'offColor';
+    const isBtnAble = this.state.text.length > 0 ? 'onColor' : 'offColor';
 
     return (
       <section className="guest-review-wrapper">

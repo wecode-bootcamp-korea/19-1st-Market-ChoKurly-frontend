@@ -15,12 +15,12 @@ class Cart extends Component {
       SumList: [],
       total: 0,
       discount: 0,
-      delivery: 3000,
+      delivery: 0,
     };
   }
   componentDidMount = () => {
-    // fetch(`${API}/orders/basket`, {
-    fetch('data/cartdata.json', {
+    fetch(`${API}/orders/basket`, {
+      // fetch('data/cartdata.json', {
       headers: {
         Authorization: localStorage.getItem('Authorization'),
       },
@@ -29,8 +29,9 @@ class Cart extends Component {
       .then(data => {
         this.setState({
           // ItemList: data.result,
-          ItemList: data,
+          ItemList: data.result,
         });
+        console.log(this.state.ItemList);
       });
   };
 
@@ -111,21 +112,24 @@ class Cart extends Component {
             </form>
             <div className="cart-select">
               <ul className="cart-select-list">
-                {ItemList.map(item => {
-                  return (
-                    <OrderList
-                      delOrderItem={this.delOrderItem}
-                      key={item.id}
-                      id={item.id}
-                      item={item}
-                      handleDecrease={this.handleDecrease}
-                      handleIncrease={this.handleIncrease}
-                      handleSubmit={this.handleSubmit}
-                      number={this.state.number}
-                      prCount={item.count}
-                      changeCount={this.changeCount}
-                    />
-                  );
+                {ItemList.map((item, idx) => {
+                  return item.cart_product_info.map(el => {
+                    console.log(el);
+                    return (
+                      <OrderList
+                        delOrderItem={this.delOrderItem}
+                        key={el.id}
+                        id={el.product_id}
+                        item={el}
+                        // handleDecrease={this.handleDecrease}
+                        // handleIncrease={this.handleIncrease}
+                        // handleSubmit={this.handleSubmit}
+                        number={this.state.number}
+                        prCount={el.count}
+                        changeCount={this.changeCount}
+                      />
+                    );
+                  });
                 })}
               </ul>
               {!ItemList.length && (

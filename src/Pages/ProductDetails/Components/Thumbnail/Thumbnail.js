@@ -63,7 +63,10 @@ class Thumbnail extends Component {
                 <p className="member">회원할인가</p>
                 <p className="member-price">
                   <span className="price">
-                    {info.price - info.price * info.discount_rate}
+                    {(
+                      info.price -
+                      info.price * info.discount_rate
+                    ).toLocaleString('en-US')}
                   </span>
                   <span className="unit"> 원 </span>
                   <span className="discount-percent">
@@ -73,7 +76,7 @@ class Thumbnail extends Component {
                 </p>
                 <p className="discount-price">
                   <span>
-                    {info.price}
+                    {(info.price * 1).toLocaleString('en-US')}
                     <span>원</span>
                   </span>
                   <span>
@@ -125,7 +128,7 @@ class Thumbnail extends Component {
                     <div className="added-goods-name">
                       <span>{info.name} 녹차</span>
                       <button className="delete">
-                        <i class="fas fa-times"></i>
+                        <i className="fas fa-times"></i>
                       </button>
                     </div>
 
@@ -138,7 +141,10 @@ class Thumbnail extends Component {
                       />
                       <p>
                         <span className="goods-own-price">
-                          {info.price - info.price * info.discount_rate}
+                          {(
+                            info.price -
+                            info.price * info.discount_rate
+                          ).toLocaleString('en-US')}
                         </span>
                         <span>원</span>
                       </p>
@@ -151,7 +157,10 @@ class Thumbnail extends Component {
               <div className="total-price-wrapper">
                 <span> 총 상품금액: </span>
                 <span className="total-price">
-                  {(info.price - info.price * info.discount_rate) * number}
+                  {(
+                    (info.price - info.price * info.discount_rate) *
+                    number
+                  ).toLocaleString('en-US')}
                 </span>
                 <span className="won">원</span>
               </div>

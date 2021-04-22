@@ -203,13 +203,13 @@ class Signup extends Component {
       alert('입력값을 확인해주세요.');
     }
   };
+
   render() {
     const { showId, showPw, showRe } = this.state;
     const { password, repassword } = this.state;
     // console.log(pwCheck)
     return (
       <div className="Signup-Main">
-        <div className="Signup-Header"></div>
         <div className="Signup-Container">
           <h3>회원가입</h3>
           <p className="Signup-Sub">
@@ -461,7 +461,6 @@ class Signup extends Component {
             </div>
           </main>
         </div>
-        <div className="Signup-Footer"></div>
       </div>
     );
   }

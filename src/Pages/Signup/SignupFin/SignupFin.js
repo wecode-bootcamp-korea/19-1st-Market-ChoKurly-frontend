@@ -28,12 +28,12 @@ class SignupFin extends Component {
                   </ul>
                 </div>
                 <p className="SignupFin-Btn">
-                  <Link to="/">
+                  <Link to="/main">
                     <span className="LoginFin_Btn Event">
                       신규 혜택 100원 상품 보러가기
                     </span>
                   </Link>
-                  <Link to="/">
+                  <Link to="/main">
                     <span className="LoginFin_Btn GotoMain">
                       마이페이지로 이동
                     </span>

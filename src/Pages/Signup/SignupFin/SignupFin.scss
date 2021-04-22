@@ -3,10 +3,10 @@
 .SignupFin-Main {
   height: 813px;
   border-bottom: 1px solid #f7f7f7;
-  margin-top: 206px;
-  margin-bottom: 419px;
 
   .SignupFin-Content {
+    display: flex;
+    justify-content: center;
     padding-bottom: 120px;
     height: 812px;
     position: relative;

@@ -14,7 +14,7 @@ class RelatedProduct extends Component {
   }
 
   goLeft = () => {
-    const { x, sliderArr } = this.state;
+    const { x } = this.state;
 
     x === 0 ? this.setState({ x: 0 }) : this.setState({ x: x + 100 });
   };
