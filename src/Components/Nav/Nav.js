@@ -77,10 +77,10 @@ class Nav extends Component {
           </div>
           <ul className="user-menu-list">
             <li className="signup">
-              <Link to="/main">회원가입</Link>
+              <Link to="/signup">회원가입</Link>
             </li>
             <li className="login">
-              <Link to="/main">로그인</Link>
+              <Link to="/login">로그인</Link>
             </li>
             <li className="cs">
               <Link to="/main">고객센터 ▾</Link>
@@ -151,7 +151,7 @@ class Nav extends Component {
                   </Link>
                 </div>
                 <div className="cart">
-                  <Link to="/main">
+                  <Link to="/cart">
                     <img
                       className="menu-icons"
                       alt="cart"
