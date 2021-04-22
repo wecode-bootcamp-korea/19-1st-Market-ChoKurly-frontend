@@ -45,7 +45,7 @@ class ProductCard extends Component {
           <div className="product-info">
             <Link
               to={`/productdetails/${product.id}`}
-              className="product-name"
+              className={productBig ? 'product-name-big' : 'product-name'}
               style={fontStyleBig}
             >
               <span>{product.name}</span>
