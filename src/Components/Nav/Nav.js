@@ -50,7 +50,7 @@ class Nav extends Component {
   render() {
     const { isCategoryShown, navBarFixed } = this.state;
     const { handleCategoryOn, handleCategoryOff } = this;
-    const { cartNumber } = this.props;
+    const { cartNumber, cartId } = this.props;
 
     return (
       <div className="common-nav">
@@ -151,7 +151,7 @@ class Nav extends Component {
                   </Link>
                 </div>
                 <div className="cart">
-                  <Link to="/cart">
+                  <Link to={`/cart/${cartId}`}>
                     <img
                       className="menu-icons"
                       alt="cart"
