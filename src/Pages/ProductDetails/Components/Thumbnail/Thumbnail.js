@@ -167,7 +167,11 @@ class Thumbnail extends Component {
               <form className="mark-btn">
                 <button className="restock">재입고 알림</button>
                 <button className="buy-often"> 늘 사는 것</button>
-                <button className="add-cart-btn" onClick={this.props.goToCart}>
+                <button
+                  type="submit"
+                  className="add-cart-btn"
+                  onClick={this.props.goToCart}
+                >
                   장바구니 담기
                 </button>
               </form>

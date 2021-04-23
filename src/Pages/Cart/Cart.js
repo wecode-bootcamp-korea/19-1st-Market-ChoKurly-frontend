@@ -28,6 +28,7 @@ class Cart extends Component {
     })
       .then(res => res.json())
       .then(data => {
+        console.log(data);
         this.setState({
           // ItemList: data.result,
           ItemList: data.result[0],
