@@ -1,52 +1,12 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import QuantityBtn from '../QuantityBtn/QuantityBtn';
-import { Link } from 'react-router-dom';
 import './Thumbnail.scss';
 
 class Thumbnail extends Component {
-  state = {
-    info: {},
-    number: 0,
-  };
-
-  handleIncrease = () => {
-    if (this.state.number > 30) {
-      return 30;
-    }
-    this.setState({
-      number: this.state.number + 1,
-    });
-  };
-
-  handleDecrease = () => {
-    if (this.state.number < 2) {
-      return 1;
-    }
-    this.setState({
-      number: this.state.number - 1,
-    });
-  };
-
-  handleSubmit = e => {
-    e.preventDefault();
-  };
-
-  componentDidMount() {
-    fetch('http://localhost:3000/data/ThumbnailData.json')
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          info: data[0],
-        });
-      });
-  }
-
-  // goToCart ()= >
-
   render() {
-    const { info, number } = this.state;
-    const { handleDecrease, handleIncrease, handleSubmit } = this;
+    const { info } = this.props;
+    const { handleDecrease, handleIncrease, handleSubmit, num } = this.props;
 
     return (
       <section className="top-view">
@@ -133,12 +93,16 @@ class Thumbnail extends Component {
                     </div>
 
                     <div className="fixed-price">
-                      <QuantityBtn
-                        num={number}
-                        submit={handleSubmit}
-                        up={handleIncrease}
-                        down={handleDecrease}
-                      />
+                      <form className="count-btn" onSubmit={handleSubmit}>
+                        <button>
+                          <i class="fas fa-minus" onClick={handleDecrease}></i>
+                        </button>
+                        <input type="text" value={num}></input>
+                        <button onClick={handleIncrease}>
+                          <i class="fas fa-plus"></i>
+                        </button>
+                        <span></span>
+                      </form>
                       <p>
                         <span className="goods-own-price">
                           {info.price - info.price * info.discount_rate}
@@ -154,7 +118,7 @@ class Thumbnail extends Component {
               <div className="total-price-wrapper">
                 <span> 총 상품금액: </span>
                 <span className="total-price">
-                  {(info.price - info.price * info.discount_rate) * number}
+                  {(info.price - info.price * info.discount_rate) * num}
                 </span>
                 <span className="won">원</span>
               </div>

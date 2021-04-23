@@ -13,6 +13,8 @@ class ProductDetails extends Component {
     super();
     this.state = {
       toggleStatus: true,
+      number: 0,
+      data: {},
     };
   }
 
@@ -39,17 +41,50 @@ class ProductDetails extends Component {
     this.props.history.push('/cart');
   };
 
+  handleIncrease = () => {
+    if (this.state.number > 30) {
+      return 30;
+    }
+    this.setState({
+      number: this.state.number + 1,
+    });
+  };
+
+  handleDecrease = () => {
+    if (this.state.number < 2) {
+      return 1;
+    }
+    this.setState({
+      number: this.state.number - 1,
+    });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+  };
+
   componentDidMount() {
-    fetch(`http://10.58.5.227:8000/products/${this.props.match.params.id}`)
+    fetch('http://localhost:3000/data/ThumnailData.json')
       .then(res => res.json())
-      .then(res => this.setState({ data: res.result }));
+      .then(ele => {
+        this.setState({
+          data: ele.result,
+        });
+      });
     window.scrollTo(0, 0);
   }
 
   render() {
     return (
       <main className="product-details-main">
-        <Thumbnail goToCart={this.goToCart} />
+        <Thumbnail
+          up={this.handleIncrease}
+          down={this.handleDecrease}
+          submit={this.handleSubmit}
+          goToCart={this.goToCart}
+          num={this.state.number}
+          info={this.state.data}
+        />
         <RelatedProduct />
         <Taps goToDetail={this.goToDetail} goToReview={this.goToReview} />
         <GoodsDetails />

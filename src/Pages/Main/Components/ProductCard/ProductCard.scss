@@ -52,6 +52,14 @@
         margin: 15px 0;
         text-decoration: none;
         color: $dark-gray;
+        width: 245px;
+      }
+
+      .product-name-big {
+        margin: 15px 0;
+        text-decoration: none;
+        color: $dark-gray;
+        width: 310px;
       }
 
       .product-discount {
@@ -69,7 +77,15 @@
       .product-intro-big {
         margin-top: 10px;
         font-size: 14px;
-        color: $medium-gray;
+        color: $midium-gray;
+      }
+
+      .product-intro {
+        width: 245px;
+      }
+
+      .product-intro {
+        width: 245px;
       }
 
       .product-intro-big {

@@ -95,7 +95,7 @@ class Signup extends Component {
       // );
       // this.setState({ idCheck: this.state.id });
       // this.setState({ checkedId: true });
-      fetch('http://10.58.6.178:8000/users/signupcheck', id_info)
+      fetch('http://10.58.5.227:8000/users/signup-check', id_info)
         .then(response => response.json())
         .then(result => {
           if (result === false) {
@@ -107,6 +107,15 @@ class Signup extends Component {
           }
         });
     }
+    // {
+    //   if (result === false) {
+    //     alert('이미 존재하는 아이디입니다.');
+    //   } else {
+    //     alert('사용가능 한 아이디입니다');
+    //     this.setState({ checkedId: true });
+    //     this.setState({ idCheck: this.state.id });
+    //   }
+    // }
   };
   //이메일 Validation
   checkEmail = e => {
@@ -122,7 +131,7 @@ class Signup extends Component {
     };
 
     if (this.state.isValidEmail) {
-      fetch('http://10.58.6.178:8000/users/signupcheck', email_info)
+      fetch('http://10.58.5.227:8000/users/signup-check', email_info)
         .then(response => response.json())
         .then(result => {
           if (result === false) {
@@ -189,7 +198,7 @@ class Signup extends Component {
       password === pwCheck &&
       password === repassword
     ) {
-      fetch('http://10.58.6.178:8000/users/signup', signup_info)
+      fetch('http://10.58.5.227:8000/users/signup', signup_info)
         .then(response => response.json())
         .then(result => console.log('결과: ', result));
       alert('가입이 완료되었습니다.');

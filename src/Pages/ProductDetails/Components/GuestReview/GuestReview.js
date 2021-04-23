@@ -18,7 +18,7 @@ class GuestReview extends Component {
   handleKeyPress = e => {
     if (e.key !== 'Enter') return;
     if (!this.state.text) return;
-
+    e.preventDefault();
     this.addComment();
   };
 
@@ -41,10 +41,10 @@ class GuestReview extends Component {
     });
   };
 
-  delComment = hot => {
+  delComment = e => {
     const { guestReviews } = this.state;
     this.setState({
-      guestReviews: guestReviews.filter(({ id }) => id !== hot),
+      guestReviews: guestReviews.filter(({ id }) => id !== e),
     });
   };
 
@@ -60,9 +60,12 @@ class GuestReview extends Component {
     })
       .then(response => response.json())
       .then(result => {
-        console.log(result);
-
-        localStorage.setItem('getToken', result.ACCESS_TOKEN);
+        if (result.MESSAGE === 'SUCCESS') {
+          alert('아름다운 발자취 감사감사');
+          localStorage.setItem('getToken', result.ACCESS_TOKEN);
+        } else {
+          alert('구매자 아니시네요??구매하시겠어요??');
+        }
       });
   }
 
