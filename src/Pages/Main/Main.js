@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import Slide from './Components/Slide/Slide';
+import { API } from 'config';
 import Nav from '../../Components/Nav/Nav';
+import Slide from './Components/Slide/Slide';
 import ProductCardSlide from './Components/ProductCardSlide/ProductCardSlide';
 import LimitedEvent from './Components/LimitedEvent/LimitedEvent';
 import Tag from './Components/Tag/Tag';
@@ -38,16 +39,12 @@ class Main extends Component {
     //   });
 
     Promise.all([
-      fetch('http://10.58.5.244:8000/products/list?order_by_type=%3F'),
-      fetch(
-        'http://10.58.5.244:8000/products/list?order_by_type=-discount_rate'
-      ),
-      fetch(
-        'http://10.58.5.244:8000/products/list?order_by_type=%3F&sub_category_id=58'
-      ),
-      fetch('http://10.58.5.244:8000/products/list?order_by_type=created_at'),
-      fetch('http://10.58.5.244:8000/products/list?order_by_type=-stock'),
-      fetch('http://10.58.5.244:8000/products/list?order_by_type=price'),
+      fetch(`${API}/products/list?order_by_type=%3F`),
+      fetch(`${API}/products/list?order_by_type=-discount_rate`),
+      fetch(`${API}/products/list?order_by_type=%3F&sub_category_id=58`),
+      fetch(`${API}/products/list?order_by_type=created_at`),
+      fetch(`${API}/products/list?order_by_type=-stock`),
+      fetch(`${API}/products/list?order_by_type=price`),
     ])
       .then(([res1, res2, res3, res4, res5, res6]) =>
         Promise.all([
@@ -74,7 +71,7 @@ class Main extends Component {
   componentDidUpdate(prevState) {
     if (prevState.location.pathname !== this.props.location.pathname) {
       fetch(
-        `http://10.58.5.244:8000/products/list?order_by_type=%3F&sub_category_id=${
+        `${API}/products/list?order_by_type=%3F&sub_category_id=${
           Number(this.props.match.params.id) + 57
         }`
       )

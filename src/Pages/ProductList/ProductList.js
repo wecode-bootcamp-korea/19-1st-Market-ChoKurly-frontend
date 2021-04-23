@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import { API } from 'config';
 import Nav from '../../Components/Nav/Nav';
 import ProductCard from './Components/ProductCard';
 import Modal from './Components/Modal';
@@ -26,11 +27,10 @@ class ProductList extends Component {
 
   componentDidMount() {
     fetch(
-      '/data/productList_chocolate.json'
-      //eslint-disable-next-line prettier/prettier
-      // `http://10.58.5.244:8000/products/list?sub_category_id=${Number(
-      //   this.props.match.params.id
-      // )}&order_by_type=%3F&page=1&limit=6`
+      // eslint-disable-next-line prettier/prettier
+      `${API}/products/list?sub_category_id=${Number(
+        this.props.match.params.id
+      )}&order_by_type=%3F&page=1&limit=6`
     )
       .then(res => res.json())
       .then(productData => {
@@ -74,7 +74,7 @@ class ProductList extends Component {
     });
 
     fetch(
-      `http://10.58.5.244:8000/products/list?${sub}category_id=${num}&order_by_type=%3F&page=1&limit=6`
+      `${API}/products/list?${sub}category_id=${num}&order_by_type=%3F&page=1&limit=6`
     )
       .then(res => res.json())
       .then(filteredProducts => {
@@ -88,7 +88,7 @@ class ProductList extends Component {
     this.setState({ sortId: e.target.value });
 
     fetch(
-      `http://10.58.5.244:8000/products/list?sub_category_id=59&order_by_type=${this.state.sortId}&page=1&limit=6`
+      `${API}/products/list?sub_category_id=59&order_by_type=${this.state.sortId}&page=1&limit=6`
     )
       .then(res => res.json())
       .then(filteredProducts => {
@@ -101,7 +101,7 @@ class ProductList extends Component {
   handlePage = num => {
     const { categoryType, filterId } = this.state;
     fetch(
-      `http://10.58.5.244:8000/products/list?${categoryType}category_id=${filterId}&order_by_type=%3F&page=${num}&limit=6`
+      `${API}/products/list?${categoryType}category_id=${filterId}&order_by_type=%3F&page=${num}&limit=6`
     )
       .then(res => res.json())
       .then(productData => {

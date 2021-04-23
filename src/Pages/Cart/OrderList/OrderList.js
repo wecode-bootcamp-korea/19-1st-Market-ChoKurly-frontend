@@ -8,14 +8,6 @@ class OrderList extends Component {
     this.props.delOrderItem(this.props.id);
   };
 
-  upClick = () => {
-    this.props.changeCount(this.props.id, this.props.prCount + 1);
-  };
-
-  downClick = () => {
-    this.props.changeCount(this.props.id, this.props.prCount - 1);
-  };
-
   render() {
     const { item } = this.props;
     return (
@@ -26,23 +18,23 @@ class OrderList extends Component {
           </label>
           <img src={item.thumbnail_image} alt="no img" />
           <div className="item-name">
-            <Link to="#" className="package">
+            <Link to="/productdetails" className="package">
               {item.name}
             </Link>
-            <Link to="#" className="product">
+            <Link to="/productdetails" className="product">
               {item.name}
             </Link>
           </div>
           <div className="count-btn">
-            <button onClick={this.downClick}>
+            <button onClick={() => this.props.downClick(this.props.id, -1)}>
               <i className="fas fa-minus"></i>
             </button>
             <input
               type="text"
               value={this.props.prCount}
-              onChange={this.countOnChange}
+              onChange={() => this.props.changeCount(this.props.id)}
             />
-            <button onClick={this.upClick}>
+            <button onClick={() => this.props.upClick(this.props.id, 1)}>
               <i className="fas fa-plus"></i>
             </button>
             <span></span>
@@ -50,11 +42,14 @@ class OrderList extends Component {
           <div className="price">
             <dl class="total-price-wrapper">
               <dt className="total-price">
-                {(item.price * 0.9).toLocaleString('en-US')}
+                {(
+                  item.price -
+                  item.price * item.discount_rate
+                ).toLocaleString()}
                 <span>원</span>
               </dt>
               <dd className="discount-price">
-                {(item.price * 1).toLocaleString('en-US')}
+                {(item.price * 1).toLocaleString()}
                 <span>원</span>
               </dd>
             </dl>

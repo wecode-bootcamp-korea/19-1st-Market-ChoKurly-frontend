@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import { API } from 'config';
 import Nav from '../../Components/Nav/Nav';
 import Thumbnail from './Components/Thumbnail/Thumbnail';
 import RelatedProduct from './Components/RelatedProducts/RelatedProduct';
@@ -43,8 +44,12 @@ class ProductDetails extends Component {
   };
 
   goToCart = () => {
-    fetch('http://locahost:8000/orders/basket', {
-      METHOD: 'POST',
+    this.props.history.push('/cart');
+    fetch(`${API}/orders/basket`, {
+      method: 'POST',
+      headers: {
+        Authorization: localStorage.getItem('Authorization'),
+      },
       body: JSON.stringify({
         product_id: this.state.data.product_id,
         shipping_method_id: 1,
@@ -53,8 +58,8 @@ class ProductDetails extends Component {
     })
       .then(response => response.json())
       .then(result =>
-        this.setSTate({
-          cartResult: result,
+        this.setState({
+          cartResult: result.result,
         })
       );
   };
@@ -82,7 +87,7 @@ class ProductDetails extends Component {
   };
 
   componentDidMount() {
-    fetch(`http://10.58.5.244:8000/products/${this.props.match.params.id}`)
+    fetch(`${API}/products/${this.props.match.params.id}`)
       .then(res => res.json())
       .then(res => this.setState({ data: res.result[0] }));
 

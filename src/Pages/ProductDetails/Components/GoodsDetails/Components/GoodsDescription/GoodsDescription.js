@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Taps from 'Pages/ProductDetails/Components/Taps/Taps';
+import { withRouter } from 'react-router-dom';
+import { API } from 'config';
 import './GoodsDescription.scss';
 
 class GoodsDescription extends Component {
@@ -8,7 +10,7 @@ class GoodsDescription extends Component {
   };
 
   componentDidMount() {
-    fetch('/data/ThumbnailData.json')
+    fetch(`${API}/products/${this.props.match.params.id}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -77,4 +79,4 @@ class GoodsDescription extends Component {
   }
 }
 
-export default GoodsDescription;
+export default withRouter(GoodsDescription);

@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Nav from '../../../Components/Nav/Nav';
 import './SignupFin.scss';
 
 class SignupFin extends Component {
   render() {
     return (
       <div className="SignupFin-Main">
+        <Nav />
         <div className="SignupFin-Content">
           <div className="SignupFin-Wrap">
             <div className="SignupFin-Form">
               <div className="SignupFin-Ment">
                 <p className="desc">회원가입이 완료되었습니다.</p>
-                <div className="memberInfo">
+                {/* <div className="memberInfo">
                   <ul>
                     <li>
                       <strong className="bolds">아이디</strong>
@@ -26,7 +28,7 @@ class SignupFin extends Component {
                       <span>h_e_ll_o_@naver.com</span>
                     </li>
                   </ul>
-                </div>
+                </div> */}
                 <p className="SignupFin-Btn">
                   <Link to="/main">
                     <span className="LoginFin_Btn Event">

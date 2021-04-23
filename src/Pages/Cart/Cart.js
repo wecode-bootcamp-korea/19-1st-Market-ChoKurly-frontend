@@ -31,7 +31,6 @@ class Cart extends Component {
           // ItemList: data.result,
           ItemList: data.result[0],
         });
-        console.log(this.state.ItemList);
       });
   };
 
@@ -40,12 +39,9 @@ class Cart extends Component {
       //계산
       let totalAmount = 0;
       let totalDiscount = 0;
-      console.log('ItemList', this.state.ItemList);
-      this.state.ItemList.cart_product_info.forEach(order => {
+
+      this.state.ItemList.cart_product_info?.forEach(order => {
         // const [price] = order.price.split('.');
-        console.log(order.price);
-        console.log(order.quantity);
-        console.log(order.discount_rate);
 
         totalAmount += order.price * order.quantity;
         totalDiscount += order.price * +order.discount_rate * order.quantity;
@@ -59,11 +55,32 @@ class Cart extends Component {
       this.setState({ total: totalAmount, discount: totalDiscount });
     }
   }
+  upClick = (id, num) => {
+    const { ItemList } = this.state;
+    console.log(ItemList);
+    const change = ItemList.cart_product_info?.map((order, index) => {
+      return index === id
+        ? { ...order, quantity: order.quantity + num }
+        : order;
+    });
+    this.setState({
+      ItemList: change,
+    });
+    this.onSubmit();
+  };
+
+  downClick = () => {
+    this.changeCount(this.id, this.prCount - 1);
+  };
+
+  onSubmit = e => {
+    e.preventDefault();
+  };
   //장바구니 - 개별리스트 삭제
   delOrderItem = hot => {
     const { ItemList } = this.state;
     this.setState({
-      ItemList: ItemList.filter(({ id }) => id !== hot),
+      ItemList: ItemList.cart_product_info?.filter(({ id }) => id !== hot),
     });
   };
   //장바구니 - 전체리스트 삭제
@@ -71,7 +88,7 @@ class Cart extends Component {
     e.preventDefault();
     const { ItemList } = this.state;
     this.setState({
-      ItemList: ItemList.filter(() => false),
+      ItemList: ItemList.cart_product_info?.filter(() => false),
     });
   };
 
@@ -80,9 +97,11 @@ class Cart extends Component {
     if (!count) return;
 
     const { ItemList } = this.state;
-
+    const change = ItemList.cart_product_info?.map((order, index) => {
+      return index === itemId ? { ...order, quantity: count } : order;
+    });
     this.setState({
-      ItemList: ItemList.map(order => ({ ...order, count })),
+      ItemList: change,
     });
   };
 
@@ -123,12 +142,14 @@ class Cart extends Component {
                   {ItemList.cart_product_info?.map(el => {
                     return (
                       <OrderList
+                        upClick={this.upClick}
+                        downClick={this.downClick}
                         delOrderItem={this.delOrderItem}
                         key={el.id}
                         id={el.product_id}
                         item={el}
                         number={this.state.number}
-                        prCount={el.count}
+                        prCount={el.quantity}
                         changeCount={this.changeCount}
                       />
                     );

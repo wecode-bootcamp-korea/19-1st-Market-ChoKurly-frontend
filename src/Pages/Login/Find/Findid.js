@@ -26,7 +26,7 @@ class Findid extends Component {
       body: JSON.stringify(this.state),
     };
 
-    fetch(`${API}/users/find`, find_id)
+    fetch(`${API}/users/find-id`, find_id)
       .then(response => response.json())
       .then(result => {
         if (

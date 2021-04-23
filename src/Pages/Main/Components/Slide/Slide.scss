@@ -6,7 +6,7 @@
   position: relative;
   .slide-img-container {
     display: flex;
-    overflow: scroll;
+    overflow: hidden;
     .slide {
       min-width: 100%;
       max-height: 370px;
