@@ -102,7 +102,6 @@ class Cart extends Component {
                   className="check-circle"
                   type="checkbox"
                   name="checkAll"
-                  onChange={this.handleCheck}
                 />
                 <span className="check-all">전체선택</span>
               </label>
@@ -128,7 +127,7 @@ class Cart extends Component {
                       id={el.product_id}
                       item={el}
                       number={this.state.number}
-                      prCount={el.count}
+                      prCount={el.quantity}
                       changeCount={this.changeCount}
                     />
                   );

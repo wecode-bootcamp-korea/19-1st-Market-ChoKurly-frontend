@@ -14,7 +14,6 @@ import Findpw from './Pages/Login/Find/Findpw';
 // import './Styles/common.scss';
 
 import './Styles/common.scss';
-import Nav from 'Components/Nav/Nav';
 import Footer from 'Components/Footer/Footer';
 
 class Routes extends Component {

@@ -15,6 +15,7 @@ class OrderList extends Component {
   downClick = () => {
     this.props.changeCount(this.props.id, this.props.prCount - 1);
   };
+  countOnChange = () => {};
 
   render() {
     const { item } = this.props;
@@ -26,10 +27,10 @@ class OrderList extends Component {
           </label>
           <img src={item.thumbnail_image} alt="no img" />
           <div className="item-name">
-            <Link to="#" className="package">
+            <Link to="/productdetails" className="package">
               {item.name}
             </Link>
-            <Link to="#" className="product">
+            <Link to="/productdetails" className="product">
               {item.name}
             </Link>
           </div>
@@ -50,11 +51,14 @@ class OrderList extends Component {
           <div className="price">
             <dl class="total-price-wrapper">
               <dt className="total-price">
-                {(item.price * 0.9).toLocaleString('en-US')}
+                {(
+                  item.price -
+                  item.price * item.discount_rate
+                ).toLocaleString()}
                 <span>원</span>
               </dt>
               <dd className="discount-price">
-                {(item.price * 1).toLocaleString('en-US')}
+                {(item.price * 1).toLocaleString()}
                 <span>원</span>
               </dd>
             </dl>

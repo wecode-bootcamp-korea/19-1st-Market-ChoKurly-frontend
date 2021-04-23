@@ -37,10 +37,7 @@ class Login extends Component {
         if (result['MESSAGE'] === 'SUCCESS') {
           alert('로그인 되었습니다.');
           //서버로 부터 받은 JSON형태의 데이터 그 중 token값만 (객체 형태 key & value) 를 로컬스토리지에 우선 저장.
-          window.localStorage.setItem(
-            'Authorization',
-            JSON.stringify(result['TOKEN'])
-          );
+          window.localStorage.setItem('Authorization', result['TOKEN']);
           this.setState({
             id: result.id,
             password: result.password,
