@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import Slide from './Components/Slide/Slide';
+import Nav from '../../Components/Nav/Nav';
 import ProductCardSlide from './Components/ProductCardSlide/ProductCardSlide';
 import LimitedEvent from './Components/LimitedEvent/LimitedEvent';
 import Tag from './Components/Tag/Tag';
@@ -20,58 +21,60 @@ class Main extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/productCard_main2.json', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(productData => {
-        this.setState({
-          //테스트중
-          suggestionArr: productData.RESULTS,
-          salesArr: productData.RESULTS,
-          mdArr: productData.RESULTS,
-          newArr: productData.RESULTS,
-          hotArr: productData.RESULTS,
-          finalSalesArr: productData.RESULTS,
-        });
-      });
-
-    // Promise.all([
-    //   fetch('http://localhost:8000/products/list?order_by_type=%3F'),
-    //   fetch('http://localhost:8000/products/list?order_by_type=-discount_rate'),
-    //   fetch(
-    //     'http://localhost:8000/products/list?order_by_type=%3F&sub_category_id=58'
-    //   ),
-    //   fetch('http://localhost:8000/products/list?order_by_type=created_at'),
-    //   fetch('http://localhost:8000/products/list?order_by_type=-stock'),
-    //   fetch('http://localhost:8000/products/list?order_by_type=price'),
-    // ])
-    //   .then(([res1, res2, res3, res4, res5, res6]) =>
-    //     Promise.all([
-    //       res1.json(),
-    //       res2.json(),
-    //       res3.json(),
-    //       res4.json(),
-    //       res5.json(),
-    //       res6.json(),
-    //     ])
-    //   )
-    //   .then(([data1, data2, data3, data4, data5, data6]) =>
+    // fetch('/data/productCard_main2.json', {
+    //   method: 'GET',
+    // })
+    //   .then(res => res.json())
+    //   .then(productData => {
     //     this.setState({
-    //       suggestionArr: data1.RESULTS,
-    //       salesArr: data2.RESULTS,
-    //       mdArr: data3.RESULTS,
-    //       newArr: data4.RESULTS,
-    //       hotArr: data5.RESULTS,
-    //       finalSalesArr: data6.RESULTS,
-    //     })
-    //   );
+    //       //테스트중
+    //       suggestionArr: productData.RESULTS,
+    //       salesArr: productData.RESULTS,
+    //       mdArr: productData.RESULTS,
+    //       newArr: productData.RESULTS,
+    //       hotArr: productData.RESULTS,
+    //       finalSalesArr: productData.RESULTS,
+    //     });
+    //   });
+
+    Promise.all([
+      fetch('http://10.58.5.244:8000/products/list?order_by_type=%3F'),
+      fetch(
+        'http://10.58.5.244:8000/products/list?order_by_type=-discount_rate'
+      ),
+      fetch(
+        'http://10.58.5.244:8000/products/list?order_by_type=%3F&sub_category_id=58'
+      ),
+      fetch('http://10.58.5.244:8000/products/list?order_by_type=created_at'),
+      fetch('http://10.58.5.244:8000/products/list?order_by_type=-stock'),
+      fetch('http://10.58.5.244:8000/products/list?order_by_type=price'),
+    ])
+      .then(([res1, res2, res3, res4, res5, res6]) =>
+        Promise.all([
+          res1.json(),
+          res2.json(),
+          res3.json(),
+          res4.json(),
+          res5.json(),
+          res6.json(),
+        ])
+      )
+      .then(([data1, data2, data3, data4, data5, data6]) =>
+        this.setState({
+          suggestionArr: data1.RESULTS,
+          salesArr: data2.RESULTS,
+          mdArr: data3.RESULTS,
+          newArr: data4.RESULTS,
+          hotArr: data5.RESULTS,
+          finalSalesArr: data6.RESULTS,
+        })
+      );
   }
 
   componentDidUpdate(prevState) {
     if (prevState.location.pathname !== this.props.location.pathname) {
       fetch(
-        `http://localhost:8000/products/list?order_by_type=%3F&sub_category_id=${
+        `http://10.58.5.244:8000/products/list?order_by_type=%3F&sub_category_id=${
           Number(this.props.match.params.id) + 57
         }`
       )
@@ -96,6 +99,7 @@ class Main extends Component {
 
     return (
       <div className="main-container">
+        <Nav />
         <Slide />
         <div className="suggestion">
           <div className="main-title suggestion-title">이 상품 어때요?</div>

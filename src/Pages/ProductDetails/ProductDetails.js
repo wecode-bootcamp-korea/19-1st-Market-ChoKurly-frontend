@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import Nav from '../../Components/Nav/Nav';
 import Thumbnail from './Components/Thumbnail/Thumbnail';
 import RelatedProduct from './Components/RelatedProducts/RelatedProduct';
 import GoodsDetails from './Components/GoodsDetails/GoodsDetails';
@@ -13,6 +14,12 @@ class ProductDetails extends Component {
     super();
     this.state = {
       toggleStatus: true,
+      data: {},
+      product_id: '',
+      shipping_method_id: '',
+      quantity: '',
+      cartResult: '',
+      number: 0,
     };
   }
 
@@ -36,28 +43,86 @@ class ProductDetails extends Component {
   };
 
   goToCart = () => {
-    this.props.history.push('/cart');
+    fetch('http://locahost:8000/orders/basket', {
+      METHOD: 'POST',
+      body: JSON.stringify({
+        product_id: this.state.data.product_id,
+        shipping_method_id: 1,
+        quantity: this.state.number,
+      }),
+    })
+      .then(response => response.json())
+      .then(result =>
+        this.setSTate({
+          cartResult: result,
+        })
+      );
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+  };
+
+  handleIncrease = () => {
+    if (this.state.number > 30) {
+      return 30;
+    }
+    this.setState({
+      number: this.state.number + 1,
+    });
+  };
+
+  handleDecrease = () => {
+    if (this.state.number < 2) {
+      return 1;
+    }
+    this.setState({
+      number: this.state.number - 1,
+    });
   };
 
   componentDidMount() {
-    fetch(`http://10.58.6.70:8000/products/${this.props.match.params.id}`)
+    fetch(`http://10.58.5.244:8000/products/${this.props.match.params.id}`)
       .then(res => res.json())
-      .then(res => this.setState({ data: res.result }));
+      .then(res => this.setState({ data: res.result[0] }));
+
+    window.scrollTo(0, 0);
   }
 
   render() {
+    const { data, number } = this.state;
+    const { handleIncrease, handleDecrease, handleSubmit } = this;
+
     return (
-      <main className="product-details-main">
-        <Thumbnail goToCart={this.goToCart} />
-        <RelatedProduct />
-        <Taps goToDetail={this.goToDetail} goToReview={this.goToReview} />
-        <GoodsDetails />
-        <Taps goToDetail={this.goToDetail} goToReview={this.goToReview} />
-        <GuestReview />
-        <button className="goTop" onClick={this.goTop}>
-          <i class="fas fa-arrow-circle-up"></i>
-        </button>
-      </main>
+      <>
+        <Nav />
+        <main className="product-details-main">
+          <Thumbnail
+            handleSubmit={handleSubmit}
+            handleIncrease={handleIncrease}
+            handleDecrease={handleDecrease}
+            number={number}
+            data={data}
+            goToCart={this.goToCart}
+          />
+          <RelatedProduct data={data} />
+          <Taps
+            data={data}
+            goToDetail={this.goToDetail}
+            goToReview={this.goToReview}
+          />
+          <GoodsDetails data={data} />
+          <Taps
+            data={data}
+            goToDetail={this.goToDetail}
+            goToReview={this.goToReview}
+          />
+          <GuestReview data={data} />
+          <button className="goTop" onClick={this.goTop}>
+            <i class="fas fa-arrow-circle-up"></i>
+          </button>
+        </main>
+      </>
     );
   }
 }

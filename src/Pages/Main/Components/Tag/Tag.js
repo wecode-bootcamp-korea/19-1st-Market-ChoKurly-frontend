@@ -28,7 +28,7 @@ class Tags extends Component {
       activeTag: id,
     });
 
-    this.props.history.push(`/main/md/${id}`);
+    this.props.history.push(`/main/${id}`);
   };
 
   render() {

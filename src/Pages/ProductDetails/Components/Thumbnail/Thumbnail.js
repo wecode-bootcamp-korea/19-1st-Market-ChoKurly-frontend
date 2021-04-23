@@ -4,59 +4,27 @@ import QuantityBtn from '../QuantityBtn/QuantityBtn';
 import './Thumbnail.scss';
 
 class Thumbnail extends Component {
-  state = {
-    info: {},
-    number: 0,
-  };
-
-  handleIncrease = () => {
-    if (this.state.number > 30) {
-      return 30;
-    }
-    this.setState({
-      number: this.state.number + 1,
-    });
-  };
-
-  handleDecrease = () => {
-    if (this.state.number < 2) {
-      return 1;
-    }
-    this.setState({
-      number: this.state.number - 1,
-    });
-  };
-
-  handleSubmit = e => {
-    e.preventDefault();
-  };
-
-  componentDidMount() {
-    fetch('http://localhost:3000/data/ThumbnailData.json')
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          info: data[0],
-        });
-      });
-  }
-
   render() {
-    const { info, number } = this.state;
-    const { handleDecrease, handleIncrease, handleSubmit } = this;
+    const {
+      data,
+      number,
+      handleIncrease,
+      handleDecrease,
+      handleSubmit,
+    } = this.props;
 
     return (
       <section className="top-view">
         <article className="thumbnail-wrapper">
           <img
-            src={info.thumbnail_image && info.thumbnail_image}
+            src={data.thumbnail_image && data.thumbnail_image}
             alt="대표"
             className="top"
           />
           <div className="thumbnail-info">
             <dl className="goods-name">
-              <dt>{info.name}</dt>
-              <dd> {info.comment}</dd>
+              <dt>{data.name}</dt>
+              <dd> {data.comment}</dd>
             </dl>
             <div className="goods-price-wrapper">
               <div className="goods-price">
@@ -64,19 +32,19 @@ class Thumbnail extends Component {
                 <p className="member-price">
                   <span className="price">
                     {(
-                      info.price -
-                      info.price * info.discount_rate
+                      data.price -
+                      data.price * data.discount_rate
                     ).toLocaleString('en-US')}
                   </span>
                   <span className="unit"> 원 </span>
                   <span className="discount-percent">
-                    {info.discount_rate * 100}
+                    {data.discount_rate * 100}
                     <span> %</span>
                   </span>
                 </p>
                 <p className="discount-price">
                   <span>
-                    {(info.price * 1).toLocaleString('en-US')}
+                    {(data.price * 1).toLocaleString('en-US')}
                     <span>원</span>
                   </span>
                   <span>
@@ -101,18 +69,18 @@ class Thumbnail extends Component {
                 <li className="subject">안내사항</li>
               </ul>
               <ul>
-                <li className="subject-content">{info.sale_unit}</li>
-                <li className="subject-content">{info.weight_g * 10}kg</li>
-                <li className="subject-content">{info.delivery_type}</li>
-                <li className="subject-content">{info.packing_type}</li>
+                <li className="subject-content">{data.sale_unit}</li>
+                <li className="subject-content">{data.weight_g * 10}kg</li>
+                <li className="subject-content">{data.delivery_type}</li>
+                <li className="subject-content">{data.packing_type}</li>
                 <li className="subject-content">
-                  {info.allergy &&
-                    info.allergy.map(text => {
+                  {data.allergy &&
+                    data.allergy.map(text => {
                       return <p key={text.id}>{text.allergy}</p>;
                     })}{' '}
                   함유
                 </li>
-                <li className="subject-content">{info.instruction}</li>
+                <li className="subject-content">{data.instruction}</li>
               </ul>
             </div>
             <div className="goods-select-wrapper">
@@ -120,13 +88,13 @@ class Thumbnail extends Component {
               <div className="goods-select">
                 <select className="goods-list">
                   <option value="">상품선택</option>
-                  <option value="nuts-mix">[품절] {info.name} 딸기</option>
-                  <option value="berry-mix">{info.name} 녹차</option>
+                  <option value="nuts-mix">[품절] {data.name} 딸기</option>
+                  <option value="berry-mix">{data.name} 녹차</option>
                 </select>
                 <ul className="list">
                   <li className="goods-own">
                     <div className="added-goods-name">
-                      <span>{info.name} 녹차</span>
+                      <span>{data.name} 녹차</span>
                       <button className="delete">
                         <i className="fas fa-times"></i>
                       </button>
@@ -134,7 +102,7 @@ class Thumbnail extends Component {
 
                     <div className="fixed-price">
                       <QuantityBtn
-                        num={number}
+                        number={number}
                         submit={handleSubmit}
                         up={handleIncrease}
                         down={handleDecrease}
@@ -142,8 +110,8 @@ class Thumbnail extends Component {
                       <p>
                         <span className="goods-own-price">
                           {(
-                            info.price -
-                            info.price * info.discount_rate
+                            data.price -
+                            data.price * data.discount_rate
                           ).toLocaleString('en-US')}
                         </span>
                         <span>원</span>
@@ -158,7 +126,7 @@ class Thumbnail extends Component {
                 <span> 총 상품금액: </span>
                 <span className="total-price">
                   {(
-                    (info.price - info.price * info.discount_rate) *
+                    (data.price - data.price * data.discount_rate) *
                     number
                   ).toLocaleString('en-US')}
                 </span>

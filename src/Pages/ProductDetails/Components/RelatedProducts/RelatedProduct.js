@@ -32,8 +32,8 @@ class RelatedProduct extends Component {
       .then(res => res.json())
       .then(data => {
         this.setState({
-          info: data[0],
-          sliderArr: data[0],
+          info: data.result[0],
+          sliderArr: data.result[0],
         });
       });
   }
