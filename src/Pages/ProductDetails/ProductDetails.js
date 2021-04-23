@@ -15,6 +15,12 @@ class ProductDetails extends Component {
     super();
     this.state = {
       toggleStatus: true,
+      data: {},
+      product_id: '',
+      shipping_method_id: '',
+      quantity: '',
+      cartResult: '',
+      number: 0,
     };
   }
 
@@ -38,47 +44,90 @@ class ProductDetails extends Component {
   };
 
   goToCart = () => {
-    fetch(`${API}`, {
+    this.props.history.push('/cart');
+    fetch(`${API}/orders/basket`, {
       method: 'POST',
+      headers: {
+        Authorization: localStorage.getItem('Authorization'),
+      },
       body: JSON.stringify({
-        quantity: '',
+        product_id: this.state.data.product_id,
         shipping_method_id: 1,
-        product_id: '',
+        quantity: this.state.number,
       }),
     })
       .then(response => response.json())
-      .then(result => {
-        if (result.MESSAGE === 'SUCCESS') {
-          alert('장바구니로~');
-          localStorage.setItem('getToken', result.ACCESS_TOKEN);
-        } else {
-          alert('수량을 확인해주세요');
-        }
-      });
-    this.props.history.push('/cart');
+      .then(result =>
+        this.setState({
+          cartResult: result.result,
+        })
+      );
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+  };
+
+  handleIncrease = () => {
+    if (this.state.number > 30) {
+      return 30;
+    }
+    this.setState({
+      number: this.state.number + 1,
+    });
+  };
+
+  handleDecrease = () => {
+    if (this.state.number < 2) {
+      return 1;
+    }
+    this.setState({
+      number: this.state.number - 1,
+    });
   };
 
   componentDidMount() {
     fetch(`${API}/products/${this.props.match.params.id}`)
       .then(res => res.json())
-      .then(res => this.setState({ data: res.result }));
+      .then(res => this.setState({ data: res.result[0] }));
+
     window.scrollTo(0, 0);
   }
 
   render() {
+    const { data, number } = this.state;
+    const { handleIncrease, handleDecrease, handleSubmit } = this;
+
     return (
-      <main className="product-details-main">
+      <>
         <Nav />
-        <Thumbnail goToCart={this.goToCart} />
-        <RelatedProduct />
-        <Taps goToDetail={this.goToDetail} goToReview={this.goToReview} />
-        <GoodsDetails />
-        <Taps goToDetail={this.goToDetail} goToReview={this.goToReview} />
-        <GuestReview />
-        <button className="goTop" onClick={this.goTop}>
-          <i class="fas fa-arrow-circle-up"></i>
-        </button>
-      </main>
+        <main className="product-details-main">
+          <Thumbnail
+            handleSubmit={handleSubmit}
+            handleIncrease={handleIncrease}
+            handleDecrease={handleDecrease}
+            number={number}
+            data={data}
+            goToCart={this.goToCart}
+          />
+          <RelatedProduct data={data} />
+          <Taps
+            data={data}
+            goToDetail={this.goToDetail}
+            goToReview={this.goToReview}
+          />
+          <GoodsDetails data={data} />
+          <Taps
+            data={data}
+            goToDetail={this.goToDetail}
+            goToReview={this.goToReview}
+          />
+          <GuestReview data={data} />
+          <button className="goTop" onClick={this.goTop}>
+            <i class="fas fa-arrow-circle-up"></i>
+          </button>
+        </main>
+      </>
     );
   }
 }

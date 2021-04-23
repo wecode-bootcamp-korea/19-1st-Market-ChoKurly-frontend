@@ -101,7 +101,11 @@ class Login extends Component {
                     로그인
                   </button>
                 </form>
-                <button className="loginToSignup" onClick={this.goToSignup}>
+                <button
+                  onClick={this.handleSubmit}
+                  className="loginToSignup"
+                  onClick={this.goToSignup}
+                >
                   회원가입
                 </button>
               </div>

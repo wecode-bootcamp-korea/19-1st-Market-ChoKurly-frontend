@@ -8,15 +8,6 @@ class OrderList extends Component {
     this.props.delOrderItem(this.props.id);
   };
 
-  upClick = () => {
-    this.props.changeCount(this.props.id, this.props.prCount + 1);
-  };
-
-  downClick = () => {
-    this.props.changeCount(this.props.id, this.props.prCount - 1);
-  };
-  countOnChange = () => {};
-
   render() {
     const { item } = this.props;
     return (
@@ -35,15 +26,15 @@ class OrderList extends Component {
             </Link>
           </div>
           <div className="count-btn">
-            <button onClick={this.downClick}>
+            <button onClick={() => this.props.downClick(this.props.id, -1)}>
               <i className="fas fa-minus"></i>
             </button>
             <input
               type="text"
               value={this.props.prCount}
-              onChange={this.countOnChange}
+              onChange={() => this.props.changeCount(this.props.id)}
             />
-            <button onClick={this.upClick}>
+            <button onClick={() => this.props.upClick(this.props.id, 1)}>
               <i className="fas fa-plus"></i>
             </button>
             <span></span>

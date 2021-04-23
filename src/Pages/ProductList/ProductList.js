@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import { API } from 'config';
 import Nav from '../../Components/Nav/Nav';
 import ProductCard from './Components/ProductCard';
 import Modal from './Components/Modal';
@@ -26,18 +27,17 @@ class ProductList extends Component {
 
   componentDidMount() {
     fetch(
-      '/data/productList_chocolate.json'
       // eslint-disable-next-line prettier/prettier
-      // `http://localhost:8000/products/list?sub_category_id=${Number(
-      //   this.props.match.params.id
-      // )}&order_by_type=%3F&page=1&limit=6`
+      `${API}/products/list?sub_category_id=${Number(
+        this.props.match.params.id
+      )}&order_by_type=%3F&page=1&limit=6`
     )
       .then(res => res.json())
       .then(productData => {
         this.setState({
           productList: productData.RESULTS,
           categoryType: 'sub_',
-          filterId: Number(this.props.match.params.id) + 57,
+          filterId: Number(this.props.match.params.id),
         });
       });
   }
@@ -74,7 +74,7 @@ class ProductList extends Component {
     });
 
     fetch(
-      `http://localhost:8000/products/list?${sub}category_id=${num}&order_by_type=%3F&page=1&limit=6`
+      `${API}/products/list?${sub}category_id=${num}&order_by_type=%3F&page=1&limit=6`
     )
       .then(res => res.json())
       .then(filteredProducts => {
@@ -88,7 +88,7 @@ class ProductList extends Component {
     this.setState({ sortId: e.target.value });
 
     fetch(
-      `http://localhost:8000/products/list?sub_category_id=59&order_by_type=${this.state.sortId}&page=1&limit=6`
+      `${API}/products/list?sub_category_id=59&order_by_type=${this.state.sortId}&page=1&limit=6`
     )
       .then(res => res.json())
       .then(filteredProducts => {
@@ -101,8 +101,14 @@ class ProductList extends Component {
   handlePage = num => {
     const { categoryType, filterId } = this.state;
     fetch(
-      `http://localhost:8000/products/list?${categoryType}category_id=${filterId}&order_by_type=%3F&page=${num}&limit=6`
-    );
+      `${API}/products/list?${categoryType}category_id=${filterId}&order_by_type=%3F&page=${num}&limit=6`
+    )
+      .then(res => res.json())
+      .then(productData => {
+        this.setState({
+          productList: productData.RESULTS,
+        });
+      });
   };
 
   render() {
@@ -114,6 +120,7 @@ class ProductList extends Component {
       cartId,
       isClicked,
       titleId,
+      sortId,
       cartNumber,
     } = this.state;
     const {
@@ -122,7 +129,6 @@ class ProductList extends Component {
       openCart,
       handleFilter,
       handleSort,
-      sortId,
       handlePage,
     } = this;
 

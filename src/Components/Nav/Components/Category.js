@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import { API } from 'config';
 import './Category.scss';
 
 class Category extends Component {
@@ -14,7 +15,7 @@ class Category extends Component {
 
   componentDidMount() {
     // fetch('/data/category.json')
-    fetch('http://localhost:8000/products/category')
+    fetch(`${API}/products/category`)
       .then(res => res.json())
       .then(category =>
         this.setState({

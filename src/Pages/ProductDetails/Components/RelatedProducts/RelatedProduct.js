@@ -32,8 +32,8 @@ class RelatedProduct extends Component {
       .then(res => res.json())
       .then(data => {
         this.setState({
-          info: data[0],
-          sliderArr: data[0],
+          info: data.result[0],
+          sliderArr: data.result[0],
         });
       });
   }
@@ -54,8 +54,8 @@ class RelatedProduct extends Component {
               className="img-wrapper"
               style={{ transform: `translateX(${x}%)` }}
             >
-              {sliderArr.realted_products &&
-                sliderArr.realted_products.map(el => {
+              {sliderArr.related_products &&
+                sliderArr.related_products.map(el => {
                   return (
                     <li key={el.id} className="related-items-list">
                       <img
