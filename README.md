@@ -1,11 +1,10 @@
 # Project Market ChoKurly 🍫🍪🍩🍭🧁
-## 🖥 프로젝트 소개
+## 🖥 Project Summary
+- 2021.04.12 ~ 2021.04.23 까지 2주 간 진행
 - 국내 식품 전문 온라인 쇼핑몰인 마켓 컬리를 클론하는 프로젝트
 - Front(이예원, 서동이, 채준형)와 Back(백승찬, 안정현, 김영훈) 총 6명의 팀원으로 구성
 
-## 📅 프로젝트 기간
-2021.04.12 ~ 2021.04.23
-## 👩🏻‍💻 팀원 별 작업 소개
+## 👩🏻‍💻 Front-end Member's Work Details
 ### 이예원
 - `Nav`: 공통으로 쓰이는 Nav 컴포넌트
     - 스크롤 시 Nav 바가 가려지는 시점부터 고정 기능
@@ -29,7 +28,7 @@
 - `Login`: 
 - `Cart`:
 
-## 🔧 SKILLS
+## 🔧 Skills
 - ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 - ![SASS](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
 - ![JS](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
@@ -37,14 +36,14 @@
 - ![Python](https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white)
 - ![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
 
-## 🔧 TOOLS
+## 🔧 Tools
 - <img alt="Trello" src="https://img.shields.io/badge/Trello-%23026AA7.svg?&style=for-the-badge&logo=Trello&logoColor=white"/>
 - <img alt="Git" src="https://img.shields.io/badge/git-%23F05033.svg?&style=for-the-badge&logo=git&logoColor=white"/>
 - <img alt="GitHub" src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/>
 - <img alt="Slack" src="https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white" />
 - <img alt="AWS" src="https://img.shields.io/badge/AWS-%23FF9900.svg?&style=for-the-badge&logo=amazon-aws&logoColor=white"/>
 - <img alt="Visual Studio Code" src="https://img.shields.io/badge/VisualStudioCode-0078d7.svg?&style=for-the-badge&logo=visual-studio-code&logoColor=white"/>
-## ✏️ 팀원 블로그
+## ✏️ Blogs
 - 이예원 : https://jessywlee.medium.com
 - 서동이 : 
 - 채준형 : 
