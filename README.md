@@ -1,4 +1,4 @@
-# Project Market ChoKurly
+# Project Market ChoKurly 🍫🍪🍩🍭🧁
 ## 🖥 프로젝트 소개
 - 국내 식품 전문 온라인 쇼핑몰인 마켓 컬리를 클론하는 프로젝트
 - Front(이예원, 서동이, 채준형)와 Back(백승찬, 안정현, 김영훈) 총 6명의 팀원으로 구성
