@@ -51,11 +51,11 @@
     - 
     - 
 ### 김영훈
-- `decorator`
+- `Decorator`
     - login_required 기능 구현
-- `상품 상세보기`
+- `Product_detail`
     - ProductDetail View 기능 구현
-- `장바구니` 
+- `Basket` 
     - 장바구니 View 기능 구현
     - Cart 기능 구현
     - 장바구니 수량 조절 기능 View 구현
