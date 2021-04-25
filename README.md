@@ -35,9 +35,24 @@
 
 
 ### 채준형
-- `Signup`: 
+- `Signup`:
+   - Signup 페이지 전반적인 레이아웃(html & CSS)
+   - Id, Email 중복검사 백엔드와의 소통
+   - Id, Pw , Email 등 Validation 기능
+   - 필수항목, 선택항목 구분 후, Login Information BackEnd로 전달
+   - Sign up Fin Page 구성 
 - `Login`: 
+   - Login 페이지 전반적인 레이아웃(html & CSS)
+   - Login Info 와 비교후 Login 진행 기능
+   - Id 찾기 페이지 구성 및 id찾기 기능
+   - Pw 찾기 페이지 구성 및 pw찾기 기능 ( 이메일로 발급된 임시비밀번호로 로그인 가능)
 - `Cart`:
+   - 장바구니 페이지 구성
+   - 특정 회원의 장바구니에 개별 상품마다 수량 증감 버튼 기능
+   - 특정 회원의 장바구니의 전체 삭제 버튼 기능
+   - 특정 회원의 장바구니의 개별 삭제 버튼 기능
+   - 선택한 상품들 계산결과 표시 (할인가 적용 가능)
+   - 특정 조건(~원 이상시)달성 시 무료배송 조건 구현
 
 ## 👩🏻‍💻 Back-end Member's Work Details
 ### 백승찬
@@ -77,7 +92,7 @@
 ## ✏️ Blogs
 - 이예원 : https://jessywlee.medium.com
 - 서동이 : https://velog.io/@seod0209/Project-2.-%EB%A7%88%EC%BC%93%EC%BB%AC%EB%A6%AC-%ED%81%B4%EB%A1%A0
-- 채준형 : 
+- 채준형 : https://velog.io/@hello1358
 - 백승찬 : 
 - 안정현 : https://velog.io/@tgrf07
 - 김영훈 : https://velog.io/@fcfargo
