@@ -60,7 +60,7 @@
 - 채준형 : 
 - 백승찬 : 
 - 안정현 : https://velog.io/@tgrf07
-- 김영훈 : 
+- 김영훈 : https://velog.io/@fcfargo
 
 ## ✏️ References
 - 이 프로젝트는 마켓 컬리를 참고하여 학습용으로 작업 되었습니다.
