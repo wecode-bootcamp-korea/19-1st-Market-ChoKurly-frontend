@@ -66,10 +66,13 @@
     - ProductListView 기능 구현
     - SearchView 기능 구현
 ### 안정현
-- 
-    - 
-    - 
-    - 
+- `User`
+    - UserView 기능구현
+    - LoginView 기능구현
+    - SignupCheckView 기능 구현
+- `Order`
+    - OrderformView  기능 구현
+    - OrderDetailView 기능 구현
 ### 김영훈
 - `Decorator`
     - login_required 기능 구현
