@@ -58,7 +58,7 @@
 - 장바구니 
     - 장바구니 View 기능 구현
     - Cart 기능 구현
-    - 장바구리 수량 조절 기능 구현
+    - 장바구니 수량 조절 기능 View 구현
 ## 🔧 Skills
 - ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 - ![SASS](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
