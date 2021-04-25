@@ -41,20 +41,23 @@
 
 ## 👩🏻‍💻 Back-end Member's Work Details
 ### 백승찬
-- `Nav`:
+- 
     - 
     - 
     - 
 ### 안정현
-- `Nav`:
+- 
     - 
     - 
     - 
 ### 김영훈
-- `Nav`: 
+- decorator 기능 구현
     - 
     - 
-    - 
+- 상품 상세보기 페이지 기능 구현
+
+
+- 장바구니 기능 구현
 
 ## 🔧 Skills
 - ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
