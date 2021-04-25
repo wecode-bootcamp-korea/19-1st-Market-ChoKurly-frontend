@@ -56,7 +56,7 @@
 - <img alt="Visual Studio Code" src="https://img.shields.io/badge/VisualStudioCode-0078d7.svg?&style=for-the-badge&logo=visual-studio-code&logoColor=white"/>
 ## ✏️ Blogs
 - 이예원 : https://jessywlee.medium.com
-- 서동이 : 
+- 서동이 : https://velog.io/@seod0209/Project-2.-%EB%A7%88%EC%BC%93%EC%BB%AC%EB%A6%AC-%ED%81%B4%EB%A1%A0
 - 채준형 : 
 - 백승찬 : 
 - 안정현 : https://velog.io/@tgrf07
