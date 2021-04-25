@@ -4,7 +4,7 @@
 - 국내 식품 전문 온라인 쇼핑몰인 마켓 컬리를 클론하는 프로젝트
 - Front(이예원, 서동이, 채준형)와 Back(백승찬, 안정현, 김영훈) 총 6명의 팀원으로 구성
 
-## 👩🏻‍💻 Front-end Member's Work Details
+## 👩🏻‍💻 Front-end Work Details
 ### 이예원
 - `Nav`: 공통으로 쓰이는 Nav 컴포넌트
     - 스크롤 시 Nav 바가 가려지는 시점부터 고정 기능
@@ -54,7 +54,7 @@
    - 선택한 상품들 계산결과 표시 (할인가 적용 가능)
    - 특정 조건(~원 이상시)달성 시 무료배송 조건 구현
 
-## 👩🏻‍💻 Back-end Member's Work Details
+## 👩🏻‍💻 Back-end Work Details
 ### 백승찬
 - 'users'
     - FindIdView 기능 구현
