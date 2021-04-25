@@ -56,10 +56,15 @@
 
 ## 👩🏻‍💻 Back-end Member's Work Details
 ### 백승찬
-- 
-    - 
-    - 
-    - 
+- 'users'
+    - FindIdView 기능 구현
+    - FindPasswordView 기능 구현
+    - ReviewView 기능 구현
+    - UserLikeView 기능 구현
+- 'products'
+    - CategoryView 기능 구현
+    - ProductListView 기능 구현
+    - SearchView 기능 구현
 ### 안정현
 - 
     - 
@@ -93,7 +98,7 @@
 - 이예원 : https://jessywlee.medium.com
 - 서동이 : https://velog.io/@seod0209/Project-2.-%EB%A7%88%EC%BC%93%EC%BB%AC%EB%A6%AC-%ED%81%B4%EB%A1%A0
 - 채준형 : https://velog.io/@hello1358
-- 백승찬 : 
+- 백승찬 : https://velog.io/@chan_baek
 - 안정현 : https://velog.io/@tgrf07
 - 김영훈 : https://velog.io/@fcfargo
 
