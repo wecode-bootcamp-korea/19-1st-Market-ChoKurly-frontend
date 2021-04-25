@@ -39,6 +39,23 @@
 - `Login`: 
 - `Cart`:
 
+## 👩🏻‍💻 Back-end Member's Work Details
+### 백승찬
+- `Nav`:
+    - 
+    - 
+    - 
+### 안정현
+- `Nav`:
+    - 
+    - 
+    - 
+### 김영훈
+- `Nav`: 
+    - 
+    - 
+    - 
+
 ## 🔧 Skills
 - ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 - ![SASS](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
